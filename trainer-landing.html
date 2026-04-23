@@ -1,0 +1,2917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ISSA Certified Personal Trainer — in-person sessions in Prague and online coaching worldwide. Train Hard. Feel Good.">
+  <title>Train Hard. Feel Good. — Personal Training Prague &amp; Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --color-bg:         #080808;
+      --color-surface:    #111111;
+      --color-surface-2:  #181818;
+      --color-border:     rgba(255,255,255,0.07);
+      --color-text:       #F2F0EC;
+      --color-muted:      #888884;
+      --color-faint:      #444442;
+      --color-oxblood:    #3B0B16;
+      --color-maroon:     #5A0F22;
+      --color-maroon-hi:  #7A1C33;
+      --color-champagne:  #E7D7C8;
+      --font-display:     'Fraunces', Georgia, serif;
+      --font-body:        'Inter', -apple-system, sans-serif;
+      --ease-premium:     cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm:        8px;
+      --radius-md:        14px;
+      --radius-lg:        20px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(231, 215, 200, 0.5);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 7rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header .subtitle {
+      margin-top: 1rem;
+      color: var(--color-muted);
+      max-width: 540px;
+      font-size: 1.0625rem;
+    }
+
+    /* Glass card */
+    .glass-card {
+      background: rgba(17,17,17,0.85);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6);
+      border-radius: var(--radius-md);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-primary {
+      display: inline-block;
+      background: rgba(59,11,22,0.3);
+      border: 1px solid rgba(90,15,34,0.5);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 12px 36px rgba(0,0,0,0.5);
+      color: var(--color-text);
+      padding: 1rem 2.5rem;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      transition: background 0.3s var(--ease-premium),
+                  border-color 0.3s var(--ease-premium),
+                  box-shadow 0.3s var(--ease-premium),
+                  transform 0.3s var(--ease-premium);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: rgba(90,15,34,0.45);
+      border-color: rgba(122,28,51,0.6);
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 18px 50px rgba(59,11,22,0.25);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(242,240,236,0.75);
+      padding: 1rem 2.5rem;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      transition: background 0.3s var(--ease-premium),
+                  border-color 0.3s var(--ease-premium),
+                  transform 0.3s var(--ease-premium);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: rgba(8,8,8,0.7);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding-top: max(1.25rem, env(safe-area-inset-top));
+      padding-bottom: 1.25rem;
+      padding-left: max(2rem, env(safe-area-inset-left));
+      padding-right: max(2rem, env(safe-area-inset-right));
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .nav-wordmark {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(242,240,236,0.85);
+      white-space: nowrap;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .nav-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: var(--color-muted);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .nav-social-link:hover {
+      color: var(--color-text);
+      border-color: rgba(90,15,34,0.4);
+      background: rgba(90,15,34,0.1);
+    }
+
+    .nav-social-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .nav-book {
+      font-size: 0.875rem;
+      padding: 0.65rem 1.5rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--color-text);
+      transition: transform 0.3s var(--ease-premium), opacity 0.3s var(--ease-premium);
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 800;
+      background: rgba(8,8,8,0.97);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-overlay a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s var(--ease-premium), transform 0.4s var(--ease-premium), color 0.2s;
+    }
+
+    .nav-overlay.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-overlay a:hover { color: var(--color-champagne); }
+
+    .nav-overlay a:nth-child(1) { transition-delay: 0.05s; }
+    .nav-overlay a:nth-child(2) { transition-delay: 0.10s; }
+    .nav-overlay a:nth-child(3) { transition-delay: 0.15s; }
+    .nav-overlay a:nth-child(4) { transition-delay: 0.20s; }
+    .nav-overlay a:nth-child(5) { transition-delay: 0.25s; }
+    .nav-overlay a:nth-child(6) { transition-delay: 0.30s; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center calc(35% - 30px);
+      display: block;
+      opacity: 0;
+      transition: opacity 1.4s ease-in-out;
+      filter: brightness(0.52) saturate(0.72) blur(0.8px);
+      transform: scale(1.2);
+      transform-origin: center center;
+    }
+
+    .hero-video.active {
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%),
+        linear-gradient(180deg,
+          rgba(0,0,0,0.35) 0%,
+          transparent 25%,
+          transparent 60%,
+          rgba(0,0,0,0.6) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 80px;
+    }
+
+    .hero-panel {
+      background: rgba(8,8,8,0.22);
+      -webkit-backdrop-filter: blur(14px) saturate(0.8);
+      backdrop-filter: blur(14px) saturate(0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 24px 64px rgba(0,0,0,0.5);
+      border-radius: var(--radius-lg);
+      padding: 5rem 6rem;
+      max-width: 950px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .hero-panel .eyebrow {
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .hero-h1 {
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    }
+
+    .hero-sub {
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+
+    .hero-trust {
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-panel .eyebrow {
+      color: rgba(231,215,200,0.6);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+      white-space: normal;
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: rgba(242,240,236,0.7);
+      max-width: 600px;
+      margin-bottom: 2.25rem;
+      line-height: 1.65;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-trust {
+      font-size: 0.8125rem;
+      color: rgba(231,215,200,0.4);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       STATS BAR
+    ============================================================ */
+    .stats-bar {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 3rem 0;
+    }
+
+    .stats-bar .section-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0.5rem 2rem;
+      flex: 1;
+      position: relative;
+    }
+
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(90,15,34,0.4);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .stat-suffix {
+      font-family: var(--font-display);
+      font-size: 0.55em;
+      vertical-align: super;
+      color: var(--color-champagne);
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================================
+       PRINCIPLES — 3D SCROLL CAROUSEL
+    ============================================================ */
+    .principles-scroll-root {
+      position: relative;
+      height: 400vh;
+    }
+
+    .principles {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--color-bg);
+    }
+
+    .principles .section-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .principles .section-header {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .principles .section-header .subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .principles-carousel {
+      position: relative;
+      width: 100%;
+      height: min(500px, 65vh);
+      perspective: 1400px;
+      perspective-origin: center center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .principle-card {
+      position: absolute;
+      width: min(560px, 82vw);
+      height: min(420px, 56vh);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      transition: transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94), opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+    }
+
+    .principle-card[data-state="active"] {
+      transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+      opacity: 1;
+      z-index: 4;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    }
+    .principle-card[data-state="prev"] {
+      transform: translateX(-58%) translateZ(-180px) rotateY(38deg) scale(0.78);
+      opacity: 0.45;
+      z-index: 3;
+    }
+    .principle-card[data-state="next"] {
+      transform: translateX(58%) translateZ(-180px) rotateY(-38deg) scale(0.78);
+      opacity: 0.45;
+      z-index: 3;
+    }
+    .principle-card[data-state="far-prev"] {
+      transform: translateX(-95%) translateZ(-340px) rotateY(52deg) scale(0.55);
+      opacity: 0.1;
+      z-index: 2;
+    }
+    .principle-card[data-state="far-next"] {
+      transform: translateX(95%) translateZ(-340px) rotateY(-52deg) scale(0.55);
+      opacity: 0.1;
+      z-index: 2;
+    }
+    .principle-card[data-state="hidden"] {
+      transform: translateX(95%) translateZ(-340px) rotateY(-52deg) scale(0.55);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .principle-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .principle-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+      z-index: 1;
+    }
+
+    .principle-num {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 2;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(231,215,200,0.5);
+    }
+
+    .principle-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1.5rem;
+    }
+
+    .principle-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+      color: var(--color-text);
+    }
+
+    .principle-text p {
+      font-size: 0.875rem;
+      color: rgba(242,240,236,0.6);
+      line-height: 1.5;
+    }
+
+    .principles-dots {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .principles-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(242,240,236,0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .principles-dot.active {
+      background: rgba(242,240,236,0.8);
+      transform: scale(1.4);
+    }
+
+    /* ============================================================
+       WHAT WE DO TOGETHER
+    ============================================================ */
+    .what-we-do {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      background: rgba(17,17,17,0.85);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem;
+      transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium), border-color 0.3s var(--ease-premium);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(90,15,34,0.4);
+      box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .feature-num {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(231,215,200,0.4);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 0.875rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       PROMO BANNER
+    ============================================================ */
+    .promo-banner {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(80,15,30,0.65), transparent 75%);
+      pointer-events: none;
+    }
+
+    .promo-ticket {
+      position: relative;
+      border: 1px dashed rgba(90,15,34,0.55);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 3rem;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(17,17,17,0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .promo-ticket::before,
+    .promo-ticket::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--color-bg);
+      border-radius: 50%;
+      border: 1px dashed rgba(90,15,34,0.55);
+    }
+    .promo-ticket::before { left: -15px; }
+    .promo-ticket::after  { right: -15px; }
+
+    .promo-discount {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 14vw, 9rem);
+      font-weight: 700;
+      font-style: italic;
+      color: #C0294A;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-sub {
+      font-size: 1rem;
+      color: rgba(242,240,236,0.65);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+
+    .promo-fine {
+      font-size: 0.75rem;
+      color: rgba(242,240,236,0.3);
+      margin-top: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       SERVICES / PRICING
+    ============================================================ */
+    .services {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* CSS-only tab system */
+    .pricing-tabs-wrap { position: relative; }
+
+    .pricing-tab-radio { display: none; }
+
+    .pricing-tab-labels {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    .tab-pills {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 4px;
+      background: rgba(17,17,17,0.6);
+    }
+
+    .pricing-tab-labels .currency-toggle {
+      margin: 0;
+    }
+
+    /* Mobile dropdown — hidden on desktop */
+    .pricing-tab-select { display: none; }
+
+    .pricing-tab-label {
+      padding: 0.65rem 1.75rem;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .pricing-tab-label:hover {
+      color: rgba(242,240,236,0.8);
+    }
+
+    #tab-inperson:checked ~ .pricing-tab-labels .tab-label-inperson,
+    #tab-online:checked ~ .pricing-tab-labels .tab-label-online {
+      background: rgba(59,11,22,0.4);
+      border-color: rgba(90,15,34,0.5);
+      color: var(--color-text);
+    }
+
+    .pricing-panel {
+      display: none;
+    }
+
+    #tab-inperson:checked ~ .pricing-panel-inperson,
+    #tab-online:checked ~ .pricing-panel-online,
+    #tab-group:checked ~ .pricing-panel-group,
+    #tab-nutrition:checked ~ .pricing-panel-nutrition {
+      display: block;
+    }
+
+    #tab-group:checked ~ .pricing-tab-labels .tab-label-group,
+    #tab-nutrition:checked ~ .pricing-tab-labels .tab-label-nutrition {
+      background: rgba(59,11,22,0.4);
+      border-color: rgba(90,15,34,0.5);
+      color: var(--color-text);
+    }
+
+    /* Group grid — 2 cards centered */
+    .pricing-grid-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 700px;
+    }
+
+    /* 2×2 grid for in-person and online */
+    .pricing-grid-inperson {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .pricing-grid-online {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    /* Nutrition grid — 3 cards */
+    .pricing-grid-nutrition {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    /* Pricing card base */
+    .pricing-card {
+      background: rgba(17,17,17,0.85);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(122,28,51,0.35);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 28px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(90,15,34,0.15);
+    }
+
+    .pricing-card.featured:hover {
+      box-shadow: 0 28px 80px rgba(59,11,22,0.28), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(122,28,51,0.3);
+    }
+
+    .service-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(231,215,200,0.7);
+      background: rgba(90,15,34,0.3);
+      border: 1px solid rgba(90,15,34,0.5);
+      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+
+    .pricing-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .price-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+    }
+
+    .price-currency {
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(231,215,200,0.5);
+      vertical-align: super;
+      margin-right: 0.35em;
+      line-height: 0;
+    }
+
+    .price-per {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-top: 0.25rem;
+    }
+
+    .price-validity {
+      font-size: 0.75rem;
+      color: rgba(231,215,200,0.35);
+      margin-top: 0.2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+
+    .service-list li {
+      font-size: 0.875rem;
+      color: rgba(242,240,236,0.65);
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    .service-list li::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Crect x='0' y='1' width='2.2' height='8' rx='1.1' fill='%237A1C33'/%3E%3Crect x='13.8' y='1' width='2.2' height='8' rx='1.1' fill='%237A1C33'/%3E%3Crect x='2.2' y='3.8' width='11.6' height='2.4' rx='1.2' fill='%235A0F22'/%3E%3Crect x='1.5' y='2.8' width='1' height='4.4' rx='0.5' fill='%237A1C33'/%3E%3Crect x='13.5' y='2.8' width='1' height='4.4' rx='0.5' fill='%237A1C33'/%3E%3C/svg%3E");
+      flex-shrink: 0;
+      margin-top: 0.18em;
+      line-height: 0;
+    }
+
+    .service-btn {
+      width: 100%;
+    }
+
+    .pricing-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(242,240,236,0.25);
+      letter-spacing: 0.06em;
+      margin-top: 2.5rem;
+    }
+
+    .currency-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 3px;
+      background: rgba(17,17,17,0.6);
+      width: fit-content;
+      margin: 1.5rem auto 0;
+    }
+
+    .currency-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--color-muted);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .currency-btn:hover { color: rgba(242,240,236,0.8); }
+
+    .currency-btn.active {
+      background: rgba(59,11,22,0.4);
+      border-color: rgba(90,15,34,0.5);
+      color: var(--color-text);
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 0.5rem;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      width: fit-content;
+    }
+
+    .lang-btn {
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+      color: var(--color-muted);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .lang-btn:hover { color: rgba(242,240,236,0.8); }
+
+    .lang-btn.active {
+      background: transparent;
+      border-color: transparent;
+      color: var(--color-text);
+    }
+
+    /* ============================================================
+       ISSA CERTIFICATION
+    ============================================================ */
+    .issa {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 8rem 0;
+    }
+
+    .issa-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .issa-badge-wrap {
+      position: relative;
+    }
+
+    .issa-badge-img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .issa-verified {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--color-maroon);
+      border: 2px solid rgba(122,28,51,0.6);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(59,11,22,0.5);
+    }
+
+    .issa-verified svg {
+      width: 30px;
+      height: 30px;
+      color: var(--color-champagne);
+    }
+
+    .issa-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .issa-content p {
+      font-size: 1.0625rem;
+      color: rgba(242,240,236,0.7);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .issa-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .issa-badge-chip {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: rgba(231,215,200,0.7);
+      background: rgba(59,11,22,0.3);
+      border: 1px solid rgba(90,15,34,0.4);
+      border-radius: 6px;
+      padding: 0.4rem 0.9rem;
+    }
+
+    /* ============================================================
+       ABOUT ME
+    ============================================================ */
+    .about {
+      background: var(--color-bg);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-portrait-wrap {
+      justify-self: center;
+    }
+
+    .about-text .eyebrow {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .about-text p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: rgba(242,240,236,0.7);
+      margin-bottom: 1.25rem;
+    }
+
+    .about-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .about-divider::before,
+    .about-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .about-divider span {
+      color: var(--color-maroon-hi);
+      font-size: 0.5rem;
+    }
+
+    .about-portrait-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(90,15,34,0.4), 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    .about-portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease-premium);
+    }
+
+    .about-portrait-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ============================================================
+       CONTACT / BOOKING SECTION
+    ============================================================ */
+    .booking {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .booking .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .booking .section-header .subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.375rem;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 0.875rem 1.125rem;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      width: 100%;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--color-faint);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(90,15,34,0.55);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 3px rgba(90,15,34,0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .contact-submit {
+      align-self: flex-start;
+      min-width: 160px;
+    }
+
+    .contact-status {
+      display: none;
+      font-size: 0.875rem;
+      padding: 0.875rem 1.125rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
+      line-height: 1.5;
+    }
+    .contact-status.success {
+      display: block;
+      color: #4dab74;
+      border-color: rgba(77,171,116,0.25);
+      background: rgba(77,171,116,0.07);
+    }
+    .contact-status.error {
+      display: block;
+      color: rgba(220,90,90,0.9);
+      border-color: rgba(220,90,90,0.25);
+      background: rgba(220,90,90,0.07);
+    }
+
+@media (max-width: 540px) {
+      .contact-form-row { grid-template-columns: 1fr; }
+      .contact-submit { width: 100%; }
+    }
+
+    /* ============================================================
+       FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(59,11,22,0.4), transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta p {
+      font-size: 1.0625rem;
+      color: var(--color-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .final-cta-email {
+      font-size: 0.9rem;
+      color: rgba(242,240,236,0.4);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .final-cta-email:hover {
+      color: var(--color-champagne);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 2.5rem 0;
+      padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .footer-logo {
+      width: 28px;
+      height: 28px;
+      opacity: 0.7;
+    }
+
+    .footer-tagline {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+
+    .footer-tagline strong {
+      font-weight: 500;
+      color: rgba(242,240,236,0.6);
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-faint);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      color: var(--color-muted);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .footer-social-link:hover {
+      color: var(--color-text);
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .footer-social-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL INITIAL STATE
+       (set by JS — defined here for reference; JS overwrites)
+    ============================================================ */
+    /* No-op — JS handles initial state inline */
+
+    /* ============================================================
+       RESPONSIVE — TABLET (768px)
+    ============================================================ */
+    @media (max-width: 768px) {
+      section { padding: 5rem 0; }
+
+      /* Nav */
+      .nav-book { display: none; }
+      .hamburger { display: flex; }
+      .nav { padding-left: max(1.25rem, env(safe-area-inset-left)); padding-right: max(1.25rem, env(safe-area-inset-right)); }
+
+      /* Hero — mobile: content bottom, no glass panel */
+      .hero {
+        align-items: flex-end;
+      }
+
+      .hero-video-wrap {
+        inset: 0;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.93) 100%);
+      }
+
+      .hero-content {
+        padding: 2rem 1.25rem 2.5rem;
+        padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: 0;
+      }
+
+      .hero-panel {
+        padding: 1.75rem 1.5rem;
+        max-width: 100%;
+        border-radius: var(--radius-md);
+      }
+
+      .hero-panel .eyebrow,
+      .hero-h1,
+      .hero-sub,
+      .hero-trust {
+        text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+      }
+
+      .hero-h1 { font-size: clamp(3rem, 14vw, 5rem); }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+
+      .hero-ctas .btn-primary {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-ctas .btn-secondary {
+        background: transparent;
+        border: none;
+        padding: 0.5rem 0;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        border-radius: 0;
+      }
+
+      /* Stats bar */
+      .stats-bar .section-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .stat-item + .stat-item::before { display: none; }
+
+      .stat-item {
+        padding: 1.25rem 1rem;
+        border-right: 1px solid rgba(90,15,34,0.3);
+        border-bottom: 1px solid rgba(90,15,34,0.3);
+      }
+
+      .stat-item:nth-child(2n) { border-right: none; }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) { border-bottom: none; }
+
+      /* Principles grid */
+      /* Principles carousel — revert to stacked on mobile */
+      .principles-scroll-root { height: auto; }
+      .principles { position: static; height: auto; overflow: visible; }
+      .principles .section-inner { gap: 1.5rem; }
+      .principles-carousel { height: auto; perspective: none; display: flex; flex-direction: column; gap: 1rem; }
+      .principle-card { position: relative; width: 100%; height: 260px; transform: none !important; opacity: 1 !important; z-index: auto !important; }
+      .principles-dots { display: none; }
+
+      /* Features grid */
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Promo banner */
+      .promo-ticket { padding: 2.5rem 1.5rem; }
+      .promo-ticket::before, .promo-ticket::after { display: none; }
+
+      /* Pricing grids */
+      .pricing-grid-inperson,
+      .pricing-grid-online,
+      .pricing-grid-group,
+      .pricing-grid-nutrition {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      /* Tab controls: dropdown + currency stacked on mobile */
+      .pricing-tab-labels {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+        margin-bottom: 2rem;
+      }
+      .tab-pills { display: none; }
+      .pricing-tab-select {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 2.5rem 0.8rem 1rem;
+        background: rgba(17,17,17,0.7);
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        color: var(--color-text);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a07860' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+      }
+      .pricing-tab-labels .currency-toggle {
+        align-self: center;
+      }
+
+      /* pricing-card.featured — no extra padding-top needed, tag provides visual distinction */
+
+      /* ISSA */
+      .issa { padding: 5rem 0; }
+      .issa-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .issa-badge-wrap { max-width: 320px; margin: 0 auto; }
+
+      /* About */
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-portrait-wrap { max-height: 400px; }
+
+      /* Final CTA */
+      .final-cta h2 { font-size: clamp(2.25rem, 10vw, 3.5rem); }
+
+      /* Footer */
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      /* Calendly height */
+      .calendly-inline-widget {
+        height: 600px !important;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE (480px)
+    ============================================================ */
+    @media (max-width: 480px) {
+      .section-inner { padding: 0 1.25rem; }
+      .hero-content { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes promo-breathe {
+        0%, 100% {
+          text-shadow:
+            0 0 15px rgba(220, 50, 90, 0.55),
+            0 0 40px rgba(180, 30, 65, 0.3),
+            0 0 80px rgba(130, 15, 40, 0.15);
+          transform: scale(1);
+        }
+        50% {
+          text-shadow:
+            0 0 10px rgba(255, 100, 140, 1),
+            0 0 22px rgba(245, 70, 110, 0.9),
+            0 0 45px rgba(220, 45, 85, 0.7),
+            0 0 85px rgba(180, 28, 60, 0.45),
+            0 0 140px rgba(130, 15, 40, 0.25),
+            0 0 200px rgba(80, 8, 22, 0.12);
+          transform: scale(1.030);
+        }
+      }
+
+      @keyframes promo-bg-pulse {
+        0%, 100% { opacity: 0.7; }
+        50%       { opacity: 1;   }
+      }
+
+      .promo-discount {
+        display: inline-block;
+        animation: promo-breathe 3s ease-in-out infinite;
+      }
+
+      .promo-banner::before {
+        animation: promo-bg-pulse 3s ease-in-out infinite;
+      }
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand" aria-label="Train Hard. Feel Good. · home">
+        <svg class="nav-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="34" height="34" rx="9" stroke="currentColor" stroke-opacity="0.18" stroke-width="1"/>
+          <defs>
+            <!-- S upper portion: renders in front of V -->
+            <clipPath id="sv-s-front">
+              <rect x="0" y="0" width="36" height="19"/>
+            </clipPath>
+            <!-- S lower portion: renders behind V -->
+            <clipPath id="sv-s-back">
+              <rect x="0" y="18" width="36" height="18"/>
+            </clipPath>
+          </defs>
+          <!-- S back — lower bowl sits behind V's left arm -->
+          <text x="12" y="23" font-family="Georgia,'Times New Roman',serif" font-size="15" font-weight="700" font-style="italic" fill="currentColor" fill-opacity="0.65" text-anchor="middle" clip-path="url(#sv-s-back)">S</text>
+          <!-- V — full, middle layer -->
+          <text x="21" y="28" font-family="Georgia,'Times New Roman',serif" font-size="15" font-weight="700" font-style="italic" fill="currentColor" fill-opacity="0.9" text-anchor="middle">V</text>
+          <!-- S front — upper portion sits in front of V -->
+          <text x="12" y="23" font-family="Georgia,'Times New Roman',serif" font-size="15" font-weight="700" font-style="italic" fill="currentColor" fill-opacity="0.9" text-anchor="middle" clip-path="url(#sv-s-front)">S</text>
+        </svg>
+        <span class="nav-wordmark">Train Hard. Feel Good.</span>
+      </a>
+
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Select language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <div class="nav-social" role="group" aria-label="Social media">
+          <a href="https://instagram.com/liftwithstacey" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="nav-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/>
+              <circle cx="17.5" cy="6.5" r="1.5"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com/@liftwithstacey" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="nav-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </div>
+<a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary nav-book" data-en="Book Consultation" data-es="Reservar">Book Consultation</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-overlay">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#approach" data-en="My Approach" data-es="Mi Enfoque">My Approach</a>
+    <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+    <a href="#about" data-en="About" data-es="Sobre Mí">About</a>
+    <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" data-en="Book a Session" data-es="Reservar Sesión">Book a Session</a>
+    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-video-wrap">
+      <video
+        class="hero-video hero-video-a active"
+        autoplay
+        muted
+        playsinline
+        loop
+        aria-hidden="true"
+      >
+        <source src="videos/web/hero5.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video-b" muted playsinline aria-hidden="true"></video>
+    </div>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-panel">
+        <span class="eyebrow" data-en="Personal Training &nbsp;·&nbsp; Prague &amp; Worldwide" data-es="Entrenamiento Personal &nbsp;·&nbsp; Praga y todo el mundo">Personal Training &nbsp;·&nbsp; Prague &amp; Worldwide</span>
+        <h1 class="hero-h1" data-en="Train hard. Feel good." data-es="Entrena fuerte. Siéntete bien.">Train hard. Feel good.</h1>
+        <p class="hero-sub" data-en="Precision programming. Evidence-based coaching. Results that stick — whether you train with me in Prague or anywhere in the world." data-es="Programación precisa. Coaching basado en evidencia. Resultados duraderos — ya sea en Praga o en cualquier parte del mundo.">Precision programming. Evidence-based coaching. Results that stick — whether you train with me in Prague or anywhere in the world.</p>
+        <div class="hero-ctas">
+          <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Book Free Consultation" data-es="Consulta Gratuita">Book Free Consultation</a>
+          <a href="#services" class="btn-secondary" data-en="See Services" data-es="Ver Servicios">See Services</a>
+        </div>
+        <p class="hero-trust" data-en="ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español" data-es="Certificada ISSA &nbsp;·&nbsp; Praga + Online &nbsp;·&nbsp; English / Español">ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       STATS BAR
+  ============================================================ -->
+  <div class="stats-bar" aria-label="At a glance">
+    <div class="section-inner">
+      <div class="stat-item reveal" data-i="0">
+        <span class="stat-number"><span data-target="10">10</span><span class="stat-suffix">+</span></span>
+        <p class="stat-label" data-en="Years Training" data-es="Años Entrenando">Years Training</p>
+      </div>
+      <div class="stat-item reveal" data-i="1">
+        <span class="stat-number" style="font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.01em;">Free</span>
+        <p class="stat-label" data-en="First Consultation" data-es="Primera Consulta">First Consultation</p>
+      </div>
+      <div class="stat-item reveal" data-i="2">
+        <span class="stat-number" style="font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.01em;">ISSA</span>
+        <p class="stat-label" data-en="Certified Trainer" data-es="Entrenadora Certificada">Certified Trainer</p>
+      </div>
+      <div class="stat-item reveal" data-i="3">
+        <span class="stat-number"><span data-target="2">2</span></span>
+        <p class="stat-label" data-en="Languages" data-es="Idiomas">Languages</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       MY APPROACH — 3D SCROLL CAROUSEL
+  ============================================================ -->
+  <div class="principles-scroll-root" id="approach">
+  <section class="principles" aria-label="My Approach">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="My Approach" data-es="Mi Enfoque">My Approach</span>
+        <h2 data-en="Four principles.<br>One system." data-es="Cuatro principios.<br>Un sistema.">Four principles.<br>One system.</h2>
+        <p class="subtitle" data-en="Everything I do is built around sustainable progress — not quick fixes. Here is how we get there together." data-es="Todo lo que hago está construido en torno al progreso sostenible — no a soluciones rápidas. Así es cómo llegamos allí juntos.">Everything I do is built around sustainable progress — not quick fixes. Here is how we get there together.</p>
+      </div>
+
+      <div class="principles-carousel">
+        <div class="principle-card">
+          <img src="images/web/IMG_2623.jpg" alt="Strength training fundamentals" loading="lazy" style="object-position: center calc(50% + 50px);">
+          <div class="principle-overlay" aria-hidden="true"></div>
+          <span class="principle-num">01</span>
+          <div class="principle-text">
+            <h3 data-en="Movement First" data-es="El Movimiento Primero">Movement First</h3>
+            <p data-en="Master the fundamentals before adding load. Quality reps build lasting strength." data-es="Domina los fundamentos antes de añadir carga. Las repeticiones de calidad construyen fuerza duradera.">Master the fundamentals before adding load. Quality reps build lasting strength.</p>
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <img src="images/web/IMG_2625.jpg" alt="Perfect form and technique" loading="lazy">
+          <div class="principle-overlay" aria-hidden="true"></div>
+          <span class="principle-num">02</span>
+          <div class="principle-text">
+            <h3 data-en="Progressive Overload" data-es="Sobrecarga Progresiva">Progressive Overload</h3>
+            <p data-en="Systematic, data-driven progression — every session builds on the last." data-es="Progresión sistemática y basada en datos — cada sesión construye sobre la anterior.">Systematic, data-driven progression — every session builds on the last.</p>
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <img src="images/web/IMG_2558.jpg" alt="Personal coaching session" loading="lazy" style="object-position: center calc(50% + 90px);">
+          <div class="principle-overlay" aria-hidden="true"></div>
+          <span class="principle-num">03</span>
+          <div class="principle-text">
+            <h3 data-en="Individualized Programming" data-es="Programación Individualizada">Individualized Programming</h3>
+            <p data-en="No cookie-cutter plans. Your program is built around your body, your schedule, your goals." data-es="Sin planes genéricos. Tu programa está diseñado en torno a tu cuerpo, tu horario y tus objetivos.">No cookie-cutter plans. Your program is built around your body, your schedule, your goals.</p>
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <img src="images/web/IMG_2598.jpg" alt="Consistent training for results" loading="lazy" style="object-position: center calc(50% + 50px);">
+          <div class="principle-overlay" aria-hidden="true"></div>
+          <span class="principle-num">04</span>
+          <div class="principle-text">
+            <h3 data-en="Sustainable Consistency" data-es="Consistencia Sostenible">Sustainable Consistency</h3>
+            <p data-en="Long-term habits over short-term intensity. We build a lifestyle, not just a program." data-es="Hábitos a largo plazo sobre intensidad a corto plazo. Construimos un estilo de vida, no solo un programa.">Long-term habits over short-term intensity. We build a lifestyle, not just a program.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="principles-dots" aria-hidden="true">
+        <span class="principles-dot"></span>
+        <span class="principles-dot"></span>
+        <span class="principles-dot"></span>
+        <span class="principles-dot"></span>
+      </div>
+    </div>
+  </section>
+  </div>
+
+
+  <!-- ============================================================
+       WHAT WE DO TOGETHER
+  ============================================================ -->
+  <section class="what-we-do" id="what-we-do">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="What We Do Together" data-es="Lo Que Trabajamos Juntos">What We Do Together</span>
+        <h2 data-en="The full picture." data-es="El panorama completo.">The full picture.</h2>
+        <p class="subtitle" data-en="Training is only part of the equation. Here is everything we work on to get you real results." data-es="El entrenamiento es solo parte de la ecuación. Esto es todo en lo que trabajamos para lograr resultados reales.">Training is only part of the equation. Here is everything we work on to get you real results.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal" data-i="0">
+          <span class="feature-num">01</span>
+          <h3 data-en="Strength &amp; Conditioning" data-es="Fuerza y Acondicionamiento">Strength &amp; Conditioning</h3>
+          <p data-en="Barbell training, functional movement, and body composition — delivered through evidence-based programming that progresses intelligently week over week." data-es="Entrenamiento con barra, movimiento funcional y composición corporal — a través de programación basada en evidencia que progresa inteligentemente semana a semana.">Barbell training, functional movement, and body composition — delivered through evidence-based programming that progresses intelligently week over week.</p>
+        </div>
+
+        <div class="feature-card reveal" data-i="1">
+          <span class="feature-num">02</span>
+          <h3 data-en="Nutrition Guidance" data-es="Orientación Nutricional">Nutrition Guidance</h3>
+          <p data-en="Practical, flexible nutrition strategies tailored to your lifestyle and goals — available as a standalone add-on service." data-es="Estrategias nutricionales prácticas y flexibles adaptadas a tu estilo de vida y objetivos — disponible como servicio adicional independiente.">Practical, flexible nutrition strategies tailored to your lifestyle and goals — available as a standalone add-on service.</p>
+        </div>
+
+        <div class="feature-card reveal" data-i="2">
+          <span class="feature-num">03</span>
+          <h3 data-en="Accountability &amp; Recovery" data-es="Seguimiento y Recuperación">Accountability &amp; Recovery</h3>
+          <p data-en="Weekly check-ins, sleep and recovery protocols, and ongoing adjustments to keep you on track — even when life gets complicated." data-es="Check-ins semanales, protocolos de sueño y recuperación, y ajustes continuos para mantenerte en el camino — incluso cuando la vida se complica.">Weekly check-ins, sleep and recovery protocols, and ongoing adjustments to keep you on track — even when life gets complicated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FIRST-CLIENT PROMO BANNER
+  ============================================================ -->
+  <section class="promo-banner" id="promo">
+    <div class="section-inner">
+      <div class="promo-ticket reveal">
+        <span class="eyebrow" data-en="Limited Offer &nbsp;·&nbsp; New Clients" data-es="Oferta Limitada &nbsp;·&nbsp; Nuevos Clientes">Limited Offer &nbsp;·&nbsp; New Clients</span>
+        <span class="promo-discount" data-en="50% off" data-es="50% descuento">50% off</span>
+        <h2 class="promo-headline" data-en="Your first session, half price." data-es="Tu primera sesión, a mitad de precio.">Your first session, half price.</h2>
+        <p class="promo-sub" data-en="Book a free 30-min consultation. If we are a good fit, your first full 60-minute session is <strong>375 CZK</strong> · half off the regular rate. No strings attached." data-es="Reserva una consulta gratuita de 30 minutos. Si somos compatibles, tu primera sesión completa de 60 minutos es <strong>375 CZK</strong> · la mitad del precio regular. Sin compromisos.">Book a free 30-min consultation. If we are a good fit, your first full 60-minute session is <strong>375 CZK</strong> · half off the regular rate. No strings attached.</p>
+        <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Claim Your First Session" data-es="Reclamar Tu Primera Sesión">Claim Your First Session</a>
+        <p class="promo-fine" data-en="Limited to first-time clients. One per person. Subject to availability." data-es="Limitado a nuevos clientes. Una por persona. Sujeto a disponibilidad.">Limited to first-time clients. One per person. Subject to availability.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SERVICES & PRICING
+  ============================================================ -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="Services &amp; Pricing" data-es="Servicios y Precios">Services &amp; Pricing</span>
+        <h2 data-en="Choose your path." data-es="Elige tu camino.">Choose your path.</h2>
+        <p class="subtitle" data-en="Every package is built around your goals. Not sure which is right for you? Start with a free consult." data-es="Cada paquete está diseñado en torno a tus objetivos. ¿No sabes cuál es el adecuado? Empieza con una consulta gratuita.">Every package is built around your goals. Not sure which is right for you? Start with a free consult.</p>
+      </div>
+
+      <!-- CSS-only tab toggle -->
+      <div class="pricing-tabs-wrap">
+        <input type="radio" name="pricing-tab" id="tab-inperson" class="pricing-tab-radio" checked>
+        <input type="radio" name="pricing-tab" id="tab-online" class="pricing-tab-radio">
+        <input type="radio" name="pricing-tab" id="tab-group" class="pricing-tab-radio">
+        <input type="radio" name="pricing-tab" id="tab-nutrition" class="pricing-tab-radio">
+
+        <div class="pricing-tab-labels reveal">
+          <div class="tab-pills">
+            <label for="tab-inperson" class="pricing-tab-label tab-label-inperson" data-en="In-Person · Prague" data-es="Presencial · Praga">In-Person · Prague</label>
+            <label for="tab-online" class="pricing-tab-label tab-label-online" data-en="Online Coaching" data-es="Coaching Online">Online Coaching</label>
+            <label for="tab-group" class="pricing-tab-label tab-label-group" data-en="Group Training" data-es="Entrenamiento en Grupo">Group Training</label>
+            <label for="tab-nutrition" class="pricing-tab-label tab-label-nutrition" data-en="Nutrition Plans" data-es="Planes Nutricionales">Nutrition Plans</label>
+          </div>
+          <select class="pricing-tab-select" aria-label="Select service">
+            <option value="tab-inperson" data-en="In-Person · Prague"    data-es="Presencial · Praga">In-Person · Prague</option>
+            <option value="tab-online"   data-en="Online Coaching"       data-es="Coaching Online">Online Coaching</option>
+            <option value="tab-group"    data-en="Group Training"        data-es="Entrenamiento en Grupo">Group Training</option>
+            <option value="tab-nutrition" data-en="Nutrition Plans"      data-es="Planes Nutricionales">Nutrition Plans</option>
+          </select>
+          <div class="currency-toggle" role="group" aria-label="Select currency">
+            <button class="currency-btn active" data-currency="czk">Kč</button>
+            <button class="currency-btn" data-currency="usd">$</button>
+            <button class="currency-btn" data-currency="eur">€</button>
+          </div>
+        </div>
+
+        <!-- IN-PERSON PANEL -->
+        <div class="pricing-panel pricing-panel-inperson">
+          <div class="pricing-grid-inperson">
+
+            <div class="pricing-card reveal" data-i="0">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="Single Session" data-es="Sesión Individual">Single Session</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="750" data-usd="35" data-eur="30">750</span></div>
+                <div class="price-per" data-en="per 60-minute session" data-es="por sesión de 60 minutos">per 60-minute session</div>
+                <div class="price-validity" data-en="No commitment, pay as you go" data-es="Sin compromiso, paga por sesión">No commitment, pay as you go</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
+                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
+                <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
+                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+            <div class="pricing-card reveal" data-i="1">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="3,400" data-usd="165" data-eur="140">3,400</span></div>
+                <div class="price-per" data-czk="680 CZK per session · save 10%" data-usd="$33 per session" data-eur="€28 per session" data-czk-en="680 CZK per session · save 10%" data-usd-en="$33 per session" data-eur-en="€28 per session" data-czk-es="680 CZK por sesión · ahorra 10%" data-usd-es="$33 por sesión" data-eur-es="€28 por sesión">680 CZK per session · save 10%</div>
+                <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="5 x 60-minute sessions" data-es="5 x sesiones de 60 minutos">5 x 60-minute sessions</li>
+                <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
+                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
+                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+            <div class="pricing-card featured reveal" data-i="2">
+              <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+              <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="6,500" data-usd="320" data-eur="260">6,500</span></div>
+                <div class="price-per" data-czk="650 CZK per session · save 13%" data-usd="$32 per session" data-eur="€26 per session" data-czk-en="650 CZK per session · save 13%" data-usd-en="$32 per session" data-eur-en="€26 per session" data-czk-es="650 CZK por sesión · ahorra 13%" data-usd-es="$32 por sesión" data-eur-es="€26 por sesión">650 CZK per session · save 13%</div>
+                <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="10 x 60-minute sessions" data-es="10 x sesiones de 60 minutos">10 x 60-minute sessions</li>
+                <li data-en="Full movement screening" data-es="Evaluación completa de movimiento">Full movement screening</li>
+                <li data-en="Custom monthly program updates" data-es="Actualizaciones mensuales del programa">Custom monthly program updates</li>
+                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
+                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+            <div class="pricing-card reveal" data-i="3">
+              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+              <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="11,000" data-usd="540" data-eur="440">11,000</span></div>
+                <div class="price-per" data-czk="550 CZK per session · save 27%" data-usd="$27 per session" data-eur="€22 per session" data-czk-en="550 CZK per session · save 27%" data-usd-en="$27 per session" data-eur-en="€22 per session" data-czk-es="550 CZK por sesión · ahorra 27%" data-usd-es="$27 por sesión" data-eur-es="€22 por sesión">550 CZK per session · save 27%</div>
+                <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="20 x 60-minute sessions" data-es="20 x sesiones de 60 minutos">20 x 60-minute sessions</li>
+                <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
+                <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
+                <li data-en="Recovery &amp; accountability coaching" data-es="Coaching de recuperación y seguimiento">Recovery &amp; accountability coaching</li>
+                <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
+                <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ONLINE PANEL -->
+        <div class="pricing-panel pricing-panel-online">
+          <div class="pricing-grid-online">
+
+            <div class="pricing-card reveal" data-i="0">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="Single Online Session" data-es="Sesión Online Individual">Single Online Session</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="650" data-usd="30" data-eur="26">650</span></div>
+                <div class="price-per" data-en="per 60-minute video call" data-es="por videollamada de 60 minutos">per 60-minute video call</div>
+                <div class="price-validity" data-en="No commitment" data-es="Sin compromiso">No commitment</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="60-min live session via video call" data-es="Sesión en vivo de 60 min por videollamada">60-min live session via video call</li>
+                <li data-en="Movement or technique focus" data-es="Enfoque en movimiento o técnica">Movement or technique focus</li>
+                <li data-en="Session notes &amp; drill recap" data-es="Notas de sesión y resumen de ejercicios">Session notes &amp; drill recap</li>
+                <li data-en="Works anywhere in the world" data-es="Funciona en cualquier parte del mundo">Works anywhere in the world</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Online" data-es="Reservar Online">Book Online</a>
+            </div>
+
+            <div class="pricing-card reveal" data-i="1">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,900" data-usd="130" data-eur="115">2,900</span></div>
+                <div class="price-per" data-en="580 CZK per session · save 11%" data-es="580 CZK por sesión · ahorra 11%">580 CZK per session · save 11%</div>
+                <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="5 x 60-min live video sessions" data-es="5 x sesiones en vivo de 60 min">5 x 60-min live video sessions</li>
+                <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
+                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
+                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
+                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+            <div class="pricing-card featured reveal" data-i="2">
+              <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+              <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="5,500" data-usd="245" data-eur="220">5,500</span></div>
+                <div class="price-per" data-en="550 CZK per session · save 15%" data-es="550 CZK por sesión · ahorra 15%">550 CZK per session · save 15%</div>
+                <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="10 x 60-min live video sessions" data-es="10 x sesiones en vivo de 60 min">10 x 60-min live video sessions</li>
+                <li data-en="Custom program + monthly updates" data-es="Programa personalizado + actualizaciones mensuales">Custom program + monthly updates</li>
+                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
+                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
+                <li data-en="Weekly messaging support" data-es="Soporte semanal por mensajería">Weekly messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+            <div class="pricing-card reveal" data-i="3">
+              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+              <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="9,600" data-usd="420" data-eur="380">9,600</span></div>
+                <div class="price-per" data-en="480 CZK per session · save 26%" data-es="480 CZK por sesión · ahorra 26%">480 CZK per session · save 26%</div>
+                <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="20 x 60-min live video sessions" data-es="20 x sesiones en vivo de 60 min">20 x 60-min live video sessions</li>
+                <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
+                <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
+                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
+                <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
+                <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NUTRITION PLANS PANEL -->
+        <div class="pricing-panel pricing-panel-nutrition">
+          <div class="pricing-grid-nutrition">
+
+            <div class="pricing-card reveal" data-i="0">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="Training Plan" data-es="Plan de Entrenamiento">Training Plan</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="800" data-usd="40" data-eur="35">800</span></div>
+                <div class="price-per" data-en="one-time · fully customized" data-es="único pago · totalmente personalizado">one-time · fully customized</div>
+                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
+                <li data-en="Built around your goals &amp; schedule" data-es="Diseñado en torno a tus objetivos y horario">Built around your goals &amp; schedule</li>
+                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
+                <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Order Plan" data-es="Pedir Plan">Order Plan</a>
+            </div>
+
+            <div class="pricing-card featured reveal" data-i="1">
+              <span class="service-tag" data-en="Add-On" data-es="Complemento">Add-On</span>
+              <h3 data-en="Nutrition Plan" data-es="Plan Nutricional">Nutrition Plan</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,500" data-usd="65" data-eur="60">1,500</span></div>
+                <div class="price-per" data-en="one-time · fully personalized" data-es="único pago · totalmente personalizado">one-time · fully personalized</div>
+                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="Macro targets based on your goal" data-es="Objetivos de macros según tu meta">Macro targets based on your goal</li>
+                <li data-en="Flexible food framework — no strict meal plan" data-es="Marco alimentario flexible — sin dieta estricta">Flexible food framework — no strict meal plan</li>
+                <li data-en="Built around your food preferences" data-es="Diseñado según tus preferencias alimentarias">Built around your food preferences</li>
+                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
+                <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Order Nutrition Plan" data-es="Pedir Plan Nutricional">Order Nutrition Plan</a>
+            </div>
+
+            <div class="pricing-card reveal" data-i="2">
+              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+              <h3 data-en="Training + Nutrition Bundle" data-es="Pack Entrenamiento + Nutrición">Training + Nutrition Bundle</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,100" data-usd="90" data-eur="85">2,100</span></div>
+                <div class="price-per" data-en="both plans · save 10%" data-es="ambos planes · ahorra 10%">both plans · save 10%</div>
+                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
+                <li data-en="Personalized nutrition plan" data-es="Plan nutricional personalizado">Personalized nutrition plan</li>
+                <li data-en="Macro targets + food framework" data-es="Objetivos de macros + marco alimentario">Macro targets + food framework</li>
+                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
+                <li data-en="Two rounds of revisions included" data-es="Dos rondas de revisiones incluidas">Two rounds of revisions included</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Order Bundle" data-es="Pedir Pack">Order Bundle</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- GROUP TRAINING PANEL -->
+        <div class="pricing-panel pricing-panel-group">
+          <div class="pricing-grid-group">
+
+            <div class="pricing-card reveal" data-i="0">
+              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
+              <h3 data-en="Duo Session" data-es="Sesión en Dúo">Duo Session</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,300" data-usd="60" data-eur="55">1,300</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
+                <div class="price-per" data-czk="650 CZK per person" data-usd="$28 per person" data-eur="€26 per person" data-czk-en="650 CZK per person" data-usd-en="$28 per person" data-eur-en="€26 per person" data-czk-es="650 CZK por persona" data-usd-es="$28 por persona" data-eur-es="€26 por persona">650 CZK per person</div>
+                <div class="price-validity" data-en="Save 100 CZK each vs. training solo" data-es="Ahorra 100 CZK cada uno vs. entrenar solo">Save 100 CZK each vs. training solo</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="2 people, 1 trainer, 60 minutes" data-es="2 personas, 1 entrenadora, 60 minutos">2 people, 1 trainer, 60 minutes</li>
+                <li data-en="Partner accountability built in" data-es="Responsabilidad mutua incluida">Partner accountability built in</li>
+                <li data-en="Same program focus for both" data-es="Mismo enfoque de programa para ambos">Same program focus for both</li>
+                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
+                <li data-en="Session notes after every workout" data-es="Notas de sesión tras cada entrenamiento">Session notes after every workout</li>
+                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Duo Session" data-es="Reservar Sesión en Dúo">Book Duo Session</a>
+            </div>
+
+            <div class="pricing-card featured reveal" data-i="1">
+              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+              <h3 data-en="Small Group" data-es="Grupo Pequeño">Small Group</h3>
+              <div class="price-block">
+                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,800" data-usd="80" data-eur="75">1,800</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
+                <div class="price-per" data-czk="600 CZK for 3 &amp;nbsp;/&amp;nbsp; 450 CZK for 4" data-usd="$26 for 3 / $20 for 4" data-eur="€24 for 3 / €18 for 4" data-czk-en="600 CZK for 3 &amp;nbsp;/&amp;nbsp; 450 CZK for 4" data-usd-en="$26 for 3 / $20 for 4" data-eur-en="€24 for 3 / €18 for 4" data-czk-es="600 CZK para 3 &amp;nbsp;/&amp;nbsp; 450 CZK para 4" data-usd-es="$26 para 3 / $20 para 4" data-eur-es="€24 para 3 / €18 para 4">600 CZK for 3 &nbsp;/&nbsp; 450 CZK for 4</div>
+                <div class="price-validity" data-en="Save up to 300 CZK each vs. solo" data-es="Ahorra hasta 300 CZK cada uno vs. solo">Save up to 300 CZK each vs. solo</div>
+              </div>
+              <ul class="service-list">
+                <li data-en="Groups of 3 or 4 people" data-es="Grupos de 3 o 4 personas">Groups of 3 or 4 people</li>
+                <li data-en="Circuit or team-based programming" data-es="Programación en circuito o trabajo en equipo">Circuit or team-based programming</li>
+                <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
+                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
+                <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
+                <li data-en="Minimum 3 people required" data-es="Mínimo 3 personas requeridas">Minimum 3 people required</li>
+              </ul>
+              <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary service-btn" data-en="Book Group Session" data-es="Reservar Sesión en Grupo">Book Group Session</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /pricing-tabs-wrap -->
+
+      <p class="pricing-note reveal" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities" data-usd="Prices shown in USD · approximate conversion · Sessions at premium Prague facilities" data-eur="Prices shown in EUR · approximate conversion · Sessions at premium Prague facilities" data-czk-en="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities" data-usd-en="Prices shown in USD · approximate conversion · Sessions at premium Prague facilities" data-eur-en="Prices shown in EUR · approximate conversion · Sessions at premium Prague facilities" data-czk-es="Precios en CZK · ~750 CZK ≈ €30 / ~$33 · Sesiones en instalaciones premium en Praga" data-usd-es="Precios en USD · conversión aproximada · Sesiones en instalaciones premium en Praga" data-eur-es="Precios en EUR · conversión aproximada · Sesiones en instalaciones premium en Praga">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities</p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ISSA CERTIFICATION
+  ============================================================ -->
+  <section class="issa" id="certification">
+    <div class="section-inner">
+      <div class="issa-inner">
+
+        <div class="issa-badge-wrap reveal" data-i="0">
+          <img
+            class="issa-badge-img"
+            src="images/web/IMG_1758.jpg"
+            alt="ISSA Certified Personal Trainer certificate"
+            loading="lazy"
+          >
+          <div class="issa-verified" aria-label="Verified certification">
+            <!-- SVG checkmark in circle -->
+            <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="15" cy="15" r="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+              <path d="M9 15.5L13 19.5L21 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="issa-content reveal" data-i="1">
+          <span class="eyebrow" data-en="Credentials" data-es="Credenciales">Credentials</span>
+          <h2 data-en="ISSA Certified<br>Personal Trainer" data-es="Entrenadora Personal<br>Certificada ISSA">ISSA Certified<br>Personal Trainer</h2>
+          <p data-en="The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition." data-es="La International Sports Sciences Association (ISSA) es uno de los organismos de certificación fitness más reconocidos del mundo — acreditado por la NBFE y de confianza para más de 300.000 profesionales del fitness globalmente. La certificación ISSA se basa en un riguroso currículo basado en evidencia fundamentado en ciencias del ejercicio, anatomía y nutrición deportiva.">The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition.</p>
+          <p data-en="My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage." data-es="Mi certificación garantiza que cada programa que diseño esté fundamentado en metodología probada — no en tendencias ni conjeturas. Entrenas con alguien sujeto a estándares profesionales, requisitos de formación continua y cobertura de responsabilidad civil completa.">My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage.</p>
+
+          <div class="issa-meta">
+            <span class="issa-badge-chip" data-en="Certified 2026" data-es="Certificada 2026">Certified 2026</span>
+            <span class="issa-badge-chip" data-en="CPD Requirements Met" data-es="Formación Continua Cumplida">CPD Requirements Met</span>
+            <span class="issa-badge-chip" data-en="Liability Insured" data-es="Seguro de Responsabilidad">Liability Insured</span>
+            <span class="issa-badge-chip" data-en="NBFE Accredited" data-es="Acreditada NBFE">NBFE Accredited</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT ME
+  ============================================================ -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-inner">
+
+        <div class="about-text">
+          <span class="eyebrow reveal" data-en="About Me" data-es="Sobre Mí">About Me</span>
+          <h2 class="reveal" data-en="Built on<br>hard work." data-es="Construido con<br>esfuerzo.">Built on<br>hard work.</h2>
+          <div class="about-divider reveal" aria-hidden="true">
+            <span>&#9679;</span>
+          </div>
+          <p class="reveal" data-i="0" data-en="I've been training for over ten years, shaped by both performance-focused lifting and a deeper interest in how the body adapts, recovers, and changes over time." data-es="Llevo más de diez años entrenando, moldeada tanto por el levantamiento orientado al rendimiento como por un interés más profundo en cómo el cuerpo se adapta, recupera y cambia con el tiempo.">I've been training for over ten years, shaped by both performance-focused lifting and a deeper interest in how the body adapts, recovers, and changes over time.</p>
+          <p class="reveal" data-i="1" data-en="That perspective became more personal after a knee injury and two surgeries, which shifted how I approach strength work — toward longevity, precision, and intelligent progression rather than intensity for its own sake." data-es="Esta perspectiva se volvió más personal tras una lesión de rodilla y dos cirugías, lo que cambió mi enfoque del trabajo de fuerza — hacia la longevidad, la precisión y la progresión inteligente en lugar de la intensidad por sí misma.">That perspective became more personal after a knee injury and two surgeries, which shifted how I approach strength work — toward longevity, precision, and intelligent progression rather than intensity for its own sake.</p>
+          <p class="reveal" data-i="2" data-en="Alongside this, my background in cell biology informs how I think about training at a systems level: adaptation, recovery, and consistency are always doing more work than extremes ever will." data-es="Además, mi formación en biología celular informa cómo pienso en el entrenamiento a nivel sistémico: la adaptación, la recuperación y la constancia siempre hacen más trabajo que los extremos.">Alongside this, my background in cell biology informs how I think about training at a systems level: adaptation, recovery, and consistency are always doing more work than extremes ever will.</p>
+          <p class="reveal" data-i="3" data-en="I am ISSA certified (2026), and I bring that foundation into a coaching approach that is structured, evidence-based, and highly individual." data-es="Estoy certificada por la ISSA (2026), y aporto esa base a un enfoque de coaching estructurado, basado en evidencia y altamente individual.">I am ISSA certified (2026), and I bring that foundation into a coaching approach that is structured, evidence-based, and highly individual.</p>
+          <p class="reveal" data-i="4" data-en="My work is built around clarity and precision. Every program is tailored — to your body, your schedule, and your capacity — with an emphasis on sustainable progress and clean execution over time." data-es="Mi trabajo se basa en la claridad y la precisión. Cada programa está adaptado — a tu cuerpo, tu horario y tu capacidad — con énfasis en el progreso sostenible y la ejecución limpia a lo largo del tiempo.">My work is built around clarity and precision. Every program is tailored — to your body, your schedule, and your capacity — with an emphasis on sustainable progress and clean execution over time.</p>
+          <p class="reveal" data-i="5" data-en="No templates. No noise. Just focused coaching designed to move you forward, consistently." data-es="Sin plantillas. Sin ruido. Solo coaching enfocado diseñado para hacerte avanzar, de forma consistente.">No templates. No noise. Just focused coaching designed to move you forward, consistently.</p>
+        </div>
+
+        <div class="about-portrait-wrap reveal" data-i="2">
+          <img
+            src="images/web/IMG_5632.jpg"
+            alt="Personal trainer portrait"
+            loading="lazy"
+            width="600"
+            height="800"
+          >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       GET IN TOUCH — CONTACT FORM
+  ============================================================ -->
+  <section class="booking" id="booking">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="Get In Touch" data-es="Contáctame">Get In Touch</span>
+        <h2 data-en="Ask a Question" data-es="Hazme una Pregunta">Ask a Question</h2>
+        <p class="subtitle" data-en="Have a question or want to know more? Fill in the form and I'll get back to you within 24 hours." data-es="¿Tienes una pregunta o quieres saber más? Rellena el formulario y te responderé en menos de 24 horas.">Have a question or want to know more? Fill in the form and I'll get back to you within 24 hours.</p>
+      </div>
+
+      <!-- Contact form — set your email via Formspree: formspree.io → replace YOUR-FORM-ID below -->
+      <form class="contact-form reveal" id="contact-form" novalidate>
+        <div class="contact-form-row">
+          <div class="form-group">
+            <label class="form-label" for="cf-name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+            <input class="form-input" type="text" id="cf-name" name="name" required
+              placeholder="Your name"
+              data-placeholder-en="Your name"
+              data-placeholder-es="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-phone" data-en="Phone" data-es="Teléfono">Phone</label>
+            <input class="form-input" type="tel" id="cf-phone" name="phone"
+              placeholder="+420 000 000 000"
+              data-placeholder-en="+420 000 000 000"
+              data-placeholder-es="+420 000 000 000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-email" data-en="Email" data-es="Correo Electrónico">Email</label>
+          <input class="form-input" type="email" id="cf-email" name="email" required
+            placeholder="your@email.com"
+            data-placeholder-en="your@email.com"
+            data-placeholder-es="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-message" data-en="Message" data-es="Mensaje">Message</label>
+          <textarea class="form-textarea" id="cf-message" name="message" rows="5" required
+            placeholder="Tell me about your goals…"
+            data-placeholder-en="Tell me about your goals…"
+            data-placeholder-es="Cuéntame sobre tus objetivos…"></textarea>
+        </div>
+        <button type="submit" class="btn-primary contact-submit" id="contact-submit"
+          data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+        <div class="contact-status" id="contact-status" role="alert"></div>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FINAL CTA
+  ============================================================ -->
+  <section class="final-cta" id="contact">
+    <div class="section-inner">
+      <h2 class="reveal" data-en="Ready to train hard<br>and feel good?" data-es="¿Listo/a para entrenar fuerte<br>y sentirte bien?">Ready to train hard<br>and feel good?</h2>
+      <p class="reveal" data-i="1" data-en="Stop waiting for the right time. The right time is now." data-es="Deja de esperar el momento perfecto. El momento perfecto es ahora.">Stop waiting for the right time. The right time is now.</p>
+      <div class="final-cta-actions reveal" data-i="2">
+        <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Book Your Free Consultation" data-es="Reserva Tu Consulta Gratuita">Book Your Free Consultation</a>
+        <a href="mailto:liftwithstacey@gmail.com" class="final-cta-email">liftwithstacey@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="footer-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="34" height="34" rx="9" stroke="currentColor" stroke-opacity="0.15" stroke-width="1"/>
+          <text x="18" y="24" font-family="Georgia,'Times New Roman',serif" font-size="14" font-weight="700" fill="currentColor" fill-opacity="0.65" text-anchor="middle" letter-spacing="-0.5">SV</text>
+        </svg>
+        <div>
+          <div class="footer-tagline"><strong>Train Hard. Feel Good.</strong></div>
+          <div class="footer-tagline" data-en="Personal Training &nbsp;·&nbsp; Prague &amp; Online" data-es="Entrenamiento Personal &nbsp;·&nbsp; Praga &amp; Online">Personal Training &nbsp;·&nbsp; Prague &amp; Online</div>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <span class="footer-copy">© 2026 Train Hard. Feel Good.</span>
+        <div class="footer-socials">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/liftwithstacey/" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ----------------------------------------------------------
+         MOBILE NAV TOGGLE
+      ---------------------------------------------------------- */
+      const hamburger = document.querySelector('.hamburger');
+      const navOverlay = document.querySelector('.nav-overlay');
+
+      function openNav() {
+        hamburger.classList.add('open');
+        navOverlay.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeNav() {
+        hamburger.classList.remove('open');
+        navOverlay.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', function () {
+        navOverlay.classList.contains('open') ? closeNav() : openNav();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNav();
+      });
+
+      navOverlay.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeNav);
+      });
+
+
+      /* ----------------------------------------------------------
+         HERO VIDEO CROSSFADE PLAYLIST
+      ---------------------------------------------------------- */
+      var heroSrcs = [
+        'videos/web/hero5.mp4',
+        'videos/web/hero2.mp4'
+      ];
+      var heroIndex = 0;
+
+      var videoA = document.querySelector('.hero-video-a');
+      var videoB = document.querySelector('.hero-video-b');
+      var activeVid = videoA;
+      var inactiveVid = videoB;
+
+      function crossfadeToNext() {
+        heroIndex = (heroIndex + 1) % heroSrcs.length;
+        inactiveVid.src = heroSrcs[heroIndex];
+        inactiveVid.load();
+        // Set rate once data is ready (required for iOS reliability)
+        inactiveVid.addEventListener('canplay', function () {
+          try { inactiveVid.playbackRate = 0.5; } catch(e) {}
+        }, { once: true });
+        inactiveVid.play().then(function () {
+          // Crossfade
+          activeVid.classList.remove('active');
+          inactiveVid.classList.add('active');
+          // Swap roles
+          var tmp = activeVid;
+          activeVid = inactiveVid;
+          inactiveVid = tmp;
+        }).catch(function () {
+          // Autoplay blocked or error — just loop the current video
+        });
+      }
+
+      if (videoA) {
+        // Set playback rate once video is ready — avoids silent failure on iOS/Android
+        videoA.addEventListener('canplay', function () {
+          try { videoA.playbackRate = 0.5; } catch(e) {}
+        }, { once: true });
+
+        // Attempt autoplay; retry on first user gesture if blocked
+        var vPlayPromise = videoA.play();
+        if (vPlayPromise !== undefined) {
+          vPlayPromise.catch(function () {
+            var retryPlay = function () { videoA.play().catch(function () {}); };
+            document.addEventListener('touchstart', retryPlay, { once: true });
+            document.addEventListener('click', retryPlay, { once: true });
+          });
+        }
+
+        videoA.addEventListener('ended', crossfadeToNext);
+        if (videoB) {
+          videoB.addEventListener('ended', crossfadeToNext);
+        }
+      }
+
+      /* ----------------------------------------------------------
+         HERO PARALLAX — desktop only
+      ---------------------------------------------------------- */
+      if (!reducedMotion) {
+        var heroWrap = document.querySelector('.hero-video-wrap');
+        if (heroWrap) {
+          window.addEventListener('scroll', function () {
+            if (window.innerWidth <= 768) return;
+            heroWrap.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+          }, { passive: true });
+        }
+      }
+
+
+      /* ----------------------------------------------------------
+         SCROLL REVEAL — IntersectionObserver
+      ---------------------------------------------------------- */
+      if (!reducedMotion) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.style.opacity = '1';
+              e.target.style.transform = 'translateY(0)';
+              revealObserver.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          var delay = parseFloat(el.dataset.i || 0) * 0.08;
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(28px)';
+          el.style.transition =
+            'opacity 0.65s cubic-bezier(0.16,1,0.3,1) ' + delay + 's, ' +
+            'transform 0.65s cubic-bezier(0.16,1,0.3,1) ' + delay + 's';
+          revealObserver.observe(el);
+        });
+      }
+
+
+      /* ----------------------------------------------------------
+         PRINCIPLES 3D SCROLL CAROUSEL
+      ---------------------------------------------------------- */
+      var principlesRoot = document.querySelector('.principles-scroll-root');
+      var pCards = document.querySelectorAll('.principle-card');
+      var pDots  = document.querySelectorAll('.principles-dot');
+      var pActive = -1;
+
+      function setPrinciple(idx) {
+        if (idx === pActive) return;
+        pActive = idx;
+        pCards.forEach(function(card, i) {
+          var diff = i - idx;
+          var state = diff === 0  ? 'active'
+                    : diff === -1 ? 'prev'
+                    : diff ===  1 ? 'next'
+                    : diff === -2 ? 'far-prev'
+                    : diff ===  2 ? 'far-next'
+                    : 'hidden';
+          card.setAttribute('data-state', state);
+        });
+        pDots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === idx);
+        });
+      }
+
+      if (principlesRoot && pCards.length && window.innerWidth > 768) {
+        setPrinciple(0);
+        window.addEventListener('scroll', function() {
+          var rect     = principlesRoot.getBoundingClientRect();
+          var scrolled = -rect.top;
+          var total    = principlesRoot.offsetHeight - window.innerHeight;
+          var progress = Math.max(0, Math.min(1, scrolled / total));
+          var idx = Math.min(pCards.length - 1, Math.round(progress * (pCards.length - 1)));
+          setPrinciple(idx);
+        }, { passive: true });
+      } else {
+        pCards.forEach(function(c) { c.removeAttribute('data-state'); });
+      }
+
+      /* ----------------------------------------------------------
+         COUNTER ANIMATION — stats bar
+      ---------------------------------------------------------- */
+      function countUp(el, target, duration) {
+        if (reducedMotion) {
+          el.textContent = target;
+          return;
+        }
+        var start = performance.now();
+        function raf(now) {
+          var p = Math.min((now - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+          el.textContent = Math.floor(ease * target);
+          if (p < 1) {
+            requestAnimationFrame(raf);
+          } else {
+            el.textContent = target;
+          }
+        }
+        requestAnimationFrame(raf);
+      }
+
+      var statsBar = document.querySelector('.stats-bar');
+      if (statsBar) {
+        var statsTriggered = false;
+        var statsObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && !statsTriggered) {
+              statsTriggered = true;
+              statsBar.querySelectorAll('[data-target]').forEach(function (num) {
+                countUp(num, parseInt(num.dataset.target, 10), 1200);
+              });
+              statsObserver.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsBar);
+      }
+
+
+      /* ----------------------------------------------------------
+         CURRENCY TOGGLE
+      ---------------------------------------------------------- */
+      var currencyBtns = document.querySelectorAll('.currency-btn');
+
+      function setCurrency(currency) {
+        currencyBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.currency === currency);
+        });
+        document.querySelectorAll('.price-currency[data-czk]').forEach(function(el) {
+          el.textContent = el.dataset[currency];
+        });
+        document.querySelectorAll('.price-value[data-czk]').forEach(function(el) {
+          el.textContent = el.dataset[currency];
+        });
+        document.querySelectorAll('.price-per[data-czk]').forEach(function(el) {
+          el.textContent = el.dataset[currency];
+        });
+        document.querySelectorAll('.pricing-note[data-czk]').forEach(function(el) {
+          el.textContent = el.dataset[currency];
+        });
+      }
+
+      currencyBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { setCurrency(btn.dataset.currency); });
+      });
+
+      /* ----------------------------------------------------------
+         LANGUAGE TOGGLE
+      ---------------------------------------------------------- */
+      var langBtns = document.querySelectorAll('.lang-btn');
+      var currentLang = 'en';
+
+      function setLanguage(lang) {
+        currentLang = lang;
+
+        // Update button active state
+        langBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // Update html lang attribute for accessibility
+        document.documentElement.lang = lang;
+
+        // Update all standard data-en/data-es elements
+        document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+          el.innerHTML = el.dataset[lang];
+        });
+
+        // Swap bilingual currency attribute values for .price-per and .pricing-note
+        var suffix = lang === 'es' ? 'Es' : 'En';
+        document.querySelectorAll('.price-per[data-czk], .pricing-note[data-czk]').forEach(function(el) {
+          var d = el.dataset;
+          if (d['czk' + suffix]) { d.czk = d['czk' + suffix]; }
+          if (d['usd' + suffix]) { d.usd = d['usd' + suffix]; }
+          if (d['eur' + suffix]) { d.eur = d['eur' + suffix]; }
+        });
+
+        // Re-fire setCurrency to refresh visible price-per text in new language
+        var activeBtn = document.querySelector('.currency-btn.active');
+        if (activeBtn) { setCurrency(activeBtn.dataset.currency); }
+
+        // Update form placeholders
+        document.querySelectorAll('[data-placeholder-en][data-placeholder-es]').forEach(function(el) {
+          el.placeholder = el.dataset[lang === 'es' ? 'placeholderEs' : 'placeholderEn'];
+        });
+
+        // Update hamburger aria-label
+        var hb = document.querySelector('.hamburger');
+        if (hb) { hb.setAttribute('aria-label', lang === 'es' ? 'Abrir menú' : 'Open menu'); }
+
+        // Sync mobile tab select option text to current language
+        document.querySelectorAll('.pricing-tab-select option').forEach(function(opt) {
+          if (opt.dataset[lang]) opt.textContent = opt.dataset[lang];
+        });
+      }
+
+      langBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { setLanguage(btn.dataset.lang); });
+      });
+
+      /* ----------------------------------------------------------
+         PRICING TAB SELECT — mobile dropdown syncs to radio inputs
+      ---------------------------------------------------------- */
+      var tabSelect = document.querySelector('.pricing-tab-select');
+      if (tabSelect) {
+        tabSelect.addEventListener('change', function() {
+          var radio = document.getElementById(this.value);
+          if (radio) radio.checked = true;
+        });
+      }
+
+      /* ----------------------------------------------------------
+         CONTACT FORM
+      ---------------------------------------------------------- */
+      var contactForm = document.getElementById('contact-form');
+      var contactSubmit = document.getElementById('contact-submit');
+      var contactStatus = document.getElementById('contact-status');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          contactSubmit.disabled = true;
+          contactSubmit.textContent = currentLang === 'es' ? 'Enviando…' : 'Sending…';
+          contactStatus.className = 'contact-status';
+          contactStatus.textContent = '';
+
+          var data = new FormData(contactForm);
+
+          /* ── Replace YOUR-FORM-ID with your Formspree ID from formspree.io ── */
+          fetch('https://formspree.io/f/YOUR-FORM-ID', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(function(res) {
+            if (res.ok) {
+              contactStatus.textContent = currentLang === 'es'
+                ? '¡Gracias! Me pondré en contacto pronto.'
+                : 'Thanks! I\'ll be in touch soon.';
+              contactStatus.className = 'contact-status success';
+              contactForm.reset();
+            } else {
+              throw new Error('server');
+            }
+          })
+          .catch(function() {
+            contactStatus.textContent = currentLang === 'es'
+              ? 'Algo salió mal. Por favor intenta de nuevo.'
+              : 'Something went wrong. Please try again.';
+            contactStatus.className = 'contact-status error';
+          })
+          .finally(function() {
+            contactSubmit.disabled = false;
+            contactSubmit.textContent = currentLang === 'es' ? 'Enviar Mensaje' : 'Send Message';
+          });
+        });
+      }
+
+      /* ----------------------------------------------------------
+         SMOOTH SCROLL for anchor links
+      ---------------------------------------------------------- */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          var navH = document.querySelector('.nav').offsetHeight;
+          var top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+          window.scrollTo({ top: top, behavior: reducedMotion ? 'auto' : 'smooth' });
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
