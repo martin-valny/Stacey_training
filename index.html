@@ -472,6 +472,47 @@
       margin-bottom: 2rem;
     }
 
+    .hero-consult-note {
+      font-size: 0.82rem;
+      color: rgba(242,240,236,0.55);
+      line-height: 1.55;
+      margin-top: -0.5rem;
+      max-width: 340px;
+    }
+
+    /* Trust strip — compact bio between stats bar and principles */
+    .trust-strip {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      padding: 2.5rem 0;
+    }
+    .trust-strip-text {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(242,240,236,0.7);
+      line-height: 1.6;
+      max-width: 680px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    /* Hero primary CTA — cream fill so it pops against the dark video */
+    .hero-ctas .btn-primary {
+      background: var(--color-champagne);
+      color: #160810;
+      border-color: var(--color-champagne);
+      box-shadow: 0 8px 32px rgba(231,215,200,0.18), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .hero-ctas .btn-primary:hover {
+      background: #F0E8DC;
+      border-color: #F0E8DC;
+      color: #160810;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(231,215,200,0.28), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
     .hero-trust {
       font-size: 0.8125rem;
       color: rgba(231,215,200,0.4);
@@ -800,16 +841,31 @@
     .promo-ticket::before { left: -15px; }
     .promo-ticket::after  { right: -15px; }
 
-    .promo-discount {
+    .promo-discount { display: none; } /* replaced by founding price */
+
+    .promo-founding-price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    .promo-founding-currency {
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-champagne);
+      opacity: 0.75;
+    }
+    .promo-founding-amount {
       font-family: var(--font-display);
       font-size: clamp(4.5rem, 14vw, 9rem);
-      font-weight: 700;
+      font-weight: 300;
       font-style: italic;
-      color: #C0294A;
-      line-height: 1;
+      color: var(--color-champagne);
       letter-spacing: -0.04em;
-      display: block;
-      margin-bottom: 1.5rem;
     }
 
     .promo-headline {
@@ -1848,6 +1904,11 @@
               <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
             </svg>
           </a>
+          <a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="nav-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </a>
         </div>
 <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary nav-book" data-en="Book Consultation" data-es="Reservar">Book Consultation</a>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-overlay">
@@ -1865,7 +1926,7 @@
     <a href="#services" data-en="Services" data-es="Servicios">Services</a>
     <a href="#about" data-en="About" data-es="Sobre Mí">About</a>
     <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" data-en="Book a Session" data-es="Reservar Sesión">Book a Session</a>
-    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+    <a href="#booking" data-en="Contact" data-es="Contacto">Contact</a>
   </div>
 
 
@@ -1898,6 +1959,11 @@
           <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Book Free Consultation" data-es="Consulta Gratuita">Book Free Consultation</a>
           <a href="#services" class="btn-secondary" data-en="See Services" data-es="Ver Servicios">See Services</a>
         </div>
+        <p class="hero-consult-note"
+           data-en="30 minutes. We talk goals, I tell you exactly what I'd do with you. You decide at the end — no pitch, no pressure."
+           data-es="30 minutos. Hablamos de objetivos, te digo exactamente qué haría contigo. Tú decides al final — sin presión, sin ventas.">
+          30 minutes. We talk goals, I tell you exactly what I'd do with you. You decide at the end — no pitch, no pressure.
+        </p>
         <p class="hero-trust" data-en="ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español" data-es="Certificada ISSA &nbsp;·&nbsp; Praga + Online &nbsp;·&nbsp; English / Español">ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español</p>
       </div>
     </div>
@@ -1930,6 +1996,20 @@
 
 
   <!-- ============================================================
+       TRUST STRIP — compact bio teaser
+  ============================================================ -->
+  <section class="trust-strip" aria-label="About Stacey">
+    <div class="section-inner">
+      <p class="trust-strip-text reveal"
+         data-en="10+ years training &nbsp;·&nbsp; two knee surgeries &nbsp;·&nbsp; a degree in cell biology. I've learned more about building strength from recovering from injury than from any textbook. That's the foundation everything I do is built on."
+         data-es="Más de 10 años entrenando &nbsp;·&nbsp; dos cirugías de rodilla &nbsp;·&nbsp; licenciatura en biología celular. He aprendido más sobre cómo construir fuerza recuperándome de una lesión que en cualquier libro. Esa es la base de todo lo que hago.">
+        10+ years training &nbsp;·&nbsp; two knee surgeries &nbsp;·&nbsp; a degree in cell biology. I've learned more about building strength from recovering from injury than from any textbook. That's the foundation everything I do is built on.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        MY APPROACH — 3D SCROLL CAROUSEL
   ============================================================ -->
   <div class="principles-scroll-root" id="approach">
@@ -1948,7 +2028,7 @@
           <span class="principle-num">01</span>
           <div class="principle-text">
             <h3 data-en="Movement First" data-es="El Movimiento Primero">Movement First</h3>
-            <p data-en="Master the fundamentals before adding load. Quality reps build lasting strength." data-es="Domina los fundamentos antes de añadir carga. Las repeticiones de calidad construyen fuerza duradera.">Master the fundamentals before adding load. Quality reps build lasting strength.</p>
+            <p data-en="Two surgeries taught me this the hard way. We earn load — we don't assume it. Clean movement is the only foundation that holds." data-es="Dos cirugías me enseñaron esto a la fuerza. Ganamos la carga — no la suponemos. El movimiento limpio es la única base que aguanta.">Two surgeries taught me this the hard way. We earn load — we don't assume it. Clean movement is the only foundation that holds.</p>
           </div>
         </div>
 
@@ -1958,7 +2038,7 @@
           <span class="principle-num">02</span>
           <div class="principle-text">
             <h3 data-en="Progressive Overload" data-es="Sobrecarga Progresiva">Progressive Overload</h3>
-            <p data-en="Systematic, data-driven progression — every session builds on the last." data-es="Progresión sistemática y basada en datos — cada sesión construye sobre la anterior.">Systematic, data-driven progression — every session builds on the last.</p>
+            <p data-en="Your body is a biological system. My cell biology background means I programme adaptation the way it actually works — not the way it's sold." data-es="Tu cuerpo es un sistema biológico. Mi formación en biología celular significa que programo la adaptación tal como funciona realmente — no como se vende.">Your body is a biological system. My cell biology background means I programme adaptation the way it actually works — not the way it's sold.</p>
           </div>
         </div>
 
@@ -1968,7 +2048,7 @@
           <span class="principle-num">03</span>
           <div class="principle-text">
             <h3 data-en="Individualized Programming" data-es="Programación Individualizada">Individualized Programming</h3>
-            <p data-en="No cookie-cutter plans. Your program is built around your body, your schedule, your goals." data-es="Sin planes genéricos. Tu programa está diseñado en torno a tu cuerpo, tu horario y tus objetivos.">No cookie-cutter plans. Your program is built around your body, your schedule, your goals.</p>
+            <p data-en="No two bodies move the same. After assessing movement patterns across hundreds of sessions, I build around your mechanics — not a template." data-es="No hay dos cuerpos que se muevan igual. Después de evaluar patrones de movimiento en cientos de sesiones, construyo en torno a tu mecánica — no a una plantilla.">No two bodies move the same. After assessing movement patterns across hundreds of sessions, I build around your mechanics — not a template.</p>
           </div>
         </div>
 
@@ -1978,7 +2058,7 @@
           <span class="principle-num">04</span>
           <div class="principle-text">
             <h3 data-en="Sustainable Consistency" data-es="Consistencia Sostenible">Sustainable Consistency</h3>
-            <p data-en="Long-term habits over short-term intensity. We build a lifestyle, not just a program." data-es="Hábitos a largo plazo sobre intensidad a corto plazo. Construimos un estilo de vida, no solo un programa.">Long-term habits over short-term intensity. We build a lifestyle, not just a program.</p>
+            <p data-en="Intensity is easy to sell. Sustainability is harder to build. Every programme I write is designed to still be working for you in two years." data-es="La intensidad es fácil de vender. La sostenibilidad es más difícil de construir. Cada programa que escribo está diseñado para seguir funcionando en dos años.">Intensity is easy to sell. Sustainability is harder to build. Every programme I write is designed to still be working for you in two years.</p>
           </div>
         </div>
       </div>
@@ -2034,12 +2114,57 @@
   <section class="promo-banner" id="promo">
     <div class="section-inner">
       <div class="promo-ticket reveal">
-        <span class="eyebrow" data-en="Limited Offer &nbsp;·&nbsp; New Clients" data-es="Oferta Limitada &nbsp;·&nbsp; Nuevos Clientes">Limited Offer &nbsp;·&nbsp; New Clients</span>
-        <span class="promo-discount" data-en="50% off" data-es="50% descuento">50% off</span>
-        <h2 class="promo-headline" data-en="Your first session, half price." data-es="Tu primera sesión, a mitad de precio.">Your first session, half price.</h2>
-        <p class="promo-sub" data-en="Book a free 30-min consultation. If we are a good fit, your first full 60-minute session is <strong>375 CZK</strong> · half off the regular rate. No strings attached." data-es="Reserva una consulta gratuita de 30 minutos. Si somos compatibles, tu primera sesión completa de 60 minutos es <strong>375 CZK</strong> · la mitad del precio regular. Sin compromisos.">Book a free 30-min consultation. If we are a good fit, your first full 60-minute session is <strong>375 CZK</strong> · half off the regular rate. No strings attached.</p>
-        <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Claim Your First Session" data-es="Reclamar Tu Primera Sesión">Claim Your First Session</a>
-        <p class="promo-fine" data-en="Limited to first-time clients. One per person. Subject to availability." data-es="Limitado a nuevos clientes. Una por persona. Sujeto a disponibilidad.">Limited to first-time clients. One per person. Subject to availability.</p>
+        <span class="eyebrow" data-en="Founding Client Rate &nbsp;·&nbsp; 10 Spots Only" data-es="Tarifa Fundadora &nbsp;·&nbsp; Solo 10 Plazas">Founding Client Rate &nbsp;·&nbsp; 10 Spots Only</span>
+        <div class="promo-founding-price" aria-label="375 CZK">
+          <span class="promo-founding-currency">CZK</span>
+          <span class="promo-founding-amount">375</span>
+        </div>
+        <h2 class="promo-headline" data-en="Your first session at the founding rate." data-es="Tu primera sesión a la tarifa fundadora.">Your first session at the founding rate.</h2>
+        <p class="promo-sub" data-en="This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone." data-es="Esto es lo que cobro a los clientes fundadores — la mitad de la tarifa regular, fija mientras trabajemos juntos. Cuando se vayan los 10 cupos, esta tarifa desaparece.">This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone.</p>
+        <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Claim Your Founding Spot" data-es="Reclamar Tu Plaza Fundadora">Claim Your Founding Spot</a>
+        <p class="promo-fine" data-en="First-time clients only &nbsp;·&nbsp; One per person &nbsp;·&nbsp; This rate is never offered again" data-es="Solo nuevos clientes &nbsp;·&nbsp; Una por persona &nbsp;·&nbsp; Esta tarifa no se vuelve a ofrecer">First-time clients only &nbsp;·&nbsp; One per person &nbsp;·&nbsp; This rate is never offered again</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ISSA CERTIFICATION
+  ============================================================ -->
+  <section class="issa" id="certification">
+    <div class="section-inner">
+      <div class="issa-inner">
+
+        <div class="issa-badge-wrap reveal" data-i="0">
+          <img
+            class="issa-badge-img"
+            src="images/web/IMG_1758.jpg"
+            alt="ISSA Certified Personal Trainer certificate"
+            loading="lazy"
+          >
+          <div class="issa-verified" aria-label="Verified certification">
+            <!-- SVG checkmark in circle -->
+            <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="15" cy="15" r="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+              <path d="M9 15.5L13 19.5L21 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="issa-content reveal" data-i="1">
+          <span class="eyebrow" data-en="Credentials" data-es="Credenciales">Credentials</span>
+          <h2 data-en="ISSA Certified<br>Personal Trainer" data-es="Entrenadora Personal<br>Certificada ISSA">ISSA Certified<br>Personal Trainer</h2>
+          <p data-en="The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition." data-es="La International Sports Sciences Association (ISSA) es uno de los organismos de certificación fitness más reconocidos del mundo — acreditado por la NBFE y de confianza para más de 300.000 profesionales del fitness globalmente. La certificación ISSA se basa en un riguroso currículo basado en evidencia fundamentado en ciencias del ejercicio, anatomía y nutrición deportiva.">The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition.</p>
+          <p data-en="My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage." data-es="Mi certificación garantiza que cada programa que diseño esté fundamentado en metodología probada — no en tendencias ni conjeturas. Entrenas con alguien sujeto a estándares profesionales, requisitos de formación continua y cobertura de responsabilidad civil completa.">My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage.</p>
+
+          <div class="issa-meta">
+            <span class="issa-badge-chip" data-en="Certified 2026" data-es="Certificada 2026">Certified 2026</span>
+            <span class="issa-badge-chip" data-en="CPD Requirements Met" data-es="Formación Continua Cumplida">CPD Requirements Met</span>
+            <span class="issa-badge-chip" data-en="Liability Insured" data-es="Seguro de Responsabilidad">Liability Insured</span>
+            <span class="issa-badge-chip" data-en="NBFE Accredited" data-es="Acreditada NBFE">NBFE Accredited</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2347,50 +2472,8 @@
 
       </div><!-- /pricing-tabs-wrap -->
 
-      <p class="pricing-note reveal" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities" data-usd="Prices shown in USD · approximate conversion · Sessions at premium Prague facilities" data-eur="Prices shown in EUR · approximate conversion · Sessions at premium Prague facilities" data-czk-en="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities" data-usd-en="Prices shown in USD · approximate conversion · Sessions at premium Prague facilities" data-eur-en="Prices shown in EUR · approximate conversion · Sessions at premium Prague facilities" data-czk-es="Precios en CZK · ~750 CZK ≈ €30 / ~$33 · Sesiones en instalaciones premium en Praga" data-usd-es="Precios en USD · conversión aproximada · Sesiones en instalaciones premium en Praga" data-eur-es="Precios en EUR · conversión aproximada · Sesiones en instalaciones premium en Praga">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at premium Prague facilities</p>
+      <p class="pricing-note reveal" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-en="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd-en="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur-en="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-es="Precios en CZK · ~750 CZK ≈ €30 / ~$33 · Sesiones en [GYM_NAME], Praga" data-usd-es="Precios en USD · conversión aproximada · Sesiones en [GYM_NAME], Praga" data-eur-es="Precios en EUR · conversión aproximada · Sesiones en [GYM_NAME], Praga">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague</p>
 
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       ISSA CERTIFICATION
-  ============================================================ -->
-  <section class="issa" id="certification">
-    <div class="section-inner">
-      <div class="issa-inner">
-
-        <div class="issa-badge-wrap reveal" data-i="0">
-          <img
-            class="issa-badge-img"
-            src="images/web/IMG_1758.jpg"
-            alt="ISSA Certified Personal Trainer certificate"
-            loading="lazy"
-          >
-          <div class="issa-verified" aria-label="Verified certification">
-            <!-- SVG checkmark in circle -->
-            <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="15" cy="15" r="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
-              <path d="M9 15.5L13 19.5L21 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="issa-content reveal" data-i="1">
-          <span class="eyebrow" data-en="Credentials" data-es="Credenciales">Credentials</span>
-          <h2 data-en="ISSA Certified<br>Personal Trainer" data-es="Entrenadora Personal<br>Certificada ISSA">ISSA Certified<br>Personal Trainer</h2>
-          <p data-en="The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition." data-es="La International Sports Sciences Association (ISSA) es uno de los organismos de certificación fitness más reconocidos del mundo — acreditado por la NBFE y de confianza para más de 300.000 profesionales del fitness globalmente. La certificación ISSA se basa en un riguroso currículo basado en evidencia fundamentado en ciencias del ejercicio, anatomía y nutrición deportiva.">The International Sports Sciences Association (ISSA) is one of the world's most recognized fitness certification bodies — accredited by the NBFE and trusted by over 300,000 fitness professionals globally. ISSA certification is built on rigorous, evidence-based curriculum grounded in exercise science, anatomy, and sport nutrition.</p>
-          <p data-en="My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage." data-es="Mi certificación garantiza que cada programa que diseño esté fundamentado en metodología probada — no en tendencias ni conjeturas. Entrenas con alguien sujeto a estándares profesionales, requisitos de formación continua y cobertura de responsabilidad civil completa.">My certification ensures that every program I design is rooted in proven methodology — not trends or guesswork. You train with someone held to professional standards, ongoing education requirements, and full liability coverage.</p>
-
-          <div class="issa-meta">
-            <span class="issa-badge-chip" data-en="Certified 2026" data-es="Certificada 2026">Certified 2026</span>
-            <span class="issa-badge-chip" data-en="CPD Requirements Met" data-es="Formación Continua Cumplida">CPD Requirements Met</span>
-            <span class="issa-badge-chip" data-en="Liability Insured" data-es="Seguro de Responsabilidad">Liability Insured</span>
-            <span class="issa-badge-chip" data-en="NBFE Accredited" data-es="Acreditada NBFE">NBFE Accredited</span>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -2484,6 +2567,57 @@
 
 
   <!-- ============================================================
+       TESTIMONIALS — hidden until first client result exists
+       To show: remove the `hidden` attribute and aria-hidden="true"
+  ============================================================ -->
+  <section class="testimonials" id="testimonials" hidden aria-hidden="true">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="Client Results" data-es="Resultados de Clientes">Client Results</span>
+        <h2 data-en="Results that speak." data-es="Resultados que hablan.">Results that speak.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <!-- Add testimonial cards here when first result available -->
+        <!-- Pattern:
+        <blockquote class="testimonial-card reveal">
+          <p class="testimonial-quote">"Specific result here — e.g. lost 6kg, first pull-up in her life."</p>
+          <footer class="testimonial-author">
+            <strong>Client Name</strong>
+            <span>Duration · Goal type</span>
+          </footer>
+        </blockquote>
+        -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FAQ — hidden until real questions collected from consultations
+       To show: remove the `hidden` attribute and aria-hidden="true"
+       Suggested questions: Where in Prague? Do I need experience?
+       How do online sessions work? What if I need to cancel?
+  ============================================================ -->
+  <section class="faq" id="faq" hidden aria-hidden="true">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="Common Questions" data-es="Preguntas Frecuentes">Common Questions</span>
+        <h2 data-en="Everything you want to know." data-es="Todo lo que quieres saber.">Everything you want to know.</h2>
+      </div>
+      <div class="faq-list">
+        <!-- Add FAQ items here after first month of consultations -->
+        <!-- Pattern:
+        <details class="faq-item">
+          <summary class="faq-question" data-en="Q in English" data-es="Q en Español">Q in English</summary>
+          <p class="faq-answer" data-en="A in English" data-es="A en Español">A in English</p>
+        </details>
+        -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        FINAL CTA
   ============================================================ -->
   <section class="final-cta" id="contact">
@@ -2526,7 +2660,7 @@
             </svg>
           </a>
           <!-- WhatsApp -->
-          <a href="#" class="footer-social-link" aria-label="WhatsApp">
+          <a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
