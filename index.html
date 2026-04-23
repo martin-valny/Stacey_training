@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="ISSA Certified Personal Trainer — in-person sessions in Prague and online coaching worldwide. Train Hard. Feel Good.">
-  <title>Train Hard. Feel Good. — Personal Training Prague &amp; Online</title>
+  <meta name="description" content="ISSA certified personal trainer in Prague offering in-person and online coaching in English and Spanish. Evidence-based programming. Free first consultation. Book today.">
+  <title>Stacey V. | Personal Trainer Prague — English &amp; Spanish Coaching</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,9 +227,7 @@
 
     .nav-wordmark {
       font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      line-height: 1.1;
       color: rgba(242,240,236,0.85);
       white-space: nowrap;
     }
@@ -527,6 +525,23 @@
       padding-top: 1.25rem;
       border-top: 1px solid rgba(255,255,255,0.07);
       margin-top: 1.25rem;
+    }
+
+    /* CTA button contrast boost for pure dark sections */
+    .final-cta .btn-primary,
+    .services .btn-primary,
+    .booking .btn-primary,
+    .promo-ticket .btn-primary {
+      background: var(--color-maroon-hi);
+      border-color: rgba(154,56,85,0.7);
+      box-shadow: 0 8px 32px rgba(90,15,34,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .final-cta .btn-primary:hover,
+    .services .btn-primary:hover,
+    .booking .btn-primary:hover,
+    .promo-ticket .btn-primary:hover {
+      background: rgba(154,56,85,0.85);
+      border-color: rgba(180,80,110,0.8);
     }
 
     /* ============================================================
@@ -897,6 +912,17 @@
       font-size: 0.75rem;
       color: rgba(242,240,236,0.3);
       margin-top: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    .promo-deadline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      color: rgba(231,215,200,0.6);
       letter-spacing: 0.04em;
     }
 
@@ -1468,6 +1494,59 @@
       .contact-submit { width: 100%; }
     }
 
+    /* FAQ accordion */
+    .faq-list {
+      max-width: 760px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question svg {
+      flex-shrink: 0;
+      transition: transform 0.25s var(--ease-premium);
+    }
+    details[open] > .faq-question { color: var(--color-champagne); }
+    details[open] > .faq-question svg { transform: rotate(180deg); }
+    .faq-answer {
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+      line-height: 1.75;
+      max-width: 640px;
+      padding-top: 0.75rem;
+    }
+
+    /* Cal.com embed wrapper */
+    .cal-embed-wrap {
+      max-width: 900px;
+      margin: 3.5rem auto 0;
+      border-top: 1px solid var(--color-border);
+      padding-top: 3rem;
+    }
+    .cal-embed-label {
+      text-align: center;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
     /* ============================================================
        FINAL CTA
     ============================================================ */
@@ -1892,7 +1971,10 @@
           <!-- S front — upper portion sits in front of V -->
           <text x="12" y="23" font-family="Georgia,'Times New Roman',serif" font-size="15" font-weight="700" font-style="italic" fill="currentColor" fill-opacity="0.9" text-anchor="middle" clip-path="url(#sv-s-front)">S</text>
         </svg>
-        <span class="nav-wordmark">Train Hard. Feel Good.</span>
+        <span class="nav-wordmark">
+          <span style="display:block; font-size:0.9375rem; font-weight:600; letter-spacing:0.02em; color:rgba(242,240,236,0.9);">Stacey V.</span>
+          <span style="display:block; font-size:0.75rem; font-weight:400; letter-spacing:0.06em; color:rgba(242,240,236,0.5); text-transform:uppercase; margin-top:1px;">Train Hard. Feel Good.</span>
+        </span>
       </a>
 
       <div class="nav-right">
@@ -1913,7 +1995,7 @@
               <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
             </svg>
           </a>
-          <a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="nav-social-link">
+          <a href="https://wa.me/420602135870" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="nav-social-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
@@ -1986,7 +2068,7 @@
     <div class="section-inner">
       <div class="stat-item reveal" data-i="0">
         <span class="stat-number"><span data-target="10">10</span><span class="stat-suffix">+</span></span>
-        <p class="stat-label" data-en="Years Training" data-es="Años Entrenando">Years Training</p>
+        <p class="stat-label" data-en="Years Self-Training" data-es="Años Entrenando">Years Self-Training</p>
       </div>
       <div class="stat-item reveal" data-i="1">
         <span class="stat-number" style="font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.01em;">Free</span>
@@ -1997,8 +2079,8 @@
         <p class="stat-label" data-en="Certified Trainer" data-es="Entrenadora Certificada">Certified Trainer</p>
       </div>
       <div class="stat-item reveal" data-i="3">
-        <span class="stat-number"><span data-target="2">2</span></span>
-        <p class="stat-label" data-en="Languages" data-es="Idiomas">Languages</p>
+        <span class="stat-number" style="font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing:-0.01em;" data-en="EN / ES" data-es="EN / ES">EN / ES</span>
+        <p class="stat-label" data-en="Bilingual Coaching" data-es="Coaching Bilingüe">Bilingual Coaching</p>
       </div>
     </div>
   </div>
@@ -2118,6 +2200,51 @@
 
 
   <!-- ============================================================
+       STORY / FOUNDER SECTION
+  ============================================================ -->
+  <section class="about" id="story">
+    <div class="section-inner">
+      <div class="about-inner">
+
+        <div class="about-text">
+          <span class="eyebrow reveal" data-en="My Story" data-es="Mi Historia">My Story</span>
+          <h2 class="reveal" data-en="I've been in your shoes.<br>Literally." data-es="He estado en tu lugar.<br>Literalmente.">
+            I've been in your shoes.<br>Literally.
+          </h2>
+          <div class="about-divider reveal" aria-hidden="true"><span>&#9679;</span></div>
+          <p class="reveal" data-i="0"
+             data-en="Two knee surgeries. Years of physio. Learning to rebuild from nothing. That's not a footnote — it's the reason everything I coach is built around movement quality first, load second. I've earned every rep I programme."
+             data-es="Dos cirugías de rodilla. Años de fisioterapia. Aprender a reconstruir desde cero. Eso no es una nota al pie — es la razón por la que todo lo que entreno se basa en la calidad del movimiento primero, la carga después. Me he ganado cada repetición que programo.">
+            Two knee surgeries. Years of physio. Learning to rebuild from nothing. That's not a footnote — it's the reason everything I coach is built around movement quality first, load second. I've earned every rep I programme.
+          </p>
+          <p class="reveal" data-i="1"
+             data-en="I'm a founding-cohort trainer right now — which means you get my absolute best work, my lowest-ever prices, and you'll be part of a documented journey I'm proud to share."
+             data-es="Ahora mismo soy una entrenadora de cohorte fundadora — lo que significa que obtienes mi mejor trabajo, mis precios más bajos, y serás parte de un viaje documentado del que me enorgullezco compartir.">
+            I'm a founding-cohort trainer right now — which means you get my absolute best work, my lowest-ever prices, and you'll be part of a documented journey I'm proud to share.
+          </p>
+          <p class="reveal" data-i="2"
+             data-en="My background is in cell biology. I read the research. I don't guess."
+             data-es="Mi formación es en biología celular. Leo la investigación. No adivino.">
+            My background is in cell biology. I read the research. I don't guess.
+          </p>
+        </div>
+
+        <div class="about-portrait-wrap reveal" data-i="3">
+          <img
+            src="images/web/IMG_5632.jpg"
+            alt="Stacey — Personal Trainer, Prague"
+            loading="lazy"
+            width="480"
+            height="600"
+          >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        FIRST-CLIENT PROMO BANNER
   ============================================================ -->
   <section class="promo-banner" id="promo">
@@ -2130,8 +2257,22 @@
         </div>
         <h2 class="promo-headline" data-en="Your first session at the founding rate." data-es="Tu primera sesión a la tarifa fundadora.">Your first session at the founding rate.</h2>
         <p class="promo-sub" data-en="This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone." data-es="Esto es lo que cobro a los clientes fundadores — la mitad de la tarifa regular, fija mientras trabajemos juntos. Cuando se vayan los 10 cupos, esta tarifa desaparece.">This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone.</p>
+        <div class="promo-deadline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(231,215,200,0.6)" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <span data-en="Founding rate locks in for life — available until 10 spots are filled"
+                data-es="La tarifa fundadora se fija para siempre — disponible hasta completar 10 plazas">
+            Founding rate locks in for life — available until 10 spots are filled
+          </span>
+        </div>
         <a href="https://cal.com/liftwithstacey" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="Claim Your Founding Spot" data-es="Reclamar Tu Plaza Fundadora">Claim Your Founding Spot</a>
-        <p class="promo-fine" data-en="First-time clients only &nbsp;·&nbsp; One per person &nbsp;·&nbsp; This rate is never offered again" data-es="Solo nuevos clientes &nbsp;·&nbsp; Una por persona &nbsp;·&nbsp; Esta tarifa no se vuelve a ofrecer">First-time clients only &nbsp;·&nbsp; One per person &nbsp;·&nbsp; This rate is never offered again</p>
+        <p class="promo-fine"
+           data-en="Price locks in for the duration of your programme. Rate rises once founding cohort is full."
+           data-es="El precio se fija durante el programa. La tarifa sube cuando se complete el grupo fundador.">
+          Price locks in for the duration of your programme. Rate rises once founding cohort is full.
+        </p>
       </div>
     </div>
   </section>
@@ -2488,6 +2629,82 @@
 
 
   <!-- ============================================================
+       FAQ
+  ============================================================ -->
+  <section class="what-we-do" id="faq">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-en="FAQ" data-es="Preguntas Frecuentes">FAQ</span>
+        <h2 data-en="Common questions." data-es="Preguntas frecuentes.">Common questions.</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="Do you have experience with clients?" data-es="¿Tienes experiencia con clientes?">Do you have experience with clients?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="I'm launching my coaching practice and taking on founding clients. My 10+ years of personal training, two injury rehabilitations, and cell biology background mean every programme I write is grounded in real experience — just not commercially listed yet." data-es="Estoy lanzando mi práctica de coaching y aceptando clientes fundadores. Mis más de 10 años de entrenamiento personal, dos rehabilitaciones de lesiones y formación en biología celular significan que cada programa que escribo está basado en experiencia real — solo que no listada comercialmente todavía.">
+            I'm launching my coaching practice and taking on founding clients. My 10+ years of personal training, two injury rehabilitations, and cell biology background mean every programme I write is grounded in real experience — just not commercially listed yet.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="What does the free consultation involve?" data-es="¿Qué implica la consulta gratuita?">What does the free consultation involve?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="30 minutes on video or in person. We talk about your goals, I assess what's realistic, and I explain exactly what working together would look like. No sales pitch at the end — just a plan." data-es="30 minutos por video o en persona. Hablamos de tus objetivos, evalúo qué es realista y explico exactamente cómo sería trabajar juntos. Sin discurso de ventas al final — solo un plan.">
+            30 minutes on video or in person. We talk about your goals, I assess what's realistic, and I explain exactly what working together would look like. No sales pitch at the end — just a plan.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="I'm based outside Prague — can we work together?" data-es="Estoy fuera de Praga — ¿podemos trabajar juntos?">I'm based outside Prague — can we work together?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="Yes. Online coaching includes full programming, video check-ins, and WhatsApp support. I work with clients across time zones." data-es="Sí. El coaching online incluye programación completa, check-ins por video y soporte por WhatsApp. Trabajo con clientes en diferentes zonas horarias.">
+            Yes. Online coaching includes full programming, video check-ins, and WhatsApp support. I work with clients across time zones.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="What if I have an injury or have never trained before?" data-es="¿Qué pasa si tengo una lesión o nunca he entrenado?">What if I have an injury or have never trained before?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="That's exactly who I work best with. I started from injury myself. We begin with movement quality, not weight on the bar." data-es="Eso es exactamente con quien mejor trabajo. Yo misma empecé desde una lesión. Comenzamos con la calidad del movimiento, no con el peso en la barra.">
+            That's exactly who I work best with. I started from injury myself. We begin with movement quality, not weight on the bar.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="How does the founding price work?" data-es="¿Cómo funciona el precio fundador?">How does the founding price work?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="Founding-cohort clients lock in the current rate for the full duration of their programme. Once spots are filled, the rate goes up. I'm being transparent about this because I want the right first clients, not the most clients." data-es="Los clientes de la cohorte fundadora fijan la tarifa actual durante todo el programa. Una vez que se llenen los cupos, la tarifa sube. Soy transparente al respecto porque quiero a los primeros clientes correctos, no a los más clientes.">
+            Founding-cohort clients lock in the current rate for the full duration of their programme. Once spots are filled, the rate goes up. I'm being transparent about this because I want the right first clients, not the most clients.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="Do you offer nutrition coaching separately?" data-es="¿Ofrecen coaching nutricional por separado?">Do you offer nutrition coaching separately?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="Yes — see the Nutrition tab in Services. This is separate from personal training and can be combined or standalone." data-es="Sí — ver la pestaña Nutrición en Servicios. Esto es independiente del entrenamiento personal y puede combinarse o ser independiente.">
+            Yes — see the Nutrition tab in Services. This is separate from personal training and can be combined or standalone.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        ABOUT ME
   ============================================================ -->
   <section class="about" id="about">
@@ -2536,40 +2753,81 @@
 
       <!-- Contact form — set your email via Formspree: formspree.io → replace YOUR-FORM-ID below -->
       <form class="contact-form reveal" id="contact-form" novalidate>
-        <div class="contact-form-row">
-          <div class="form-group">
-            <label class="form-label" for="cf-name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
-            <input class="form-input" type="text" id="cf-name" name="name" required
-              placeholder="Your name"
-              data-placeholder-en="Your name"
-              data-placeholder-es="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="cf-phone" data-en="Phone" data-es="Teléfono">Phone</label>
-            <input class="form-input" type="tel" id="cf-phone" name="phone"
-              placeholder="+420 000 000 000"
-              data-placeholder-en="+420 000 000 000"
-              data-placeholder-es="+420 000 000 000">
-          </div>
-        </div>
         <div class="form-group">
-          <label class="form-label" for="cf-email" data-en="Email" data-es="Correo Electrónico">Email</label>
-          <input class="form-input" type="email" id="cf-email" name="email" required
-            placeholder="your@email.com"
-            data-placeholder-en="your@email.com"
+          <label class="form-label" for="cf-name"
+            data-en="Your Name" data-es="Tu Nombre">Your Name</label>
+          <input class="form-input" type="text" id="cf-name" name="name"
+            autocomplete="name" required
+            placeholder="Your name"
+            data-placeholder-en="Your name"
+            data-placeholder-es="Tu nombre">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cf-email"
+            data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
+          <input class="form-input" type="email" id="cf-email" name="email"
+            autocomplete="email" required
+            placeholder="you@email.com"
+            data-placeholder-en="you@email.com"
             data-placeholder-es="tu@email.com">
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="cf-message" data-en="Message" data-es="Mensaje">Message</label>
-          <textarea class="form-textarea" id="cf-message" name="message" rows="5" required
-            placeholder="Tell me about your goals…"
-            data-placeholder-en="Tell me about your goals…"
-            data-placeholder-es="Cuéntame sobre tus objetivos…"></textarea>
+          <label class="form-label" for="cf-goal"
+            data-en="What's your main goal?" data-es="¿Cuál es tu objetivo principal?">What's your main goal?</label>
+          <textarea class="form-textarea" id="cf-goal" name="goal" rows="4"
+            placeholder="Lose fat, build strength, rehab an injury, train for an event..."
+            data-placeholder-en="Lose fat, build strength, rehab an injury, train for an event..."
+            data-placeholder-es="Perder grasa, ganar fuerza, recuperar una lesión, entrenar para un evento..."></textarea>
         </div>
+
+        <div class="contact-status" id="contact-status" role="alert" aria-live="polite"></div>
+
         <button type="submit" class="btn-primary contact-submit" id="contact-submit"
           data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
-        <div class="contact-status" id="contact-status" role="alert"></div>
       </form>
+
+      <!-- Cal.com inline booking widget -->
+      <div class="cal-embed-wrap reveal">
+        <p class="cal-embed-label eyebrow" data-en="— or book directly —" data-es="— o reserva directamente —">— or book directly —</p>
+        <div style="width:100%;height:700px;overflow:scroll" id="my-cal-inline"></div>
+        <script type="text/javascript">
+          (function (C, A, L) {
+            let p = function (a, ar) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+              let cal = C.Cal;
+              let ar = arguments;
+              if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
+              }
+              if (ar[0] === L) {
+                const api = function () { p(api, arguments); };
+                const namespace = ar[1];
+                api.q = api.q || [];
+                typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+                return;
+              }
+              p(cal, ar);
+            };
+          })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", {origin:"https://cal.com"});
+          Cal("inline", {
+            elementOrSelector:"#my-cal-inline",
+            calLink: "liftwithstacey",
+            layout: "month_view"
+          });
+          Cal("ui", {
+            styles: { branding: { brandColor: "#5A0F22" } },
+            hideEventTypeDetails: false,
+            layout: "month_view"
+          });
+        </script>
+      </div>
 
     </div>
   </section>
@@ -2595,31 +2853,6 @@
             <span>Duration · Goal type</span>
           </footer>
         </blockquote>
-        -->
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       FAQ — hidden until real questions collected from consultations
-       To show: remove the `hidden` attribute and aria-hidden="true"
-       Suggested questions: Where in Prague? Do I need experience?
-       How do online sessions work? What if I need to cancel?
-  ============================================================ -->
-  <section class="faq" id="faq" hidden aria-hidden="true">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="eyebrow" data-en="Common Questions" data-es="Preguntas Frecuentes">Common Questions</span>
-        <h2 data-en="Everything you want to know." data-es="Todo lo que quieres saber.">Everything you want to know.</h2>
-      </div>
-      <div class="faq-list">
-        <!-- Add FAQ items here after first month of consultations -->
-        <!-- Pattern:
-        <details class="faq-item">
-          <summary class="faq-question" data-en="Q in English" data-es="Q en Español">Q in English</summary>
-          <p class="faq-answer" data-en="A in English" data-es="A en Español">A in English</p>
-        </details>
         -->
       </div>
     </div>
@@ -2669,7 +2902,7 @@
             </svg>
           </a>
           <!-- WhatsApp -->
-          <a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp">
+          <a href="https://wa.me/420602135870" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
@@ -3054,6 +3287,32 @@
       });
 
     })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Stacey V. Personal Training",
+    "description": "ISSA certified personal trainer offering in-person sessions in Prague and online coaching worldwide. Bilingual English and Spanish. Evidence-based programming.",
+    "url": "https://martin-valny.github.io/Stacey_training/",
+    "telephone": "+420602135870",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Prague",
+      "addressCountry": "CZ"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Prague" },
+      { "@type": "Country", "name": "Worldwide (Online)" }
+    ],
+    "priceRange": "$$",
+    "availableLanguage": ["English", "Spanish"],
+    "sameAs": [
+      "https://instagram.com/liftwithstacey",
+      "https://tiktok.com/@liftwithstacey"
+    ]
+  }
   </script>
 
 </body>
