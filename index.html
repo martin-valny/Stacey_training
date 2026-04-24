@@ -349,123 +349,69 @@
     .nav-overlay a:nth-child(6) { transition-delay: 0.30s; }
 
     /* ============================================================
-       HERO
+       HERO — 2-column layout
     ============================================================ */
     .hero {
-      position: relative;
+      background: var(--color-bg);
+      padding: 8rem 0 6rem;
       min-height: 100dvh;
       display: flex;
       align-items: center;
-      justify-content: center;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    .hero-media-frame {
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+      aspect-ratio: 4/5;
+      position: relative;
+      background: var(--color-surface);
     }
 
-    .hero-video-wrap {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-video {
+    .hero-media-frame .hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center calc(35% - 30px);
-      display: block;
       opacity: 0;
       transition: opacity 1.4s ease-in-out;
-      filter: brightness(0.56) saturate(0.72) blur(0.8px);
-      transform: scale(1.2);
-      transform-origin: center center;
     }
 
-    .hero-video.active {
-      opacity: 1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%),
-        radial-gradient(ellipse at 0% 100%, rgba(59,11,22,0.35) 0%, transparent 60%),
-        linear-gradient(180deg,
-          rgba(0,0,0,0.38) 0%,
-          transparent 25%,
-          transparent 55%,
-          rgba(5,1,2,0.68) 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 80px;
-    }
-
-    .hero-panel {
-      background: rgba(8,8,8,0.30);
-      -webkit-backdrop-filter: blur(18px) saturate(0.85);
-      backdrop-filter: blur(18px) saturate(0.85);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-top: 1px solid rgba(255,255,255,0.15);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        0 32px 80px rgba(0,0,0,0.6),
-        0 0 0 1px rgba(90,15,34,0.08);
-      border-radius: var(--radius-lg);
-      padding: 5rem 6rem;
-      max-width: 950px;
-      width: 100%;
-      text-align: left;
-    }
-
-    .hero-panel .eyebrow {
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
+    .hero-media-frame .hero-video.active { opacity: 1; }
 
     .hero-h1 {
-      text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
     }
 
-    .hero-sub {
-      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-    }
-
-    .hero-trust {
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-    }
-
-    .hero-panel .eyebrow {
+    .hero-copy .eyebrow {
       color: rgba(231,215,200,0.7);
       letter-spacing: 0.12em;
       margin-bottom: 1.25rem;
     }
 
-    .hero-h1 {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(2.5rem, 6.5vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.2;
-      letter-spacing: -0.035em;
-      color: var(--color-text);
-      margin-bottom: 1.5rem;
-      white-space: normal;
-    }
-
     .hero-sub {
       font-size: 1.125rem;
       color: rgba(242,240,236,0.72);
-      max-width: 600px;
+      max-width: 560px;
       margin-bottom: 2.25rem;
       line-height: 1.65;
     }
@@ -533,7 +479,7 @@
     .final-cta .btn-primary,
     .services .btn-primary,
     .booking .btn-primary,
-    .promo-ticket .btn-primary {
+    .consult-explainer .btn-primary {
       background: var(--color-maroon-hi);
       border-color: rgba(154,56,85,0.7);
       box-shadow: 0 8px 32px rgba(90,15,34,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
@@ -541,7 +487,7 @@
     .final-cta .btn-primary:hover,
     .services .btn-primary:hover,
     .booking .btn-primary:hover,
-    .promo-ticket .btn-primary:hover {
+    .consult-explainer .btn-primary:hover {
       background: rgba(154,56,85,0.85);
       border-color: rgba(180,80,110,0.8);
     }
@@ -604,219 +550,60 @@
     }
 
     /* ============================================================
-       PRINCIPLES — 3D SCROLL CAROUSEL
+       GOOD FIT SECTION
     ============================================================ */
-    .principles-scroll-root {
-      position: relative;
-      height: 400vh;
+    .good-fit {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
     }
-
-    .principles {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
+    .good-fit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .good-fit-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .good-fit-item {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--color-bg);
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 1.0625rem;
+      color: rgba(242,240,236,0.8);
+      line-height: 1.6;
     }
-
-    .principles .section-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .principles .section-header {
-      text-align: center;
-      margin-bottom: 0;
-    }
-
-    .principles .section-header .subtitle {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .principles-carousel {
-      position: relative;
-      width: 100%;
-      height: min(500px, 65vh);
-      perspective: 1400px;
-      perspective-origin: center center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .principle-card {
-      position: absolute;
-      width: min(560px, 82vw);
-      height: min(420px, 56vh);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.06);
-      overflow: hidden;
-      transition: transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94), opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-    }
-
-    .principle-card[data-state="active"] {
-      transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
-      opacity: 1;
-      z-index: 4;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
-    }
-    .principle-card[data-state="prev"] {
-      transform: translateX(-58%) translateZ(-180px) rotateY(38deg) scale(0.78);
-      opacity: 0.45;
-      z-index: 3;
-    }
-    .principle-card[data-state="next"] {
-      transform: translateX(58%) translateZ(-180px) rotateY(-38deg) scale(0.78);
-      opacity: 0.45;
-      z-index: 3;
-    }
-    .principle-card[data-state="far-prev"] {
-      transform: translateX(-95%) translateZ(-340px) rotateY(52deg) scale(0.55);
-      opacity: 0.1;
-      z-index: 2;
-    }
-    .principle-card[data-state="far-next"] {
-      transform: translateX(95%) translateZ(-340px) rotateY(-52deg) scale(0.55);
-      opacity: 0.1;
-      z-index: 2;
-    }
-    .principle-card[data-state="hidden"] {
-      transform: translateX(95%) translateZ(-340px) rotateY(-52deg) scale(0.55);
-      opacity: 0;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .principle-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .principle-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
-      z-index: 1;
-    }
-
-    .principle-num {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      z-index: 2;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      color: rgba(231,215,200,0.5);
-    }
-
-    .principle-text {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      padding: 1.5rem;
-    }
-
-    .principle-text h3 {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 0.4rem;
-      color: var(--color-text);
-    }
-
-    .principle-text p {
-      font-size: 0.875rem;
-      color: rgba(242,240,236,0.6);
-      line-height: 1.5;
-    }
-
-    .principles-dots {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .principles-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(242,240,236,0.2);
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .principles-dot.active {
-      background: rgba(242,240,236,0.8);
-      transform: scale(1.4);
-    }
+    .good-fit-item::before { content: '—'; color: var(--color-maroon-hi); font-weight: 600; flex-shrink: 0; }
 
     /* ============================================================
-       WHAT WE DO TOGETHER
+       HOW I COACH SECTION
     ============================================================ */
-    .what-we-do {
+    .how-i-coach {
       background: var(--color-bg);
       border-top: 1px solid var(--color-border);
     }
-
-    .features-grid {
+    .coaching-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
     }
-
-    .feature-card {
+    .coaching-card {
       background: rgba(17,17,17,0.85);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6);
       border-radius: var(--radius-md);
       padding: 2.25rem 2rem;
       transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium), border-color 0.3s var(--ease-premium);
     }
+    .coaching-card:hover { transform: translateY(-4px); border-color: rgba(90,15,34,0.4); box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08); }
+    .coaching-num { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: rgba(231,215,200,0.4); margin-bottom: 1.5rem; display: block; }
+    .coaching-card h3 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 300; line-height: 1.2; margin-bottom: 0.875rem; }
+    .coaching-card p { font-size: 0.9375rem; color: var(--color-muted); line-height: 1.65; }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(90,15,34,0.4);
-      box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-
-    .feature-num {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      color: rgba(231,215,200,0.4);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .feature-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 0.875rem;
-    }
-
-    .feature-card p {
-      font-size: 0.9375rem;
-      color: var(--color-muted);
-      line-height: 1.65;
+    /* ============================================================
+       WHAT WE DO / FAQ shared class
+    ============================================================ */
+    .what-we-do {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
     }
 
     /* ============================================================
@@ -929,272 +716,142 @@
     }
 
     /* ============================================================
-       SERVICES / PRICING
+       SERVICES — 3 clean cards
     ============================================================ */
     .services {
       background: var(--color-bg);
       border-top: 1px solid var(--color-border);
     }
 
-    /* CSS-only tab system */
-    .pricing-tabs-wrap { position: relative; }
-
-    .pricing-tab-radio { display: none; }
-
-    .pricing-tab-labels {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 3rem;
-    }
-
-    .tab-pills {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 4px;
-      background: rgba(17,17,17,0.6);
-    }
-
-    .pricing-tab-labels .currency-toggle {
-      margin: 0;
-    }
-
-    /* Mobile dropdown — hidden on desktop */
-    .pricing-tab-select { display: none; }
-
-    .pricing-tab-label {
-      padding: 0.65rem 1.75rem;
-      border-radius: 7px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--color-muted);
-      transition: background 0.25s, color 0.25s, border-color 0.25s;
-      border: 1px solid transparent;
-      user-select: none;
-    }
-
-    .pricing-tab-label:hover {
-      color: rgba(242,240,236,0.8);
-    }
-
-    #tab-inperson:checked ~ .pricing-tab-labels .tab-label-inperson,
-    #tab-online:checked ~ .pricing-tab-labels .tab-label-online {
-      background: rgba(59,11,22,0.4);
-      border-color: rgba(90,15,34,0.5);
-      color: var(--color-text);
-    }
-
-    .pricing-panel {
-      display: none;
-    }
-
-    #tab-inperson:checked ~ .pricing-panel-inperson,
-    #tab-online:checked ~ .pricing-panel-online,
-    #tab-group:checked ~ .pricing-panel-group,
-    #tab-nutrition:checked ~ .pricing-panel-nutrition {
-      display: block;
-    }
-
-    #tab-group:checked ~ .pricing-tab-labels .tab-label-group,
-    #tab-nutrition:checked ~ .pricing-tab-labels .tab-label-nutrition {
-      background: rgba(59,11,22,0.4);
-      border-color: rgba(90,15,34,0.5);
-      color: var(--color-text);
-    }
-
-    /* Group grid — 2 cards centered */
-    .pricing-grid-group {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      max-width: 700px;
-    }
-
-    /* 2×2 grid for in-person and online */
-    .pricing-grid-inperson {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-
-    .pricing-grid-online {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-
-    /* Nutrition grid — 3 cards */
-    .pricing-grid-nutrition {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      align-items: stretch;
     }
 
-    /* Pricing card base */
-    .pricing-card {
+    .service-card {
       background: rgba(17,17,17,0.85);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6);
       border-radius: var(--radius-md);
       padding: 2.25rem 2rem 2rem;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      gap: 1rem;
       transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
     }
 
-    .pricing-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-
-    .pricing-card.featured {
+    .service-card.featured {
       border-color: rgba(122,28,51,0.35);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 28px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(90,15,34,0.15);
     }
 
-    .pricing-card.featured:hover {
-      box-shadow: 0 28px 80px rgba(59,11,22,0.28), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(122,28,51,0.3);
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(59,11,22,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
-    .service-tag {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(231,215,200,0.7);
-      background: rgba(90,15,34,0.3);
-      border: 1px solid rgba(90,15,34,0.5);
-      border-radius: 4px;
-      padding: 0.3rem 0.65rem;
-      display: inline-block;
-      margin-bottom: 1.25rem;
-      align-self: flex-start;
-    }
-
-    .pricing-card h3 {
+    .service-card h3 {
       font-family: var(--font-display);
       font-size: 1.375rem;
       font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.2;
     }
 
-    .price-block {
-      margin-bottom: 1.75rem;
-    }
-
-    .price-amount {
-      font-family: var(--font-display);
-      font-size: clamp(2.25rem, 4vw, 3rem);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: var(--color-text);
-    }
-
-    .price-currency {
-      font-family: var(--font-body);
-      font-size: 0.625rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(231,215,200,0.5);
-      vertical-align: super;
-      margin-right: 0.35em;
-      line-height: 0;
-    }
-
-    .price-per {
-      font-size: 0.8125rem;
+    .service-card > p {
+      font-size: 0.9375rem;
       color: var(--color-muted);
-      margin-top: 0.25rem;
-    }
-
-    .price-validity {
-      font-size: 0.75rem;
-      color: rgba(231,215,200,0.35);
-      margin-top: 0.2rem;
-      letter-spacing: 0.03em;
-    }
-
-    .service-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
+      line-height: 1.65;
       flex: 1;
     }
 
-    .service-list li {
+    .service-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-includes li {
       font-size: 0.875rem;
-      color: rgba(242,240,236,0.65);
-      display: flex;
-      gap: 0.7rem;
-      align-items: flex-start;
-      line-height: 1.5;
+      color: rgba(242,240,236,0.55);
+      padding-left: 1rem;
+      position: relative;
     }
 
-    .service-list li::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Crect x='0' y='1' width='2.2' height='8' rx='1.1' fill='%237A1C33'/%3E%3Crect x='13.8' y='1' width='2.2' height='8' rx='1.1' fill='%237A1C33'/%3E%3Crect x='2.2' y='3.8' width='11.6' height='2.4' rx='1.2' fill='%235A0F22'/%3E%3Crect x='1.5' y='2.8' width='1' height='4.4' rx='0.5' fill='%237A1C33'/%3E%3Crect x='13.5' y='2.8' width='1' height='4.4' rx='0.5' fill='%237A1C33'/%3E%3C/svg%3E");
+    .service-includes li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--color-maroon-hi);
+    }
+
+    .service-btn { width: 100%; }
+
+    /* ============================================================
+       FOUNDING CLIENTS STRIP
+    ============================================================ */
+    .founding-strip {
+      background: var(--color-oxblood);
+      border-top: 1px solid rgba(90,15,34,0.5);
+      border-bottom: 1px solid rgba(90,15,34,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .founding-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(122,28,51,0.5), transparent 70%);
+      pointer-events: none;
+    }
+    .founding-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .founding-text { max-width: 640px; }
+    .founding-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .founding-text p { font-size: 1rem; color: rgba(242,240,236,0.7); line-height: 1.7; }
+    .founding-strip .btn-primary {
+      background: var(--color-champagne);
+      color: #160810;
+      border-color: var(--color-champagne);
+      white-space: nowrap;
       flex-shrink: 0;
-      margin-top: 0.18em;
-      line-height: 0;
     }
+    .founding-strip .btn-primary:hover { background: #F0E8DC; border-color: #F0E8DC; transform: translateY(-2px); }
 
-    .service-btn {
-      width: 100%;
+    /* ============================================================
+       CONSULTATION EXPLAINER
+    ============================================================ */
+    .consult-explainer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
     }
-
-    .pricing-note {
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(242,240,236,0.25);
-      letter-spacing: 0.06em;
-      margin-top: 2.5rem;
+    .consult-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
     }
-
-    .currency-toggle {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 3px;
-      background: rgba(17,17,17,0.6);
-      width: fit-content;
-      margin: 1.5rem auto 0;
-    }
-
-    .currency-btn {
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--color-muted);
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .currency-btn:hover { color: rgba(242,240,236,0.8); }
-
-    .currency-btn.active {
-      background: rgba(59,11,22,0.4);
-      border-color: rgba(90,15,34,0.5);
-      color: var(--color-text);
+    .consult-body { display: flex; flex-direction: column; gap: 1.25rem; }
+    .consult-body p { font-size: 1.0625rem; color: rgba(242,240,236,0.7); line-height: 1.75; }
+    .consult-reassurance {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.125rem !important;
+      color: rgba(231,215,200,0.65) !important;
     }
 
     .lang-toggle {
@@ -1609,6 +1266,12 @@
       color: var(--color-champagne);
     }
 
+    .final-cta-secondary {
+      font-size: 0.875rem;
+      color: rgba(242,240,236,0.35);
+      letter-spacing: 0.04em;
+    }
+
     /* ============================================================
        FOOTER
     ============================================================ */
@@ -1708,41 +1371,22 @@
       .hamburger { display: flex; }
       .nav { padding-left: max(1.25rem, env(safe-area-inset-left)); padding-right: max(1.25rem, env(safe-area-inset-right)); }
 
-      /* Hero — mobile: content bottom, no glass panel */
+      /* Hero — mobile: stack, media on top */
       .hero {
-        align-items: flex-end;
-      }
-
-      .hero-video-wrap {
-        inset: 0;
-      }
-
-      .hero-overlay {
-        background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.93) 100%);
+        padding: 5rem 0 3rem;
+        min-height: auto;
       }
 
       .hero-content {
-        padding: 2rem 1.25rem 2.5rem;
-        padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
-        align-items: flex-end;
-        justify-content: flex-start;
-        margin-top: 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.25rem;
       }
 
-      .hero-panel {
-        padding: 1.75rem 1.5rem;
-        max-width: 100%;
-        border-radius: var(--radius-md);
-      }
+      .hero-media { order: -1; }
+      .hero-media-frame { aspect-ratio: 4/3; }
 
-      .hero-panel .eyebrow,
-      .hero-h1,
-      .hero-sub,
-      .hero-trust {
-        text-shadow: 0 2px 16px rgba(0,0,0,0.7);
-      }
-
-      .hero-h1 { font-size: clamp(3rem, 14vw, 5rem); }
+      .hero-h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
 
       .hero-ctas {
         flex-direction: column;
@@ -1755,14 +1399,19 @@
         text-align: center;
       }
 
-      .hero-ctas .btn-secondary {
-        background: transparent;
-        border: none;
-        padding: 0.5rem 0;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        border-radius: 0;
-      }
+      /* Good fit + Coaching grid */
+      .good-fit-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .coaching-grid { grid-template-columns: 1fr; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; }
+
+      /* Founding strip */
+      .founding-inner { flex-direction: column; align-items: flex-start; }
+      .founding-strip .btn-primary { width: 100%; text-align: center; }
+
+      /* Consult explainer */
+      .consult-inner { grid-template-columns: 1fr; gap: 2rem; }
 
       /* Stats bar */
       .stats-bar .section-inner {
@@ -1782,65 +1431,6 @@
       .stat-item:nth-child(2n) { border-right: none; }
       .stat-item:nth-child(3),
       .stat-item:nth-child(4) { border-bottom: none; }
-
-      /* Principles grid */
-      /* Principles carousel — revert to stacked on mobile */
-      .principles-scroll-root { height: auto; }
-      .principles { position: static; height: auto; overflow: visible; }
-      .principles .section-inner { gap: 1.5rem; }
-      .principles-carousel { height: auto; perspective: none; display: flex; flex-direction: column; gap: 1rem; }
-      .principle-card { position: relative; width: 100%; height: 260px; transform: none !important; opacity: 1 !important; z-index: auto !important; }
-      .principles-dots { display: none; }
-
-      /* Features grid */
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      /* Promo banner */
-      .promo-ticket { padding: 2.5rem 1.5rem; }
-      .promo-ticket::before, .promo-ticket::after { display: none; }
-
-      /* Pricing grids */
-      .pricing-grid-inperson,
-      .pricing-grid-online,
-      .pricing-grid-group,
-      .pricing-grid-nutrition {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-      }
-
-      /* Tab controls: dropdown + currency stacked on mobile */
-      .pricing-tab-labels {
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: stretch;
-        margin-bottom: 2rem;
-      }
-      .tab-pills { display: none; }
-      .pricing-tab-select {
-        display: block;
-        width: 100%;
-        padding: 0.8rem 2.5rem 0.8rem 1rem;
-        background: rgba(17,17,17,0.7);
-        border: 1px solid var(--color-border);
-        border-radius: 10px;
-        color: var(--color-text);
-        font-family: var(--font-body);
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        -webkit-appearance: none;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a07860' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-      }
-      .pricing-tab-labels .currency-toggle {
-        align-self: center;
-      }
-
-      /* pricing-card.featured — no extra padding-top needed, tag provides visual distinction */
 
       /* ISSA */
       .issa { padding: 5rem 0; }
@@ -1867,8 +1457,8 @@
         gap: 1.25rem;
       }
 
-      /* Calendly height */
-      .calendly-inline-widget {
+      /* Cal.com embed height on mobile */
+      #my-cal-inline {
         height: 600px !important;
       }
     }
@@ -2012,11 +1602,11 @@
 
   <!-- Mobile nav overlay -->
   <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <a href="#approach" data-en="My Approach" data-es="Mi Enfoque">My Approach</a>
     <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+    <a href="#approach" data-en="Approach" data-es="Enfoque">Approach</a>
     <a href="#about" data-en="About" data-es="Sobre Mí">About</a>
-    <a href="#booking" data-en="Book a Session" data-es="Reservar Sesión">Book a Session</a>
-    <a href="#booking" data-en="Contact" data-es="Contacto">Contact</a>
+    <a href="#faq" data-en="FAQ" data-es="FAQ">FAQ</a>
+    <a href="#booking" data-en="Book Consultation" data-es="Reservar">Book Consultation</a>
   </div>
 
 
@@ -2024,37 +1614,28 @@
        HERO
   ============================================================ -->
   <section class="hero" id="home" aria-label="Hero">
-    <div class="hero-video-wrap">
-      <video
-        class="hero-video hero-video-a active"
-        autoplay
-        muted
-        playsinline
-        loop
-        aria-hidden="true"
-      >
-        <source src="videos/web/hero5.mp4" type="video/mp4">
-      </video>
-      <video class="hero-video hero-video-b" muted playsinline aria-hidden="true"></video>
-    </div>
-
-    <div class="hero-overlay" aria-hidden="true"></div>
-
     <div class="hero-content">
-      <div class="hero-panel">
-        <span class="eyebrow" data-en="Personal Training &nbsp;·&nbsp; Prague &amp; Worldwide" data-es="Entrenamiento Personal &nbsp;·&nbsp; Praga y todo el mundo">Personal Training &nbsp;·&nbsp; Prague &amp; Worldwide</span>
-        <h1 class="hero-h1" data-en="Train hard. Feel good." data-es="Entrena fuerte. Siéntete bien.">Train hard. Feel good.</h1>
-        <p class="hero-sub" data-en="Precision programming. Evidence-based coaching. Results that stick — whether you train with me in Prague or anywhere in the world." data-es="Programación precisa. Coaching basado en evidencia. Resultados duraderos — ya sea en Praga o en cualquier parte del mundo.">Precision programming. Evidence-based coaching. Results that stick — whether you train with me in Prague or anywhere in the world.</p>
+      <div class="hero-copy">
+        <span class="eyebrow" data-en="Personal Training &nbsp;·&nbsp; Prague &amp; Online" data-es="Entrenamiento Personal &nbsp;·&nbsp; Praga &amp; Online">Personal Training &nbsp;·&nbsp; Prague &amp; Online</span>
+        <h1 class="hero-h1" data-en="Get stronger.<br>Feel better.<br>Stay consistent." data-es="Sé más fuerte.<br>Siéntete mejor.<br>Mantén la constancia.">Get stronger.<br>Feel better.<br>Stay consistent.</h1>
+        <p class="hero-sub" data-en="Supportive, structured coaching for people who want to get in shape, build strength, and feel more confident — in a way that fits real life." data-es="Coaching estructurado y de apoyo para personas que quieren ponerse en forma, ganar fuerza y sentirse más seguras — de una manera que encaja en la vida real.">Supportive, structured coaching for people who want to get in shape, build strength, and feel more confident — in a way that fits real life.</p>
         <div class="hero-ctas">
           <a href="#booking" class="btn-primary" data-en="Book Free Consultation" data-es="Consulta Gratuita">Book Free Consultation</a>
-          <a href="#services" class="btn-secondary" data-en="See Services" data-es="Ver Servicios">See Services</a>
         </div>
         <p class="hero-consult-note"
-           data-en="30 minutes. We talk goals, I tell you exactly what I'd do with you. You decide at the end — no pitch, no pressure."
-           data-es="30 minutos. Hablamos de objetivos, te digo exactamente qué haría contigo. Tú decides al final — sin presión, sin ventas.">
-          30 minutes. We talk goals, I tell you exactly what I'd do with you. You decide at the end — no pitch, no pressure.
+           data-en="30 minutes. No pressure. Just a clear plan."
+           data-es="30 minutos. Sin presión. Solo un plan claro.">
+          30 minutes. No pressure. Just a clear plan.
         </p>
         <p class="hero-trust" data-en="ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español" data-es="Certificada ISSA &nbsp;·&nbsp; Praga + Online &nbsp;·&nbsp; English / Español">ISSA Certified &nbsp;·&nbsp; Prague + Online &nbsp;·&nbsp; English / Español</p>
+      </div>
+      <div class="hero-media">
+        <div class="hero-media-frame">
+          <video class="hero-video hero-video-a active" autoplay muted playsinline loop aria-hidden="true">
+            <source src="videos/web/hero5.mp4" type="video/mp4">
+          </video>
+          <video class="hero-video hero-video-b" muted playsinline aria-hidden="true"></video>
+        </div>
       </div>
     </div>
   </section>
@@ -2086,148 +1667,114 @@
 
 
   <!-- ============================================================
-       TRUST STRIP — compact bio teaser
+       A GOOD FIT
   ============================================================ -->
-  <section class="trust-strip" aria-label="About Stacey">
+  <section class="good-fit" id="good-fit">
     <div class="section-inner">
-      <p class="trust-strip-text reveal"
-         data-en="10+ years training &nbsp;·&nbsp; two knee surgeries &nbsp;·&nbsp; a degree in cell biology. I've learned more about building strength from recovering from injury than from any textbook. That's the foundation everything I do is built on."
-         data-es="Más de 10 años entrenando &nbsp;·&nbsp; dos cirugías de rodilla &nbsp;·&nbsp; licenciatura en biología celular. He aprendido más sobre cómo construir fuerza recuperándome de una lesión que en cualquier libro. Esa es la base de todo lo que hago.">
-        10+ years training &nbsp;·&nbsp; two knee surgeries &nbsp;·&nbsp; a degree in cell biology. I've learned more about building strength from recovering from injury than from any textbook. That's the foundation everything I do is built on.
-      </p>
+      <div class="good-fit-inner">
+        <div class="good-fit-header reveal">
+          <span class="eyebrow" data-en="Is this for you?" data-es="¿Es para ti?">Is this for you?</span>
+          <h2 data-en="A good fit if you want to…" data-es="Encaja bien si quieres…">A good fit if you want to…</h2>
+        </div>
+        <ul class="good-fit-list">
+          <li class="good-fit-item reveal" data-i="0"><span data-en="Build strength and feel better in your body" data-es="Ganar fuerza y sentirte mejor en tu cuerpo">Build strength and feel better in your body</span></li>
+          <li class="good-fit-item reveal" data-i="1"><span data-en="Get in shape without extreme methods" data-es="Ponerte en forma sin métodos extremos">Get in shape without extreme methods</span></li>
+          <li class="good-fit-item reveal" data-i="2"><span data-en="Train with more structure and less guesswork" data-es="Entrenar con más estructura y menos improvisación">Train with more structure and less guesswork</span></li>
+          <li class="good-fit-item reveal" data-i="3"><span data-en="Stay consistent even with a busy schedule" data-es="Mantener la constancia incluso con un horario ocupado">Stay consistent even with a busy schedule</span></li>
+          <li class="good-fit-item reveal" data-i="4"><span data-en="Work with a coach who keeps things clear, supportive, and realistic" data-es="Trabajar con una entrenadora clara, de apoyo y realista">Work with a coach who keeps things clear, supportive, and realistic</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       MY APPROACH — 3D SCROLL CAROUSEL
+       HOW I COACH
   ============================================================ -->
-  <div class="principles-scroll-root" id="approach">
-  <section class="principles" aria-label="My Approach">
+  <section class="how-i-coach" id="approach">
     <div class="section-inner">
       <div class="section-header reveal">
-        <span class="eyebrow" data-en="My Approach" data-es="Mi Enfoque">My Approach</span>
-        <h2 data-en="Four principles.<br>One system." data-es="Cuatro principios.<br>Un sistema.">Four principles.<br>One system.</h2>
-        <p class="subtitle" data-en="Everything I do is built around sustainable progress — not quick fixes. Here is how we get there together." data-es="Todo lo que hago está construido en torno al progreso sostenible — no a soluciones rápidas. Así es cómo llegamos allí juntos.">Everything I do is built around sustainable progress — not quick fixes. Here is how we get there together.</p>
+        <span class="eyebrow" data-en="How I Coach" data-es="Cómo Entreno">How I Coach</span>
+        <h2 data-en="How I coach." data-es="Cómo entreno.">How I coach.</h2>
+        <p class="subtitle" data-en="My approach is simple: start where you are, build gradually, and focus on results you can actually keep." data-es="Mi enfoque es simple: empieza donde estás, construye gradualmente y enfócate en resultados que puedas mantener.">My approach is simple: start where you are, build gradually, and focus on results you can actually keep.</p>
       </div>
-
-      <div class="principles-carousel">
-        <div class="principle-card">
-          <img src="images/web/IMG_2623.jpg" alt="Strength training fundamentals" loading="lazy" style="object-position: center calc(50% + 50px);">
-          <div class="principle-overlay" aria-hidden="true"></div>
-          <span class="principle-num">01</span>
-          <div class="principle-text">
-            <h3 data-en="Movement First" data-es="El Movimiento Primero">Movement First</h3>
-            <p data-en="Two surgeries taught me this the hard way. We earn load — we don't assume it. Clean movement is the only foundation that holds." data-es="Dos cirugías me enseñaron esto a la fuerza. Ganamos la carga — no la suponemos. El movimiento limpio es la única base que aguanta.">Two surgeries taught me this the hard way. We earn load — we don't assume it. Clean movement is the only foundation that holds.</p>
-          </div>
+      <div class="coaching-grid">
+        <div class="coaching-card reveal" data-i="0">
+          <span class="coaching-num">01</span>
+          <h3 data-en="Start where you are" data-es="Empieza donde estás">Start where you are</h3>
+          <p data-en="We begin with your current level, your goals, and what feels realistic for you. Good training should feel clear, effective, and sustainable from the start." data-es="Empezamos con tu nivel actual, tus objetivos y lo que te parece realista. El buen entrenamiento debe sentirse claro, efectivo y sostenible desde el principio.">We begin with your current level, your goals, and what feels realistic for you. Good training should feel clear, effective, and sustainable from the start.</p>
         </div>
-
-        <div class="principle-card">
-          <img src="images/web/IMG_2625.jpg" alt="Perfect form and technique" loading="lazy">
-          <div class="principle-overlay" aria-hidden="true"></div>
-          <span class="principle-num">02</span>
-          <div class="principle-text">
-            <h3 data-en="Progressive Overload" data-es="Sobrecarga Progresiva">Progressive Overload</h3>
-            <p data-en="Your body is a biological system. My cell biology background means I programme adaptation the way it actually works — not the way it's sold." data-es="Tu cuerpo es un sistema biológico. Mi formación en biología celular significa que programo la adaptación tal como funciona realmente — no como se vende.">Your body is a biological system. My cell biology background means I programme adaptation the way it actually works — not the way it's sold.</p>
-          </div>
+        <div class="coaching-card reveal" data-i="1">
+          <span class="coaching-num">02</span>
+          <h3 data-en="Build strength step by step" data-es="Gana fuerza paso a paso">Build strength step by step</h3>
+          <p data-en="Progress matters, but it doesn't need to be extreme. The goal is steady improvement that helps you feel stronger, fitter, and more confident over time." data-es="El progreso importa, pero no necesita ser extremo. El objetivo es una mejora constante que te ayude a sentirte más fuerte, en mejor forma y con más confianza con el tiempo.">Progress matters, but it doesn't need to be extreme. The goal is steady improvement that helps you feel stronger, fitter, and more confident over time.</p>
         </div>
-
-        <div class="principle-card">
-          <img src="images/web/IMG_2558.jpg" alt="Personal coaching session" loading="lazy" style="object-position: center calc(50% + 90px);">
-          <div class="principle-overlay" aria-hidden="true"></div>
-          <span class="principle-num">03</span>
-          <div class="principle-text">
-            <h3 data-en="Individualized Programming" data-es="Programación Individualizada">Individualized Programming</h3>
-            <p data-en="No two bodies move the same. After assessing movement patterns across hundreds of sessions, I build around your mechanics — not a template." data-es="No hay dos cuerpos que se muevan igual. Después de evaluar patrones de movimiento en cientos de sesiones, construyo en torno a tu mecánica — no a una plantilla.">No two bodies move the same. After assessing movement patterns across hundreds of sessions, I build around your mechanics — not a template.</p>
-          </div>
+        <div class="coaching-card reveal" data-i="2">
+          <span class="coaching-num">03</span>
+          <h3 data-en="Train for real life" data-es="Entrena para la vida real">Train for real life</h3>
+          <p data-en="Your programme should work with your schedule, energy, and responsibilities — not against them. The best plan is the one you can actually keep." data-es="Tu programa debe funcionar con tu horario, energía y responsabilidades — no en contra de ellos. El mejor plan es el que realmente puedes mantener.">Your programme should work with your schedule, energy, and responsibilities — not against them. The best plan is the one you can actually keep.</p>
         </div>
-
-        <div class="principle-card">
-          <img src="images/web/IMG_2598.jpg" alt="Consistent training for results" loading="lazy" style="object-position: center calc(50% + 50px);">
-          <div class="principle-overlay" aria-hidden="true"></div>
-          <span class="principle-num">04</span>
-          <div class="principle-text">
-            <h3 data-en="Sustainable Consistency" data-es="Consistencia Sostenible">Sustainable Consistency</h3>
-            <p data-en="Intensity is easy to sell. Sustainability is harder to build. Every programme I write is designed to still be working for you in two years." data-es="La intensidad es fácil de vender. La sostenibilidad es más difícil de construir. Cada programa que escribo está diseñado para seguir funcionando en dos años.">Intensity is easy to sell. Sustainability is harder to build. Every programme I write is designed to still be working for you in two years.</p>
-          </div>
+        <div class="coaching-card reveal" data-i="3">
+          <span class="coaching-num">04</span>
+          <h3 data-en="Focus on results that last" data-es="Enfócate en resultados duraderos">Focus on results that last</h3>
+          <p data-en="I'm not interested in quick fixes. I coach for long-term progress, better habits, and a stronger body you can rely on." data-es="No me interesan las soluciones rápidas. Entreno para el progreso a largo plazo, mejores hábitos y un cuerpo más fuerte en el que puedas confiar.">I'm not interested in quick fixes. I coach for long-term progress, better habits, and a stronger body you can rely on.</p>
         </div>
-      </div>
-
-      <div class="principles-dots" aria-hidden="true">
-        <span class="principles-dot"></span>
-        <span class="principles-dot"></span>
-        <span class="principles-dot"></span>
-        <span class="principles-dot"></span>
       </div>
     </div>
   </section>
-  </div>
+
+
 
 
   <!-- ============================================================
-       WHAT WE DO TOGETHER
+       SERVICES
   ============================================================ -->
-  <section class="what-we-do" id="what-we-do">
+  <section class="services" id="services">
     <div class="section-inner">
       <div class="section-header reveal">
-        <span class="eyebrow" data-en="What We Do Together" data-es="Lo Que Trabajamos Juntos">What We Do Together</span>
-        <h2 data-en="The full picture." data-es="El panorama completo.">The full picture.</h2>
-        <p class="subtitle" data-en="Training is only part of the equation. Here is everything we work on to get you real results." data-es="El entrenamiento es solo parte de la ecuación. Esto es todo en lo que trabajamos para lograr resultados reales.">Training is only part of the equation. Here is everything we work on to get you real results.</p>
+        <span class="eyebrow" data-en="Ways to work together" data-es="Formas de trabajar juntos">Ways to work together</span>
+        <h2 data-en="Ways to work together." data-es="Formas de trabajar juntos.">Ways to work together.</h2>
+        <p class="subtitle" data-en="Choose the level of support that fits you best. If you're not sure where to start, book a free consultation and we'll talk it through." data-es="Elige el nivel de apoyo que mejor te convenga. Si no sabes por dónde empezar, reserva una consulta gratuita y lo hablamos.">Choose the level of support that fits you best. If you're not sure where to start, book a free consultation and we'll talk it through.</p>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-card reveal" data-i="0">
-          <span class="feature-num">01</span>
-          <h3 data-en="Strength &amp; Conditioning" data-es="Fuerza y Acondicionamiento">Strength &amp; Conditioning</h3>
-          <p data-en="Barbell training, functional movement, and body composition — delivered through evidence-based programming that progresses intelligently week over week." data-es="Entrenamiento con barra, movimiento funcional y composición corporal — a través de programación basada en evidencia que progresa inteligentemente semana a semana.">Barbell training, functional movement, and body composition — delivered through evidence-based programming that progresses intelligently week over week.</p>
+      <div class="services-grid">
+
+        <div class="service-card reveal" data-i="0">
+          <h3 data-en="In-Person Training · Prague" data-es="Entrenamiento Presencial · Praga">In-Person Training · Prague</h3>
+          <p data-en="Hands-on personal training for people who want structure, accountability, and expert guidance in the gym." data-es="Entrenamiento personal práctico para personas que quieren estructura, responsabilidad y orientación experta en el gimnasio.">Hands-on personal training for people who want structure, accountability, and expert guidance in the gym.</p>
+          <ul class="service-includes">
+            <li data-en="Personalised sessions" data-es="Sesiones personalizadas">Personalised sessions</li>
+            <li data-en="Technique guidance" data-es="Orientación técnica">Technique guidance</li>
+            <li data-en="Progressive programming" data-es="Programación progresiva">Progressive programming</li>
+          </ul>
+          <a href="#booking" class="btn-primary service-btn" data-en="Book Free Consultation" data-es="Reservar Consulta Gratuita">Book Free Consultation</a>
         </div>
 
-        <div class="feature-card reveal" data-i="1">
-          <span class="feature-num">02</span>
-          <h3 data-en="Nutrition Guidance" data-es="Orientación Nutricional">Nutrition Guidance</h3>
-          <p data-en="Practical, flexible nutrition strategies tailored to your lifestyle and goals — available as a standalone add-on service." data-es="Estrategias nutricionales prácticas y flexibles adaptadas a tu estilo de vida y objetivos — disponible como servicio adicional independiente.">Practical, flexible nutrition strategies tailored to your lifestyle and goals — available as a standalone add-on service.</p>
+        <div class="service-card featured reveal" data-i="1">
+          <h3 data-en="Online Coaching" data-es="Coaching Online">Online Coaching</h3>
+          <p data-en="Flexible coaching for people who want a clear plan, ongoing support, and training they can follow from anywhere." data-es="Coaching flexible para personas que quieren un plan claro, apoyo continuo y entrenamiento que puedan seguir desde cualquier lugar.">Flexible coaching for people who want a clear plan, ongoing support, and training they can follow from anywhere.</p>
+          <ul class="service-includes">
+            <li data-en="Custom programming" data-es="Programación personalizada">Custom programming</li>
+            <li data-en="Check-ins" data-es="Check-ins">Check-ins</li>
+            <li data-en="Form feedback" data-es="Retroalimentación de forma">Form feedback</li>
+            <li data-en="Ongoing support" data-es="Apoyo continuo">Ongoing support</li>
+          </ul>
+          <a href="#booking" class="btn-primary service-btn" data-en="Book Free Consultation" data-es="Reservar Consulta Gratuita">Book Free Consultation</a>
         </div>
 
-        <div class="feature-card reveal" data-i="2">
-          <span class="feature-num">03</span>
-          <h3 data-en="Accountability &amp; Recovery" data-es="Seguimiento y Recuperación">Accountability &amp; Recovery</h3>
-          <p data-en="Weekly check-ins, sleep and recovery protocols, and ongoing adjustments to keep you on track — even when life gets complicated." data-es="Check-ins semanales, protocolos de sueño y recuperación, y ajustes continuos para mantenerte en el camino — incluso cuando la vida se complica.">Weekly check-ins, sleep and recovery protocols, and ongoing adjustments to keep you on track — even when life gets complicated.</p>
+        <div class="service-card reveal" data-i="2">
+          <h3 data-en="Nutrition Support" data-es="Apoyo Nutricional">Nutrition Support</h3>
+          <p data-en="Simple, practical nutrition guidance to support your training, energy, and body composition goals." data-es="Orientación nutricional simple y práctica para apoyar tu entrenamiento, energía y objetivos de composición corporal.">Simple, practical nutrition guidance to support your training, energy, and body composition goals.</p>
+          <ul class="service-includes">
+            <li data-en="Personalised guidance" data-es="Orientación personalizada">Personalised guidance</li>
+            <li data-en="Habit-based approach" data-es="Enfoque basado en hábitos">Habit-based approach</li>
+            <li data-en="Real-life flexibility" data-es="Flexibilidad para la vida real">Real-life flexibility</li>
+          </ul>
+          <a href="#booking" class="btn-secondary service-btn" data-en="Ask About Nutrition" data-es="Preguntar Sobre Nutrición">Ask About Nutrition</a>
         </div>
+
       </div>
-    </div>
-  </section>
 
-
-  <!-- ============================================================
-       FIRST-CLIENT PROMO BANNER
-  ============================================================ -->
-  <section class="promo-banner" id="promo">
-    <div class="section-inner">
-      <div class="promo-ticket reveal">
-        <span class="eyebrow" data-en="Founding Client Rate &nbsp;·&nbsp; 10 Spots Only" data-es="Tarifa Fundadora &nbsp;·&nbsp; Solo 10 Plazas">Founding Client Rate &nbsp;·&nbsp; 10 Spots Only</span>
-        <div class="promo-founding-price" aria-label="375 CZK">
-          <span class="promo-founding-currency">CZK</span>
-          <span class="promo-founding-amount">375</span>
-        </div>
-        <h2 class="promo-headline" data-en="Your first session at the founding rate." data-es="Tu primera sesión a la tarifa fundadora.">Your first session at the founding rate.</h2>
-        <p class="promo-sub" data-en="This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone." data-es="Esto es lo que cobro a los clientes fundadores — la mitad de la tarifa regular, fija mientras trabajemos juntos. Cuando se vayan los 10 cupos, esta tarifa desaparece.">This is what I charge founding clients — half the regular rate, locked in as long as we work together. Once the 10 spots are gone, this rate is gone.</p>
-        <div class="promo-deadline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(231,215,200,0.6)" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-          <span data-en="Founding rate locks in for life — available until 10 spots are filled"
-                data-es="La tarifa fundadora se fija para siempre — disponible hasta completar 10 plazas">
-            Founding rate locks in for life — available until 10 spots are filled
-          </span>
-        </div>
-        <a href="#booking" class="btn-primary" data-en="Claim Your Founding Spot" data-es="Reclamar Tu Plaza Fundadora">Claim Your Founding Spot</a>
-        <p class="promo-fine"
-           data-en="Price locks in for the duration of your programme. Rate rises once founding cohort is full."
-           data-es="El precio se fija durante el programa. La tarifa sube cuando se complete el grupo fundador.">
-          Price locks in for the duration of your programme. Rate rises once founding cohort is full.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -2247,7 +1794,6 @@
             loading="lazy"
           >
           <div class="issa-verified" aria-label="Verified certification">
-            <!-- SVG checkmark in circle -->
             <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="15" cy="15" r="13" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
               <path d="M9 15.5L13 19.5L21 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2275,309 +1821,83 @@
 
 
   <!-- ============================================================
-       SERVICES & PRICING
+       FOUNDING CLIENTS STRIP
   ============================================================ -->
-  <section class="services" id="services">
+  <section class="founding-strip" id="founding">
     <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="eyebrow" data-en="Services &amp; Pricing" data-es="Servicios y Precios">Services &amp; Pricing</span>
-        <h2 data-en="Choose your path." data-es="Elige tu camino.">Choose your path.</h2>
-        <p class="subtitle" data-en="Every package is built around your goals. Not sure which is right for you? Start with a free consult." data-es="Cada paquete está diseñado en torno a tus objetivos. ¿No sabes cuál es el adecuado? Empieza con una consulta gratuita.">Every package is built around your goals. Not sure which is right for you? Start with a free consult.</p>
+      <div class="founding-inner reveal">
+        <div class="founding-text">
+          <span class="eyebrow" data-en="Founding Clients" data-es="Clientes Fundadores">Founding Clients</span>
+          <h2 data-en="Currently taking on a small number of founding clients." data-es="Actualmente acepto un número limitado de clientes fundadores.">Currently taking on a small number of founding clients.</h2>
+          <p data-en="I'm currently opening a limited number of spots at an introductory rate while building my first client base. If you'd like personalised support from the beginning, this is the best time to start." data-es="Actualmente estoy abriendo un número limitado de plazas a una tarifa introductoria mientras construyo mi primera base de clientes. Este es el mejor momento para empezar.">I'm currently opening a limited number of spots at an introductory rate while building my first client base. If you'd like personalised support from the beginning, this is the best time to start.</p>
+        </div>
+        <a href="#booking" class="btn-primary" data-en="Book Free Consultation" data-es="Consulta Gratuita">Book Free Consultation</a>
       </div>
+    </div>
+  </section>
 
-      <!-- CSS-only tab toggle -->
-      <div class="pricing-tabs-wrap">
-        <input type="radio" name="pricing-tab" id="tab-inperson" class="pricing-tab-radio" checked>
-        <input type="radio" name="pricing-tab" id="tab-online" class="pricing-tab-radio">
-        <input type="radio" name="pricing-tab" id="tab-group" class="pricing-tab-radio">
-        <input type="radio" name="pricing-tab" id="tab-nutrition" class="pricing-tab-radio">
 
-        <div class="pricing-tab-labels reveal">
-          <div class="tab-pills">
-            <label for="tab-inperson" class="pricing-tab-label tab-label-inperson" data-en="In-Person · Prague" data-es="Presencial · Praga">In-Person · Prague</label>
-            <label for="tab-online" class="pricing-tab-label tab-label-online" data-en="Online Coaching" data-es="Coaching Online">Online Coaching</label>
-            <label for="tab-group" class="pricing-tab-label tab-label-group" data-en="Group Training" data-es="Entrenamiento en Grupo">Group Training</label>
-            <label for="tab-nutrition" class="pricing-tab-label tab-label-nutrition" data-en="Nutrition Plans" data-es="Planes Nutricionales">Nutrition Plans</label>
+  <!-- ============================================================
+       ABOUT ME
+  ============================================================ -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-inner">
+
+        <div class="about-text">
+          <span class="eyebrow reveal" data-en="Meet Stacey" data-es="Conoce a Stacey">Meet Stacey</span>
+          <h2 class="reveal" data-en="Meet Stacey." data-es="Conoce a Stacey.">Meet Stacey.</h2>
+          <div class="about-divider reveal" aria-hidden="true">
+            <span>&#9679;</span>
           </div>
-          <select class="pricing-tab-select" aria-label="Select service">
-            <option value="tab-inperson" data-en="In-Person · Prague"    data-es="Presencial · Praga">In-Person · Prague</option>
-            <option value="tab-online"   data-en="Online Coaching"       data-es="Coaching Online">Online Coaching</option>
-            <option value="tab-group"    data-en="Group Training"        data-es="Entrenamiento en Grupo">Group Training</option>
-            <option value="tab-nutrition" data-en="Nutrition Plans"      data-es="Planes Nutricionales">Nutrition Plans</option>
-          </select>
-          <div class="currency-toggle" role="group" aria-label="Select currency">
-            <button class="currency-btn active" data-currency="czk">Kč</button>
-            <button class="currency-btn" data-currency="usd">$</button>
-            <button class="currency-btn" data-currency="eur">€</button>
-          </div>
+          <p class="reveal" data-i="0"
+             data-en="I'm an ISSA-certified personal trainer based in Prague, offering coaching in English and Spanish, both in person and online."
+             data-es="Soy una entrenadora personal certificada por la ISSA con sede en Praga, ofreciendo coaching en inglés y español, tanto en persona como online.">
+            I'm an ISSA-certified personal trainer based in Prague, offering coaching in English and Spanish, both in person and online.
+          </p>
+          <p class="reveal" data-i="1"
+             data-en="My approach is thoughtful, supportive, and built around helping people get stronger in a way that feels realistic and sustainable."
+             data-es="Mi enfoque es reflexivo, de apoyo y está diseñado para ayudar a las personas a ser más fuertes de una manera que se sienta realista y sostenible.">
+            My approach is thoughtful, supportive, and built around helping people get stronger in a way that feels realistic and sustainable.
+          </p>
+          <p class="reveal" data-i="2"
+             data-en="I care about good form, clear structure, and training that fits real life. As a coach and mother of two, I know that the most effective plan is the one you can keep coming back to."
+             data-es="Me importa la buena forma, la estructura clara y el entrenamiento que se adapta a la vida real. Como entrenadora y madre de dos hijos, sé que el plan más efectivo es al que puedes volver una y otra vez.">
+            I care about good form, clear structure, and training that fits real life. As a coach and mother of two, I know that the most effective plan is the one you can keep coming back to.
+          </p>
         </div>
 
-        <!-- IN-PERSON PANEL -->
-        <div class="pricing-panel pricing-panel-inperson">
-          <div class="pricing-grid-inperson">
-
-            <div class="pricing-card reveal" data-i="0">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="Single Session" data-es="Sesión Individual">Single Session</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="750" data-usd="35" data-eur="30">750</span></div>
-                <div class="price-per" data-en="per 60-minute session" data-es="por sesión de 60 minutos">per 60-minute session</div>
-                <div class="price-validity" data-en="No commitment, pay as you go" data-es="Sin compromiso, paga por sesión">No commitment, pay as you go</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
-                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
-                <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
-                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-            <div class="pricing-card reveal" data-i="1">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="3,400" data-usd="165" data-eur="140">3,400</span></div>
-                <div class="price-per" data-czk="680 CZK per session · save 10%" data-usd="$33 per session" data-eur="€28 per session" data-czk-en="680 CZK per session · save 10%" data-usd-en="$33 per session" data-eur-en="€28 per session" data-czk-es="680 CZK por sesión · ahorra 10%" data-usd-es="$33 por sesión" data-eur-es="€28 por sesión">680 CZK per session · save 10%</div>
-                <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="5 x 60-minute sessions" data-es="5 x sesiones de 60 minutos">5 x 60-minute sessions</li>
-                <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
-                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
-                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-            <div class="pricing-card featured reveal" data-i="2">
-              <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
-              <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="6,500" data-usd="320" data-eur="260">6,500</span></div>
-                <div class="price-per" data-czk="650 CZK per session · save 13%" data-usd="$32 per session" data-eur="€26 per session" data-czk-en="650 CZK per session · save 13%" data-usd-en="$32 per session" data-eur-en="€26 per session" data-czk-es="650 CZK por sesión · ahorra 13%" data-usd-es="$32 por sesión" data-eur-es="€26 por sesión">650 CZK per session · save 13%</div>
-                <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="10 x 60-minute sessions" data-es="10 x sesiones de 60 minutos">10 x 60-minute sessions</li>
-                <li data-en="Full movement screening" data-es="Evaluación completa de movimiento">Full movement screening</li>
-                <li data-en="Custom monthly program updates" data-es="Actualizaciones mensuales del programa">Custom monthly program updates</li>
-                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
-                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-            <div class="pricing-card reveal" data-i="3">
-              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-              <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="11,000" data-usd="540" data-eur="440">11,000</span></div>
-                <div class="price-per" data-czk="550 CZK per session · save 27%" data-usd="$27 per session" data-eur="€22 per session" data-czk-en="550 CZK per session · save 27%" data-usd-en="$27 per session" data-eur-en="€22 per session" data-czk-es="550 CZK por sesión · ahorra 27%" data-usd-es="$27 por sesión" data-eur-es="€22 por sesión">550 CZK per session · save 27%</div>
-                <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="20 x 60-minute sessions" data-es="20 x sesiones de 60 minutos">20 x 60-minute sessions</li>
-                <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
-                <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
-                <li data-en="Recovery &amp; accountability coaching" data-es="Coaching de recuperación y seguimiento">Recovery &amp; accountability coaching</li>
-                <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
-                <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-          </div>
+        <div class="about-portrait-wrap reveal" data-i="2">
+          <img
+            src="images/web/IMG_5632.jpg"
+            alt="Personal trainer portrait"
+            loading="lazy"
+            width="600"
+            height="800"
+          >
         </div>
 
-        <!-- ONLINE PANEL -->
-        <div class="pricing-panel pricing-panel-online">
-          <div class="pricing-grid-online">
+      </div>
+    </div>
+  </section>
 
-            <div class="pricing-card reveal" data-i="0">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="Single Online Session" data-es="Sesión Online Individual">Single Online Session</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="650" data-usd="30" data-eur="26">650</span></div>
-                <div class="price-per" data-en="per 60-minute video call" data-es="por videollamada de 60 minutos">per 60-minute video call</div>
-                <div class="price-validity" data-en="No commitment" data-es="Sin compromiso">No commitment</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="60-min live session via video call" data-es="Sesión en vivo de 60 min por videollamada">60-min live session via video call</li>
-                <li data-en="Movement or technique focus" data-es="Enfoque en movimiento o técnica">Movement or technique focus</li>
-                <li data-en="Session notes &amp; drill recap" data-es="Notas de sesión y resumen de ejercicios">Session notes &amp; drill recap</li>
-                <li data-en="Works anywhere in the world" data-es="Funciona en cualquier parte del mundo">Works anywhere in the world</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Online" data-es="Reservar Online">Book Online</a>
-            </div>
 
-            <div class="pricing-card reveal" data-i="1">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,900" data-usd="130" data-eur="115">2,900</span></div>
-                <div class="price-per" data-en="580 CZK per session · save 11%" data-es="580 CZK por sesión · ahorra 11%">580 CZK per session · save 11%</div>
-                <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="5 x 60-min live video sessions" data-es="5 x sesiones en vivo de 60 min">5 x 60-min live video sessions</li>
-                <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
-                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
-                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
-                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-            <div class="pricing-card featured reveal" data-i="2">
-              <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
-              <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="5,500" data-usd="245" data-eur="220">5,500</span></div>
-                <div class="price-per" data-en="550 CZK per session · save 15%" data-es="550 CZK por sesión · ahorra 15%">550 CZK per session · save 15%</div>
-                <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="10 x 60-min live video sessions" data-es="10 x sesiones en vivo de 60 min">10 x 60-min live video sessions</li>
-                <li data-en="Custom program + monthly updates" data-es="Programa personalizado + actualizaciones mensuales">Custom program + monthly updates</li>
-                <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
-                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
-                <li data-en="Weekly messaging support" data-es="Soporte semanal por mensajería">Weekly messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-            <div class="pricing-card reveal" data-i="3">
-              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-              <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="9,600" data-usd="420" data-eur="380">9,600</span></div>
-                <div class="price-per" data-en="480 CZK per session · save 26%" data-es="480 CZK por sesión · ahorra 26%">480 CZK per session · save 26%</div>
-                <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="20 x 60-min live video sessions" data-es="20 x sesiones en vivo de 60 min">20 x 60-min live video sessions</li>
-                <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
-                <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
-                <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
-                <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
-                <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
-            </div>
-
-          </div>
+  <!-- ============================================================
+       CONSULTATION EXPLAINER
+  ============================================================ -->
+  <section class="consult-explainer" id="consultation">
+    <div class="section-inner">
+      <div class="consult-inner reveal">
+        <div class="section-header">
+          <span class="eyebrow" data-en="Free Consultation" data-es="Consulta Gratuita">Free Consultation</span>
+          <h2 data-en="What the free consultation includes." data-es="Qué incluye la consulta gratuita.">What the free consultation includes.</h2>
         </div>
-
-        <!-- NUTRITION PLANS PANEL -->
-        <div class="pricing-panel pricing-panel-nutrition">
-          <div class="pricing-grid-nutrition">
-
-            <div class="pricing-card reveal" data-i="0">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="Training Plan" data-es="Plan de Entrenamiento">Training Plan</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="800" data-usd="40" data-eur="35">800</span></div>
-                <div class="price-per" data-en="one-time · fully customized" data-es="único pago · totalmente personalizado">one-time · fully customized</div>
-                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
-                <li data-en="Built around your goals &amp; schedule" data-es="Diseñado en torno a tus objetivos y horario">Built around your goals &amp; schedule</li>
-                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
-                <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Order Plan" data-es="Pedir Plan">Order Plan</a>
-            </div>
-
-            <div class="pricing-card featured reveal" data-i="1">
-              <span class="service-tag" data-en="Add-On" data-es="Complemento">Add-On</span>
-              <h3 data-en="Nutrition Plan" data-es="Plan Nutricional">Nutrition Plan</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,500" data-usd="65" data-eur="60">1,500</span></div>
-                <div class="price-per" data-en="one-time · fully personalized" data-es="único pago · totalmente personalizado">one-time · fully personalized</div>
-                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="Macro targets based on your goal" data-es="Objetivos de macros según tu meta">Macro targets based on your goal</li>
-                <li data-en="Flexible food framework — no strict meal plan" data-es="Marco alimentario flexible — sin dieta estricta">Flexible food framework — no strict meal plan</li>
-                <li data-en="Built around your food preferences" data-es="Diseñado según tus preferencias alimentarias">Built around your food preferences</li>
-                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
-                <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Order Nutrition Plan" data-es="Pedir Plan Nutricional">Order Nutrition Plan</a>
-            </div>
-
-            <div class="pricing-card reveal" data-i="2">
-              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-              <h3 data-en="Training + Nutrition Bundle" data-es="Pack Entrenamiento + Nutrición">Training + Nutrition Bundle</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,100" data-usd="90" data-eur="85">2,100</span></div>
-                <div class="price-per" data-en="both plans · save 10%" data-es="ambos planes · ahorra 10%">both plans · save 10%</div>
-                <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
-                <li data-en="Personalized nutrition plan" data-es="Plan nutricional personalizado">Personalized nutrition plan</li>
-                <li data-en="Macro targets + food framework" data-es="Objetivos de macros + marco alimentario">Macro targets + food framework</li>
-                <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
-                <li data-en="Two rounds of revisions included" data-es="Dos rondas de revisiones incluidas">Two rounds of revisions included</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Order Bundle" data-es="Pedir Pack">Order Bundle</a>
-            </div>
-
-          </div>
+        <div class="consult-body">
+          <p data-en="We'll talk about your goals, your starting point, and what kind of support would work best for you. I'll tell you what I'd recommend, answer your questions, and explain what working together could look like." data-es="Hablaremos de tus objetivos, tu punto de partida y qué tipo de apoyo te vendría mejor. Te diré qué recomendaría, responderé tus preguntas y explicaré cómo podría ser trabajar juntos.">We'll talk about your goals, your starting point, and what kind of support would work best for you. I'll tell you what I'd recommend, answer your questions, and explain what working together could look like.</p>
+          <p class="consult-reassurance" data-en="No pressure, no hard sell — just a clear next step if it feels like a good fit." data-es="Sin presión, sin ventas agresivas — solo un próximo paso claro si parece una buena opción.">No pressure, no hard sell — just a clear next step if it feels like a good fit.</p>
+          <a href="#booking" class="btn-primary" data-en="Book Free Consultation" data-es="Reservar Consulta Gratuita">Book Free Consultation</a>
         </div>
-
-        <!-- GROUP TRAINING PANEL -->
-        <div class="pricing-panel pricing-panel-group">
-          <div class="pricing-grid-group">
-
-            <div class="pricing-card reveal" data-i="0">
-              <span class="service-tag" aria-hidden="true" style="visibility:hidden">placeholder</span>
-              <h3 data-en="Duo Session" data-es="Sesión en Dúo">Duo Session</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,300" data-usd="60" data-eur="55">1,300</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
-                <div class="price-per" data-czk="650 CZK per person" data-usd="$28 per person" data-eur="€26 per person" data-czk-en="650 CZK per person" data-usd-en="$28 per person" data-eur-en="€26 per person" data-czk-es="650 CZK por persona" data-usd-es="$28 por persona" data-eur-es="€26 por persona">650 CZK per person</div>
-                <div class="price-validity" data-en="Save 100 CZK each vs. training solo" data-es="Ahorra 100 CZK cada uno vs. entrenar solo">Save 100 CZK each vs. training solo</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="2 people, 1 trainer, 60 minutes" data-es="2 personas, 1 entrenadora, 60 minutos">2 people, 1 trainer, 60 minutes</li>
-                <li data-en="Partner accountability built in" data-es="Responsabilidad mutua incluida">Partner accountability built in</li>
-                <li data-en="Same program focus for both" data-es="Mismo enfoque de programa para ambos">Same program focus for both</li>
-                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
-                <li data-en="Session notes after every workout" data-es="Notas de sesión tras cada entrenamiento">Session notes after every workout</li>
-                <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Duo Session" data-es="Reservar Sesión en Dúo">Book Duo Session</a>
-            </div>
-
-            <div class="pricing-card featured reveal" data-i="1">
-              <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-              <h3 data-en="Small Group" data-es="Grupo Pequeño">Small Group</h3>
-              <div class="price-block">
-                <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,800" data-usd="80" data-eur="75">1,800</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
-                <div class="price-per" data-czk="600 CZK for 3 &amp;nbsp;/&amp;nbsp; 450 CZK for 4" data-usd="$26 for 3 / $20 for 4" data-eur="€24 for 3 / €18 for 4" data-czk-en="600 CZK for 3 &amp;nbsp;/&amp;nbsp; 450 CZK for 4" data-usd-en="$26 for 3 / $20 for 4" data-eur-en="€24 for 3 / €18 for 4" data-czk-es="600 CZK para 3 &amp;nbsp;/&amp;nbsp; 450 CZK para 4" data-usd-es="$26 para 3 / $20 para 4" data-eur-es="€24 para 3 / €18 para 4">600 CZK for 3 &nbsp;/&nbsp; 450 CZK for 4</div>
-                <div class="price-validity" data-en="Save up to 300 CZK each vs. solo" data-es="Ahorra hasta 300 CZK cada uno vs. solo">Save up to 300 CZK each vs. solo</div>
-              </div>
-              <ul class="service-list">
-                <li data-en="Groups of 3 or 4 people" data-es="Grupos de 3 o 4 personas">Groups of 3 or 4 people</li>
-                <li data-en="Circuit or team-based programming" data-es="Programación en circuito o trabajo en equipo">Circuit or team-based programming</li>
-                <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
-                <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
-                <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
-                <li data-en="Minimum 3 people required" data-es="Mínimo 3 personas requeridas">Minimum 3 people required</li>
-              </ul>
-              <a href="#booking" class="btn-primary service-btn" data-en="Book Group Session" data-es="Reservar Sesión en Grupo">Book Group Session</a>
-            </div>
-
-          </div>
-        </div>
-
-      </div><!-- /pricing-tabs-wrap -->
-
-      <p class="pricing-note reveal" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-en="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd-en="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur-en="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-es="Precios en CZK · ~750 CZK ≈ €30 / ~$33 · Sesiones en [GYM_NAME], Praga" data-usd-es="Precios en USD · conversión aproximada · Sesiones en [GYM_NAME], Praga" data-eur-es="Precios en EUR · conversión aproximada · Sesiones en [GYM_NAME], Praga">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague</p>
-
+      </div>
     </div>
   </section>
 
@@ -2595,11 +1915,21 @@
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span data-en="Do you have experience with clients?" data-es="¿Tienes experiencia con clientes?">Do you have experience with clients?</span>
+            <span data-en="Do you work with beginners?" data-es="¿Trabajas con principiantes?">Do you work with beginners?</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </summary>
-          <p class="faq-answer" data-en="I'm launching my coaching practice and taking on founding clients. My 10+ years of personal training, two injury rehabilitations, and cell biology background mean every programme I write is grounded in real experience — just not commercially listed yet." data-es="Estoy lanzando mi práctica de coaching y aceptando clientes fundadores. Mis más de 10 años de entrenamiento personal, dos rehabilitaciones de lesiones y formación en biología celular significan que cada programa que escribo está basado en experiencia real — solo que no listada comercialmente todavía.">
-            I'm launching my coaching practice and taking on founding clients. My 10+ years of personal training, two injury rehabilitations, and cell biology background mean every programme I write is grounded in real experience — just not commercially listed yet.
+          <p class="faq-answer" data-en="Yes. Many people start because they want more structure, confidence, and guidance. We begin at your level and build from there." data-es="Sí. Muchas personas empiezan porque quieren más estructura, confianza y orientación. Empezamos desde tu nivel y construimos desde ahí.">
+            Yes. Many people start because they want more structure, confidence, and guidance. We begin at your level and build from there.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-en="I'm based outside Prague — can we still work together?" data-es="Estoy fuera de Praga — ¿podemos trabajar juntos igualmente?">I'm based outside Prague — can we still work together?</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer" data-en="Yes. Online coaching is available worldwide and includes personalised programming, check-ins, and ongoing support." data-es="Sí. El coaching online está disponible en todo el mundo e incluye programación personalizada, check-ins y apoyo continuo.">
+            Yes. Online coaching is available worldwide and includes personalised programming, check-ins, and ongoing support.
           </p>
         </details>
 
@@ -2608,91 +1938,30 @@
             <span data-en="What does the free consultation involve?" data-es="¿Qué implica la consulta gratuita?">What does the free consultation involve?</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </summary>
-          <p class="faq-answer" data-en="30 minutes on video or in person. We talk about your goals, I assess what's realistic, and I explain exactly what working together would look like. No sales pitch at the end — just a plan." data-es="30 minutos por video o en persona. Hablamos de tus objetivos, evalúo qué es realista y explico exactamente cómo sería trabajar juntos. Sin discurso de ventas al final — solo un plan.">
-            30 minutes on video or in person. We talk about your goals, I assess what's realistic, and I explain exactly what working together would look like. No sales pitch at the end — just a plan.
+          <p class="faq-answer" data-en="It's a 30-minute conversation online or in person. We talk through your goals, what feels realistic, and what I'd recommend based on your situation." data-es="Es una conversación de 30 minutos online o en persona. Hablamos de tus objetivos, qué parece realista y qué recomendaría según tu situación.">
+            It's a 30-minute conversation online or in person. We talk through your goals, what feels realistic, and what I'd recommend based on your situation.
           </p>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span data-en="I'm based outside Prague — can we work together?" data-es="Estoy fuera de Praga — ¿podemos trabajar juntos?">I'm based outside Prague — can we work together?</span>
+            <span data-en="Do you offer nutrition support?" data-es="¿Ofreces apoyo nutricional?">Do you offer nutrition support?</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </summary>
-          <p class="faq-answer" data-en="Yes. Online coaching includes full programming, video check-ins, and WhatsApp support. I work with clients across time zones." data-es="Sí. El coaching online incluye programación completa, check-ins por video y soporte por WhatsApp. Trabajo con clientes en diferentes zonas horarias.">
-            Yes. Online coaching includes full programming, video check-ins, and WhatsApp support. I work with clients across time zones.
+          <p class="faq-answer" data-en="Yes, nutrition support can be added depending on your goals. We can discuss that during the consultation." data-es="Sí, se puede añadir apoyo nutricional según tus objetivos. Podemos hablarlo durante la consulta.">
+            Yes, nutrition support can be added depending on your goals. We can discuss that during the consultation.
           </p>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span data-en="What if I have an injury or have never trained before?" data-es="¿Qué pasa si tengo una lesión o nunca he entrenado?">What if I have an injury or have never trained before?</span>
+            <span data-en="Do you have experience with clients?" data-es="¿Tienes experiencia con clientes?">Do you have experience with clients?</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </summary>
-          <p class="faq-answer" data-en="That's exactly who I work best with. I started from injury myself. We begin with movement quality, not weight on the bar." data-es="Eso es exactamente con quien mejor trabajo. Yo misma empecé desde una lesión. Comenzamos con la calidad del movimiento, no con el peso en la barra.">
-            That's exactly who I work best with. I started from injury myself. We begin with movement quality, not weight on the bar.
+          <p class="faq-answer" data-en="I'm currently building my coaching practice and taking on founding clients. My coaching style is based on years of training experience, a strong focus on quality movement, and a practical approach to helping people build strength in a sustainable way." data-es="Actualmente estoy desarrollando mi práctica de coaching y aceptando clientes fundadores. Mi estilo de coaching se basa en años de experiencia en entrenamiento, un fuerte enfoque en la calidad del movimiento y un enfoque práctico para ayudar a las personas a ganar fuerza de forma sostenible.">
+            I'm currently building my coaching practice and taking on founding clients. My coaching style is based on years of training experience, a strong focus on quality movement, and a practical approach to helping people build strength in a sustainable way.
           </p>
         </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span data-en="How does the founding price work?" data-es="¿Cómo funciona el precio fundador?">How does the founding price work?</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <p class="faq-answer" data-en="Founding-cohort clients lock in the current rate for the full duration of their programme. Once spots are filled, the rate goes up. I'm being transparent about this because I want the right first clients, not the most clients." data-es="Los clientes de la cohorte fundadora fijan la tarifa actual durante todo el programa. Una vez que se llenen los cupos, la tarifa sube. Soy transparente al respecto porque quiero a los primeros clientes correctos, no a los más clientes.">
-            Founding-cohort clients lock in the current rate for the full duration of their programme. Once spots are filled, the rate goes up. I'm being transparent about this because I want the right first clients, not the most clients.
-          </p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span data-en="Do you offer nutrition coaching separately?" data-es="¿Ofrecen coaching nutricional por separado?">Do you offer nutrition coaching separately?</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <p class="faq-answer" data-en="Yes — see the Nutrition tab in Services. This is separate from personal training and can be combined or standalone." data-es="Sí — ver la pestaña Nutrición en Servicios. Esto es independiente del entrenamiento personal y puede combinarse o ser independiente.">
-            Yes — see the Nutrition tab in Services. This is separate from personal training and can be combined or standalone.
-          </p>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       ABOUT ME
-  ============================================================ -->
-  <section class="about" id="about">
-    <div class="section-inner">
-      <div class="about-inner">
-
-        <div class="about-text">
-          <span class="eyebrow reveal" data-en="About Me" data-es="Sobre Mí">About Me</span>
-          <h2 class="reveal" data-en="Built on<br>hard work." data-es="Construido con<br>esfuerzo.">Built on<br>hard work.</h2>
-          <div class="about-divider reveal" aria-hidden="true">
-            <span>&#9679;</span>
-          </div>
-          <p class="reveal" data-i="0" data-en="I've been training for over ten years, shaped by both performance-focused lifting and a deeper interest in how the body adapts, recovers, and changes over time." data-es="Llevo más de diez años entrenando, moldeada tanto por el levantamiento orientado al rendimiento como por un interés más profundo en cómo el cuerpo se adapta, recupera y cambia con el tiempo.">I've been training for over ten years, shaped by both performance-focused lifting and a deeper interest in how the body adapts, recovers, and changes over time.</p>
-          <p class="reveal" data-i="1" data-en="That perspective became more personal after a knee injury and two surgeries, which shifted how I approach strength work — toward longevity, precision, and intelligent progression rather than intensity for its own sake." data-es="Esta perspectiva se volvió más personal tras una lesión de rodilla y dos cirugías, lo que cambió mi enfoque del trabajo de fuerza — hacia la longevidad, la precisión y la progresión inteligente en lugar de la intensidad por sí misma.">That perspective became more personal after a knee injury and two surgeries, which shifted how I approach strength work — toward longevity, precision, and intelligent progression rather than intensity for its own sake.</p>
-          <p class="reveal" data-i="2" data-en="Alongside this, my background in cell biology informs how I think about training at a systems level: adaptation, recovery, and consistency are always doing more work than extremes ever will." data-es="Además, mi formación en biología celular informa cómo pienso en el entrenamiento a nivel sistémico: la adaptación, la recuperación y la constancia siempre hacen más trabajo que los extremos.">Alongside this, my background in cell biology informs how I think about training at a systems level: adaptation, recovery, and consistency are always doing more work than extremes ever will.</p>
-          <p class="reveal" data-i="3" data-en="I am ISSA certified (2026), and I bring that foundation into a coaching approach that is structured, evidence-based, and highly individual." data-es="Estoy certificada por la ISSA (2026), y aporto esa base a un enfoque de coaching estructurado, basado en evidencia y altamente individual.">I am ISSA certified (2026), and I bring that foundation into a coaching approach that is structured, evidence-based, and highly individual.</p>
-          <p class="reveal" data-i="4" data-en="My work is built around clarity and precision. Every program is tailored — to your body, your schedule, and your capacity — with an emphasis on sustainable progress and clean execution over time." data-es="Mi trabajo se basa en la claridad y la precisión. Cada programa está adaptado — a tu cuerpo, tu horario y tu capacidad — con énfasis en el progreso sostenible y la ejecución limpia a lo largo del tiempo.">My work is built around clarity and precision. Every program is tailored — to your body, your schedule, and your capacity — with an emphasis on sustainable progress and clean execution over time.</p>
-          <p class="reveal" data-i="5" data-en="No templates. No noise. Just focused coaching designed to move you forward, consistently." data-es="Sin plantillas. Sin ruido. Solo coaching enfocado diseñado para hacerte avanzar, de forma consistente.">No templates. No noise. Just focused coaching designed to move you forward, consistently.</p>
-          <p class="reveal" data-i="6"
-             data-en="Right now I'm taking on founding clients — which means my lowest-ever prices, my full undivided attention, and you become part of a documented journey from day one."
-             data-es="Ahora mismo acepto clientes fundadores — lo que significa mis precios más bajos, toda mi atención y formar parte de un viaje documentado desde el primer día.">
-            Right now I'm taking on founding clients — which means my lowest-ever prices, my full undivided attention, and you become part of a documented journey from day one.
-          </p>
-        </div>
-
-        <div class="about-portrait-wrap reveal" data-i="2">
-          <img
-            src="images/web/IMG_5632.jpg"
-            alt="Personal trainer portrait"
-            loading="lazy"
-            width="600"
-            height="800"
-          >
-        </div>
 
       </div>
     </div>
@@ -2823,11 +2092,11 @@
   ============================================================ -->
   <section class="final-cta" id="contact">
     <div class="section-inner">
-      <h2 class="reveal" data-en="Ready to train hard<br>and feel good?" data-es="¿Listo/a para entrenar fuerte<br>y sentirte bien?">Ready to train hard<br>and feel good?</h2>
-      <p class="reveal" data-i="1" data-en="Stop waiting for the right time. The right time is now." data-es="Deja de esperar el momento perfecto. El momento perfecto es ahora.">Stop waiting for the right time. The right time is now.</p>
+      <h2 class="reveal" data-en="Ready to get started?" data-es="¿Listo/a para empezar?">Ready to get started?</h2>
+      <p class="reveal" data-i="1" data-en="Book a free consultation and let's talk about your goals, your schedule, and the best way to move forward." data-es="Reserva una consulta gratuita y hablemos de tus objetivos, tu horario y la mejor manera de avanzar.">Book a free consultation and let's talk about your goals, your schedule, and the best way to move forward.</p>
       <div class="final-cta-actions reveal" data-i="2">
-        <a href="#booking" class="btn-primary" data-en="Book Your Free Consultation" data-es="Reserva Tu Consulta Gratuita">Book Your Free Consultation</a>
-        <a href="mailto:liftwithstacey@gmail.com" class="final-cta-email">liftwithstacey@gmail.com</a>
+        <a href="#booking" class="btn-primary" data-en="Book Free Consultation" data-es="Reservar Consulta Gratuita">Book Free Consultation</a>
+        <span class="final-cta-secondary" data-en="Prague in-person coaching and online support available" data-es="Coaching presencial en Praga y apoyo online disponible">Prague in-person coaching and online support available</span>
       </div>
     </div>
   </section>
@@ -3012,46 +2281,6 @@
 
 
       /* ----------------------------------------------------------
-         PRINCIPLES 3D SCROLL CAROUSEL
-      ---------------------------------------------------------- */
-      var principlesRoot = document.querySelector('.principles-scroll-root');
-      var pCards = document.querySelectorAll('.principle-card');
-      var pDots  = document.querySelectorAll('.principles-dot');
-      var pActive = -1;
-
-      function setPrinciple(idx) {
-        if (idx === pActive) return;
-        pActive = idx;
-        pCards.forEach(function(card, i) {
-          var diff = i - idx;
-          var state = diff === 0  ? 'active'
-                    : diff === -1 ? 'prev'
-                    : diff ===  1 ? 'next'
-                    : diff === -2 ? 'far-prev'
-                    : diff ===  2 ? 'far-next'
-                    : 'hidden';
-          card.setAttribute('data-state', state);
-        });
-        pDots.forEach(function(dot, i) {
-          dot.classList.toggle('active', i === idx);
-        });
-      }
-
-      if (principlesRoot && pCards.length && window.innerWidth > 768) {
-        setPrinciple(0);
-        window.addEventListener('scroll', function() {
-          var rect     = principlesRoot.getBoundingClientRect();
-          var scrolled = -rect.top;
-          var total    = principlesRoot.offsetHeight - window.innerHeight;
-          var progress = Math.max(0, Math.min(1, scrolled / total));
-          var idx = Math.min(pCards.length - 1, Math.round(progress * (pCards.length - 1)));
-          setPrinciple(idx);
-        }, { passive: true });
-      } else {
-        pCards.forEach(function(c) { c.removeAttribute('data-state'); });
-      }
-
-      /* ----------------------------------------------------------
          COUNTER ANIMATION — stats bar
       ---------------------------------------------------------- */
       function countUp(el, target, duration) {
@@ -3115,10 +2344,6 @@
         });
       }
 
-      currencyBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() { setCurrency(btn.dataset.currency); });
-      });
-
       /* ----------------------------------------------------------
          LANGUAGE TOGGLE
       ---------------------------------------------------------- */
@@ -3141,19 +2366,6 @@
           el.innerHTML = el.dataset[lang];
         });
 
-        // Swap bilingual currency attribute values for .price-per and .pricing-note
-        var suffix = lang === 'es' ? 'Es' : 'En';
-        document.querySelectorAll('.price-per[data-czk], .pricing-note[data-czk]').forEach(function(el) {
-          var d = el.dataset;
-          if (d['czk' + suffix]) { d.czk = d['czk' + suffix]; }
-          if (d['usd' + suffix]) { d.usd = d['usd' + suffix]; }
-          if (d['eur' + suffix]) { d.eur = d['eur' + suffix]; }
-        });
-
-        // Re-fire setCurrency to refresh visible price-per text in new language
-        var activeBtn = document.querySelector('.currency-btn.active');
-        if (activeBtn) { setCurrency(activeBtn.dataset.currency); }
-
         // Update form placeholders
         document.querySelectorAll('[data-placeholder-en][data-placeholder-es]').forEach(function(el) {
           el.placeholder = el.dataset[lang === 'es' ? 'placeholderEs' : 'placeholderEn'];
@@ -3163,26 +2375,11 @@
         var hb = document.querySelector('.hamburger');
         if (hb) { hb.setAttribute('aria-label', lang === 'es' ? 'Abrir menú' : 'Open menu'); }
 
-        // Sync mobile tab select option text to current language
-        document.querySelectorAll('.pricing-tab-select option').forEach(function(opt) {
-          if (opt.dataset[lang]) opt.textContent = opt.dataset[lang];
-        });
       }
 
       langBtns.forEach(function(btn) {
         btn.addEventListener('click', function() { setLanguage(btn.dataset.lang); });
       });
-
-      /* ----------------------------------------------------------
-         PRICING TAB SELECT — mobile dropdown syncs to radio inputs
-      ---------------------------------------------------------- */
-      var tabSelect = document.querySelector('.pricing-tab-select');
-      if (tabSelect) {
-        tabSelect.addEventListener('change', function() {
-          var radio = document.getElementById(this.value);
-          if (radio) radio.checked = true;
-        });
-      }
 
       /* ----------------------------------------------------------
          CONTACT FORM
