@@ -1046,22 +1046,33 @@
       align-self: flex-end;
       padding-bottom: 0.3rem;
     }
-    .pc-see-all {
+    .pc-actions {
       margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .pc-book {
+      width: 100%;
+      text-align: center;
+      font-size: 0.875rem;
+      padding: 0.7rem 1rem;
+    }
+    .pc-see-all {
       font-family: var(--font-body);
-      font-size: 0.9rem;
+      font-size: 0.8125rem;
       font-weight: 500;
       color: var(--color-champagne);
-      opacity: 0.75;
+      opacity: 0.55;
       background: none;
       border: none;
       cursor: pointer;
       padding: 0;
       letter-spacing: 0.02em;
       transition: opacity 0.2s, transform 0.2s;
-      text-align: left;
+      text-align: center;
     }
-    .pc-see-all:hover { opacity: 1; transform: translateX(3px); }
+    .pc-see-all:hover { opacity: 0.9; transform: translateX(3px); }
 
     /* Carousel nav */
     .pc-nav {
@@ -1312,7 +1323,102 @@
       font-size: 0.75rem;
       color: rgba(242,240,236,0.25);
       letter-spacing: 0.06em;
-      margin-top: 2.5rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ============================================================
+       MODAL PRICING ROWS
+    ============================================================ */
+    .pm-pricing {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .pm-tier {
+      display: grid;
+      grid-template-columns: 190px 170px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s;
+    }
+    .pm-tier:last-child { border-bottom: none; }
+    .pm-tier:hover { background: rgba(255,255,255,0.018); }
+    .pm-tier.featured {
+      background: rgba(90,15,34,0.1);
+      border-left: 3px solid rgba(122,28,51,0.55);
+    }
+    .pmt-info { display: flex; flex-direction: column; gap: 0.35rem; }
+    .pmt-info .service-tag { margin-bottom: 0.15rem; }
+    .pmt-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin: 0;
+    }
+    .pmt-info .price-validity {
+      font-size: 0.7rem;
+      color: rgba(231,215,200,0.3);
+      letter-spacing: 0.03em;
+      margin-top: 0;
+    }
+    .pmt-price { display: flex; flex-direction: column; gap: 0.2rem; }
+    .pmt-price .price-amount {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .pmt-price .price-per {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 0.15rem;
+    }
+    .pmt-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .pmt-features li {
+      font-size: 0.8rem;
+      color: rgba(242,240,236,0.5);
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      line-height: 1.45;
+    }
+    .pmt-features li::before {
+      content: '—';
+      color: rgba(122,28,51,0.6);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+    .pmt-cta {
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-size: 0.8125rem;
+      padding: 0.65rem 1.25rem;
+    }
+    @media (max-width: 700px) {
+      .pm-tier {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        padding: 1.25rem;
+      }
+      .pm-tier.featured {
+        border-left: none;
+        border-top: 3px solid rgba(122,28,51,0.55);
+      }
+      .pmt-cta { width: 100%; text-align: center; }
     }
 
     .currency-toggle {
@@ -2421,7 +2527,10 @@
             <span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="750" data-usd="35" data-eur="30">750</span>
             <span class="price-per" data-czk="/ session" data-usd="/ session" data-eur="/ session">/ session</span>
           </div>
-          <button class="pc-see-all" data-tab="0" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          <div class="pc-actions">
+            <a href="#booking" class="btn-primary pc-book" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            <button class="pc-see-all" data-tab="0" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          </div>
         </div>
 
         <!-- Slide 1: Online Coaching -->
@@ -2432,7 +2541,10 @@
             <span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="650" data-usd="30" data-eur="26">650</span>
             <span class="price-per" data-czk="/ session" data-usd="/ session" data-eur="/ session">/ session</span>
           </div>
-          <button class="pc-see-all" data-tab="1" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          <div class="pc-actions">
+            <a href="#booking" class="btn-primary pc-book" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            <button class="pc-see-all" data-tab="1" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          </div>
         </div>
 
         <!-- Slide 2: Group Training -->
@@ -2443,7 +2555,10 @@
             <span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,300" data-usd="60" data-eur="55">1,300</span>
             <span class="price-per" data-czk="/ 2 people" data-usd="/ 2 people" data-eur="/ 2 people">/ 2 people</span>
           </div>
-          <button class="pc-see-all" data-tab="2" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          <div class="pc-actions">
+            <a href="#booking" class="btn-primary pc-book" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            <button class="pc-see-all" data-tab="2" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          </div>
         </div>
 
         <!-- Slide 3: Nutrition Plans -->
@@ -2454,7 +2569,10 @@
             <span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="800" data-usd="40" data-eur="35">800</span>
             <span class="price-per" data-czk="one-time" data-usd="one-time" data-eur="one-time">one-time</span>
           </div>
-          <button class="pc-see-all" data-tab="3" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          <div class="pc-actions">
+            <a href="#booking" class="btn-primary pc-book" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+            <button class="pc-see-all" data-tab="3" data-en="See full pricing →" data-es="Ver precios completos →">See full pricing →</button>
+          </div>
         </div>
 
       </div><!-- /.pricing-carousel -->
@@ -2777,248 +2895,271 @@
 
   <template id="pricing-tpl-0">
     <!-- In-Person · Prague -->
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="Single Session" data-es="Sesión Individual">Single Session</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="750" data-usd="35" data-eur="30">750</span></div>
-          <div class="price-per" data-en="per 60-minute session" data-es="por sesión de 60 minutos">per 60-minute session</div>
-          <div class="price-validity" data-en="No commitment, pay as you go" data-es="Sin compromiso, paga por sesión">No commitment, pay as you go</div>
+    <div class="pm-pricing">
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="Single Session" data-es="Sesión Individual">Single Session</h3>
+          <div class="price-validity" data-en="No commitment · pay as you go" data-es="Sin compromiso · paga por sesión">No commitment · pay as you go</div>
         </div>
-        <ul class="service-list">
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="750" data-usd="35" data-eur="30">750</span></div>
+          <div class="price-per" data-en="per 60-min session" data-es="por sesión de 60 min">per 60-min session</div>
+        </div>
+        <ul class="pmt-features">
           <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
           <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
           <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
           <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="3,400" data-usd="165" data-eur="140">3,400</span></div>
-          <div class="price-per" data-czk="680 CZK per session · save 10%" data-usd="$33 per session" data-eur="€28 per session" data-czk-en="680 CZK per session · save 10%" data-usd-en="$33 per session" data-eur-en="€28 per session" data-czk-es="680 CZK por sesión · ahorra 10%" data-usd-es="$33 por sesión" data-eur-es="€28 por sesión">680 CZK per session · save 10%</div>
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
           <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="5 x 60-minute sessions" data-es="5 x sesiones de 60 minutos">5 x 60-minute sessions</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="3,400" data-usd="165" data-eur="140">3,400</span></div>
+          <div class="price-per" data-czk="680 CZK / session · save 10%" data-usd="$33 / session · save 10%" data-eur="€28 / session · save 10%">680 CZK / session · save 10%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="5 × 60-minute sessions" data-es="5 × sesiones de 60 minutos">5 × 60-minute sessions</li>
           <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
           <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
           <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card featured">
-        <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
-        <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="6,500" data-usd="320" data-eur="260">6,500</span></div>
-          <div class="price-per" data-czk="650 CZK per session · save 13%" data-usd="$32 per session" data-eur="€26 per session" data-czk-en="650 CZK per session · save 13%" data-usd-en="$32 per session" data-eur-en="€26 per session" data-czk-es="650 CZK por sesión · ahorra 13%" data-usd-es="$32 por sesión" data-eur-es="€26 por sesión">650 CZK per session · save 13%</div>
+      <div class="pm-tier featured">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+          <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
           <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="10 x 60-minute sessions" data-es="10 x sesiones de 60 minutos">10 x 60-minute sessions</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="6,500" data-usd="320" data-eur="260">6,500</span></div>
+          <div class="price-per" data-czk="650 CZK / session · save 13%" data-usd="$32 / session · save 13%" data-eur="€26 / session · save 13%">650 CZK / session · save 13%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="10 × 60-minute sessions" data-es="10 × sesiones de 60 minutos">10 × 60-minute sessions</li>
           <li data-en="Full movement screening" data-es="Evaluación completa de movimiento">Full movement screening</li>
           <li data-en="Custom monthly program updates" data-es="Actualizaciones mensuales del programa">Custom monthly program updates</li>
           <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
           <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card">
-        <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-        <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="11,000" data-usd="540" data-eur="440">11,000</span></div>
-          <div class="price-per" data-czk="550 CZK per session · save 27%" data-usd="$27 per session" data-eur="€22 per session" data-czk-en="550 CZK per session · save 27%" data-usd-en="$27 per session" data-eur-en="€22 per session" data-czk-es="550 CZK por sesión · ahorra 27%" data-usd-es="$27 por sesión" data-eur-es="€22 por sesión">550 CZK per session · save 27%</div>
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+          <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
           <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="20 x 60-minute sessions" data-es="20 x sesiones de 60 minutos">20 x 60-minute sessions</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="11,000" data-usd="540" data-eur="440">11,000</span></div>
+          <div class="price-per" data-czk="550 CZK / session · save 27%" data-usd="$27 / session · save 27%" data-eur="€22 / session · save 27%">550 CZK / session · save 27%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="20 × 60-minute sessions" data-es="20 × sesiones de 60 minutos">20 × 60-minute sessions</li>
           <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
-          <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
+          <li data-en="Custom program updated monthly" data-es="Programa actualizado mensualmente">Custom program updated monthly</li>
           <li data-en="Recovery &amp; accountability coaching" data-es="Coaching de recuperación y seguimiento">Recovery &amp; accountability coaching</li>
           <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
           <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
     </div>
-    <p class="pricing-note" style="margin-top:1.5rem; text-align:center;" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-en="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd-en="Prices shown in USD · approximate conversion · Sessions at [GYM_NAME], Prague" data-eur-en="Prices shown in EUR · approximate conversion · Sessions at [GYM_NAME], Prague" data-czk-es="Precios en CZK · ~750 CZK ≈ €30 / ~$33 · Sesiones en [GYM_NAME], Praga" data-usd-es="Precios en USD · conversión aproximada · Sesiones en [GYM_NAME], Praga" data-eur-es="Precios en EUR · conversión aproximada · Sesiones en [GYM_NAME], Praga">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague</p>
+    <p class="pricing-note" data-czk="Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague" data-usd="Prices in USD · approx. conversion · Sessions at [GYM_NAME], Prague" data-eur="Prices in EUR · approx. conversion · Sessions at [GYM_NAME], Prague">Prices in CZK · ~750 CZK ≈ €30 / ~$33 · Sessions at [GYM_NAME], Prague</p>
   </template>
 
   <template id="pricing-tpl-1">
     <!-- Online Coaching -->
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="Single Online Session" data-es="Sesión Online Individual">Single Online Session</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="650" data-usd="30" data-eur="26">650</span></div>
-          <div class="price-per" data-en="per 60-minute video call" data-es="por videollamada de 60 minutos">per 60-minute video call</div>
+    <div class="pm-pricing">
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="Single Online Session" data-es="Sesión Online Individual">Single Online Session</h3>
           <div class="price-validity" data-en="No commitment" data-es="Sin compromiso">No commitment</div>
         </div>
-        <ul class="service-list">
-          <li data-en="60-min live session via video call" data-es="Sesión en vivo de 60 min por videollamada">60-min live session via video call</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="650" data-usd="30" data-eur="26">650</span></div>
+          <div class="price-per" data-en="per 60-min video call" data-es="por videollamada de 60 min">per 60-min video call</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="60-min live session via video call" data-es="Sesión en vivo de 60 min">60-min live session via video call</li>
           <li data-en="Movement or technique focus" data-es="Enfoque en movimiento o técnica">Movement or technique focus</li>
-          <li data-en="Session notes &amp; drill recap" data-es="Notas de sesión y resumen de ejercicios">Session notes &amp; drill recap</li>
+          <li data-en="Session notes &amp; drill recap" data-es="Notas de sesión y resumen">Session notes &amp; drill recap</li>
           <li data-en="Works anywhere in the world" data-es="Funciona en cualquier parte del mundo">Works anywhere in the world</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,900" data-usd="130" data-eur="115">2,900</span></div>
-          <div class="price-per" data-en="580 CZK per session · save 11%" data-es="580 CZK por sesión · ahorra 11%">580 CZK per session · save 11%</div>
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="5-Session Pack" data-es="Pack de 5 Sesiones">5-Session Pack</h3>
           <div class="price-validity" data-en="Valid 2 months from purchase" data-es="Válido 2 meses desde la compra">Valid 2 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="5 x 60-min live video sessions" data-es="5 x sesiones en vivo de 60 min">5 x 60-min live video sessions</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,900" data-usd="130" data-eur="115">2,900</span></div>
+          <div class="price-per" data-czk="580 CZK / session · save 11%" data-usd="$26 / session · save 11%" data-eur="€23 / session · save 11%">580 CZK / session · save 11%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="5 × 60-min live video sessions" data-es="5 × sesiones en vivo de 60 min">5 × 60-min live video sessions</li>
           <li data-en="Custom program built at intake" data-es="Programa personalizado desde el inicio">Custom program built at intake</li>
           <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
           <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
           <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card featured">
-        <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
-        <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="5,500" data-usd="245" data-eur="220">5,500</span></div>
-          <div class="price-per" data-en="550 CZK per session · save 15%" data-es="550 CZK por sesión · ahorra 15%">550 CZK per session · save 15%</div>
+      <div class="pm-tier featured">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+          <h3 data-en="10-Session Pack" data-es="Pack de 10 Sesiones">10-Session Pack</h3>
           <div class="price-validity" data-en="Valid 4 months from purchase" data-es="Válido 4 meses desde la compra">Valid 4 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="10 x 60-min live video sessions" data-es="10 x sesiones en vivo de 60 min">10 x 60-min live video sessions</li>
-          <li data-en="Custom program + monthly updates" data-es="Programa personalizado + actualizaciones mensuales">Custom program + monthly updates</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="5,500" data-usd="245" data-eur="220">5,500</span></div>
+          <div class="price-per" data-czk="550 CZK / session · save 15%" data-usd="$24.50 / session · save 15%" data-eur="€22 / session · save 15%">550 CZK / session · save 15%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="10 × 60-min live video sessions" data-es="10 × sesiones en vivo de 60 min">10 × 60-min live video sessions</li>
+          <li data-en="Custom program + monthly updates" data-es="Programa + actualizaciones mensuales">Custom program + monthly updates</li>
           <li data-en="Session notes every workout" data-es="Notas de sesión en cada entrenamiento">Session notes every workout</li>
           <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
           <li data-en="Weekly messaging support" data-es="Soporte semanal por mensajería">Weekly messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card">
-        <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-        <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="9,600" data-usd="420" data-eur="380">9,600</span></div>
-          <div class="price-per" data-en="480 CZK per session · save 26%" data-es="480 CZK por sesión · ahorra 26%">480 CZK per session · save 26%</div>
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+          <h3 data-en="20-Session Pack" data-es="Pack de 20 Sesiones">20-Session Pack</h3>
           <div class="price-validity" data-en="Valid 8 months from purchase" data-es="Válido 8 meses desde la compra">Valid 8 months from purchase</div>
         </div>
-        <ul class="service-list">
-          <li data-en="20 x 60-min live video sessions" data-es="20 x sesiones en vivo de 60 min">20 x 60-min live video sessions</li>
-          <li data-en="Full intake + reassessment at session 10" data-es="Evaluación inicial + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
-          <li data-en="Custom program updated monthly" data-es="Programa personalizado actualizado mensualmente">Custom program updated monthly</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="9,600" data-usd="420" data-eur="380">9,600</span></div>
+          <div class="price-per" data-czk="480 CZK / session · save 26%" data-usd="$21 / session · save 26%" data-eur="€19 / session · save 26%">480 CZK / session · save 26%</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="20 × 60-min live video sessions" data-es="20 × sesiones en vivo de 60 min">20 × 60-min live video sessions</li>
+          <li data-en="Full intake + reassessment at session 10" data-es="Evaluación + reevaluación en sesión 10">Full intake + reassessment at session 10</li>
+          <li data-en="Custom program updated monthly" data-es="Programa actualizado mensualmente">Custom program updated monthly</li>
           <li data-en="Technique video review" data-es="Revisión de videos de técnica">Technique video review</li>
           <li data-en="Priority scheduling" data-es="Programación prioritaria">Priority scheduling</li>
           <li data-en="Unlimited messaging support" data-es="Soporte de mensajería ilimitado">Unlimited messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
     </div>
+    <p class="pricing-note" data-czk="Prices in CZK · approx. conversion · Sessions via video call worldwide" data-usd="Prices in USD · approx. conversion · Sessions via video call worldwide" data-eur="Prices in EUR · approx. conversion · Sessions via video call worldwide">Prices in CZK · approx. conversion · Sessions via video call worldwide</p>
   </template>
 
   <template id="pricing-tpl-2">
     <!-- Group Training -->
-    <div class="pricing-grid" style="max-width:700px; margin:0 auto;">
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="Duo Session" data-es="Sesión en Dúo">Duo Session</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,300" data-usd="60" data-eur="55">1,300</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
-          <div class="price-per" data-czk="650 CZK per person" data-usd="$28 per person" data-eur="€26 per person" data-czk-en="650 CZK per person" data-usd-en="$28 per person" data-eur-en="€26 per person" data-czk-es="650 CZK por persona" data-usd-es="$28 por persona" data-eur-es="€26 por persona">650 CZK per person</div>
-          <div class="price-validity" data-en="Save 100 CZK each vs. training solo" data-es="Ahorra 100 CZK cada uno vs. entrenar solo">Save 100 CZK each vs. training solo</div>
+    <div class="pm-pricing">
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="Duo Session" data-es="Sesión en Dúo">Duo Session</h3>
+          <div class="price-validity" data-en="Save 100 CZK each vs. solo" data-es="Ahorra 100 CZK cada uno vs. solo">Save 100 CZK each vs. solo</div>
         </div>
-        <ul class="service-list">
-          <li data-en="2 people, 1 trainer, 60 minutes" data-es="2 personas, 1 entrenadora, 60 minutos">2 people, 1 trainer, 60 minutes</li>
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,300" data-usd="60" data-eur="55">1,300</span></div>
+          <div class="price-per" data-czk="total · 650 CZK per person" data-usd="total · $28 per person" data-eur="total · €26 per person">total · 650 CZK per person</div>
+        </div>
+        <ul class="pmt-features">
+          <li data-en="2 people · 1 trainer · 60 minutes" data-es="2 personas · 1 entrenadora · 60 minutos">2 people · 1 trainer · 60 minutes</li>
           <li data-en="Partner accountability built in" data-es="Responsabilidad mutua incluida">Partner accountability built in</li>
-          <li data-en="Same program focus for both" data-es="Mismo enfoque de programa para ambos">Same program focus for both</li>
+          <li data-en="Same program focus for both" data-es="Mismo enfoque para ambos">Same program focus for both</li>
           <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
           <li data-en="Session notes after every workout" data-es="Notas de sesión tras cada entrenamiento">Session notes after every workout</li>
           <li data-en="Direct messaging support" data-es="Soporte por mensajería directa">Direct messaging support</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card featured">
-        <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-        <h3 data-en="Small Group" data-es="Grupo Pequeño">Small Group</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,800" data-usd="80" data-eur="75">1,800</span> <span style="font-size:1rem; color:var(--color-muted)" data-en="total" data-es="total">total</span></div>
-          <div class="price-per" data-czk="600 CZK for 3 / 450 CZK for 4" data-usd="$26 for 3 / $20 for 4" data-eur="€24 for 3 / €18 for 4" data-czk-en="600 CZK for 3 / 450 CZK for 4" data-usd-en="$26 for 3 / $20 for 4" data-eur-en="€24 for 3 / €18 for 4" data-czk-es="600 CZK para 3 / 450 CZK para 4" data-usd-es="$26 para 3 / $20 para 4" data-eur-es="€24 para 3 / €18 para 4">600 CZK for 3 / 450 CZK for 4</div>
-          <div class="price-validity" data-en="Save up to 300 CZK each vs. solo" data-es="Ahorra hasta 300 CZK cada uno vs. solo">Save up to 300 CZK each vs. solo</div>
+      <div class="pm-tier featured">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+          <h3 data-en="Small Group" data-es="Grupo Pequeño">Small Group</h3>
+          <div class="price-validity" data-en="Save up to 300 CZK each vs. solo" data-es="Ahorra hasta 300 CZK vs. solo">Save up to 300 CZK each vs. solo</div>
         </div>
-        <ul class="service-list">
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,800" data-usd="80" data-eur="75">1,800</span></div>
+          <div class="price-per" data-czk="total · 600 CZK for 3 / 450 for 4" data-usd="total · $26 for 3 / $20 for 4" data-eur="total · €24 for 3 / €18 for 4">total · 600 CZK for 3 / 450 for 4</div>
+        </div>
+        <ul class="pmt-features">
           <li data-en="Groups of 3 or 4 people" data-es="Grupos de 3 o 4 personas">Groups of 3 or 4 people</li>
-          <li data-en="Circuit or team-based programming" data-es="Programación en circuito o trabajo en equipo">Circuit or team-based programming</li>
+          <li data-en="Circuit or team-based programming" data-es="Programación en circuito o en equipo">Circuit or team-based programming</li>
           <li data-en="60-minute in-person session" data-es="Sesión presencial de 60 minutos">60-minute in-person session</li>
           <li data-en="Movement screening at intake" data-es="Evaluación de movimiento inicial">Movement screening at intake</li>
           <li data-en="Session notes provided" data-es="Notas de sesión incluidas">Session notes provided</li>
           <li data-en="Minimum 3 people required" data-es="Mínimo 3 personas requeridas">Minimum 3 people required</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
     </div>
+    <p class="pricing-note" data-czk="Prices in CZK · per session total · Prague location" data-usd="Prices in USD · approx. conversion · Prague location" data-eur="Prices in EUR · approx. conversion · Prague location">Prices in CZK · per session total · Prague location</p>
   </template>
 
   <template id="pricing-tpl-3">
     <!-- Nutrition Plans -->
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="service-tag" aria-hidden="true" style="visibility:hidden">—</span>
-        <h3 data-en="Training Plan" data-es="Plan de Entrenamiento">Training Plan</h3>
-        <div class="price-block">
+    <div class="pm-pricing">
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <h3 data-en="Training Plan" data-es="Plan de Entrenamiento">Training Plan</h3>
+          <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+        </div>
+        <div class="pmt-price">
           <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="800" data-usd="40" data-eur="35">800</span></div>
-          <div class="price-per" data-en="one-time · fully customized" data-es="único pago · totalmente personalizado">one-time · fully customized</div>
-          <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+          <div class="price-per" data-en="one-time · fully customized" data-es="único pago · personalizado">one-time · fully customized</div>
         </div>
-        <ul class="service-list">
+        <ul class="pmt-features">
           <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
-          <li data-en="Built around your goals &amp; schedule" data-es="Diseñado en torno a tus objetivos y horario">Built around your goals &amp; schedule</li>
+          <li data-en="Built around your goals &amp; schedule" data-es="Diseñado según tus objetivos y horario">Built around your goals &amp; schedule</li>
           <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
           <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card featured">
-        <span class="service-tag" data-en="Add-On" data-es="Complemento">Add-On</span>
-        <h3 data-en="Nutrition Plan" data-es="Plan Nutricional">Nutrition Plan</h3>
-        <div class="price-block">
-          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,500" data-usd="65" data-eur="60">1,500</span></div>
-          <div class="price-per" data-en="one-time · fully personalized" data-es="único pago · totalmente personalizado">one-time · fully personalized</div>
+      <div class="pm-tier featured">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Add-On" data-es="Complemento">Add-On</span>
+          <h3 data-en="Nutrition Plan" data-es="Plan Nutricional">Nutrition Plan</h3>
           <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
         </div>
-        <ul class="service-list">
+        <div class="pmt-price">
+          <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="1,500" data-usd="65" data-eur="60">1,500</span></div>
+          <div class="price-per" data-en="one-time · fully personalized" data-es="único pago · personalizado">one-time · fully personalized</div>
+        </div>
+        <ul class="pmt-features">
           <li data-en="Macro targets based on your goal" data-es="Objetivos de macros según tu meta">Macro targets based on your goal</li>
-          <li data-en="Flexible food framework — no strict meal plan" data-es="Marco alimentario flexible — sin dieta estricta">Flexible food framework — no strict meal plan</li>
-          <li data-en="Built around your food preferences" data-es="Diseñado según tus preferencias alimentarias">Built around your food preferences</li>
+          <li data-en="Flexible food framework — no strict meal plan" data-es="Marco alimentario flexible">Flexible food framework — no strict meal plan</li>
+          <li data-en="Built around your food preferences" data-es="Según tus preferencias alimentarias">Built around your food preferences</li>
           <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
           <li data-en="One round of revisions included" data-es="Una ronda de revisiones incluida">One round of revisions included</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
-      <div class="pricing-card">
-        <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
-        <h3 data-en="Training + Nutrition Bundle" data-es="Pack Entrenamiento + Nutrición">Training + Nutrition Bundle</h3>
-        <div class="price-block">
+      <div class="pm-tier">
+        <div class="pmt-info">
+          <span class="service-tag" data-en="Best Value" data-es="Mejor Valor">Best Value</span>
+          <h3 data-en="Training + Nutrition Bundle" data-es="Pack Entrenamiento + Nutrición">Training + Nutrition Bundle</h3>
+          <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
+        </div>
+        <div class="pmt-price">
           <div class="price-amount"><span class="price-currency" data-czk="CZK" data-usd="$" data-eur="€">CZK</span><span class="price-value" data-czk="2,100" data-usd="90" data-eur="85">2,100</span></div>
           <div class="price-per" data-en="both plans · save 10%" data-es="ambos planes · ahorra 10%">both plans · save 10%</div>
-          <div class="price-validity" data-en="Delivered within 5 days" data-es="Entregado en 5 días">Delivered within 5 days</div>
         </div>
-        <ul class="service-list">
+        <ul class="pmt-features">
           <li data-en="Custom training plan" data-es="Plan de entrenamiento personalizado">Custom training plan</li>
           <li data-en="Personalized nutrition plan" data-es="Plan nutricional personalizado">Personalized nutrition plan</li>
-          <li data-en="Macro targets + food framework" data-es="Objetivos de macros + marco alimentario">Macro targets + food framework</li>
+          <li data-en="Macro targets + food framework" data-es="Macros + marco alimentario">Macro targets + food framework</li>
           <li data-en="PDF + app-compatible format" data-es="Formato PDF + compatible con apps">PDF + app-compatible format</li>
           <li data-en="Two rounds of revisions included" data-es="Dos rondas de revisiones incluidas">Two rounds of revisions included</li>
         </ul>
-        <a href="#booking" class="btn-primary service-btn" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
+        <a href="#booking" class="btn-primary pmt-cta" data-en="Book Consultation" data-es="Reservar Consulta">Book Consultation</a>
       </div>
     </div>
+    <p class="pricing-note" data-czk="All plans delivered digitally within 5 business days of intake call" data-usd="All plans delivered digitally within 5 business days of intake call" data-eur="All plans delivered digitally within 5 business days of intake call">All plans delivered digitally within 5 business days of intake call</p>
   </template>
 
 
