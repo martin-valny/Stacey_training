@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liftwithstacey.com/sitemap.xml
